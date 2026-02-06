@@ -1,0 +1,71 @@
+﻿@model List<SalonAppointmentSystem.Models.ViewModels.StylistServiceVM>
+
+@{
+    ViewBag.Title = "Assign Services";
+    int stylistId = ViewBag.StylistId;
+}
+
+<div class="container mt-3">
+
+    <h2 class="mb-5 text-center color-primary fw-bold display-6">Assign Services</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.Hidden("stylistId", stylistId)
+
+        <div class="row">
+            @foreach (var service in Model)
+            {
+                <div class="col-md-4 col-sm-6 mb-3">
+                    <div class="card service-card shadow-sm h-100">
+                        <div class="card-body py-3">
+
+                            <div class="form-check">
+                                <input class="form-check-input"
+                                       type="checkbox"
+                                       name="selectedServices"
+                                       value="@service.ServiceId"
+                                       id="service_@service.ServiceId"
+                                       @(service.IsAssigned ? "checked" : "") />
+
+                                <label class="form-check-label fw-semibold"
+                                       for="service_@service.ServiceId">
+                                    @service.ServiceName
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="text-end mt-2">
+            <button type="submit" class="btn btn-lg btn-hover background-primary px-4">
+                Save
+            </button>
+        </div>
+    }
+
+</div>
+
+<style>
+    .service-card {
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+        .service-card:hover {
+            border-color: #0d6efd;
+            background-color: #f8f9ff;
+        }
+
+    .form-check-input {
+        cursor: pointer;
+        accent-color: #5A189A; /* Purple tick */
+        -webkit-appearance: auto;
+        appearance: auto;
+    }
+
+
+</style>

@@ -1,0 +1,67 @@
+﻿@model SalonAppointmentSystem.Models.StylistModel
+
+@{
+    ViewBag.Title = (Model.StylistId == 0 ? "Add Service" : "Edit Service");
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            @if (TempData["Error"] != null)
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    @TempData["Error"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            }
+
+            <div class="card shadow-lg border-0">
+                <div class="card-header background-primary text-white text-center pt-3 pb-3">
+                    <h3 class="mb-0">@(Model.StylistId == 0 ? "➕ Add New Stylist" : "✏️ Edit Stylist")</h3>
+                </div>
+                <div class="card-body w-100">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(m => m.StylistId)
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger mb-3" })
+
+                        <div class="mb-3">
+                            @Html.LabelFor(m => m.StylistName, new { @class = "form-label fw-semibold" })
+                            @Html.EditorFor(m => m.StylistName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.StylistName, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(m => m.StartTime, new { @class = "form-label fw-semibold" })
+                            @Html.TextBoxFor(m => m.StartTime, "{0:hh\\:mm}", new { @type = "time", @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.StartTime, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(m => m.EndTime, new { @class = "form-label fw-semibold" })
+                            @Html.TextBoxFor(m => m.EndTime, "{0:hh\\:mm}", new { @type = "time", @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.EndTime, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(m => m.IsActive, new { @class = "form-label fw-semibold" })
+                            @Html.DropDownListFor(m => m.IsActive, new SelectList(new[] {"True","False"}),"Select Availability", new {  @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.IsActive, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="d-flex justify-content-between mt-4">
+                            <a href="@Url.Action("Index","Stylist")" class="btn btn-outline-secondary">
+                                ← Back
+                            </a>
+                            <button type="submit" class="btn background-primary btn-hover  px-4">
+                                @(Model.StylistId == 0 ? "Add Stylist" : "Update Stylist")
+                            </button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+

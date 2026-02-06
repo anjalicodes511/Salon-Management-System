@@ -1,0 +1,9 @@
+﻿bin/
+obj/
+.vs/
+*.user
+*.suo
+*.cache
+*.log
+appsettings.json
+web.config

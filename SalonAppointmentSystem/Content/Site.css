@@ -1,0 +1,13 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background: linear-gradient(135deg, #f5f0ff, #ffe6f0, #fff0f5);
+    min-height:100vh;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+

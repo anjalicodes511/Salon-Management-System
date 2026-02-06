@@ -1,0 +1,82 @@
+﻿@model SalonAppointmentSystem.Models.ViewModels.LoginVM
+
+@{
+    ViewBag.Title = "Login";
+}
+
+@Html.Partial("_Header")
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger text-center mx-auto col-md-5">
+        @TempData["Error"]
+    </div>
+}
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success text-center mx-auto col-md-5">
+        @TempData["Success"]
+    </div>
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-8 col-lg-6">
+            <div class="card shadow-sm p-4">
+
+                <h3 class="text-center fw-bold mb-4 color-primary">
+                    Welcome Back 👋
+                </h3>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger mb-3" })
+
+                    <!-- Email -->
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(m => m.Email, new { @class = "form-label required-label" })
+                        @Html.EditorFor(m => m.Email,
+                            new { htmlAttributes = new { @class = "form-control form-control-lg" } })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group mb-4">
+                        @Html.LabelFor(m => m.Password, new { @class = "form-label required-label" })
+                        @Html.PasswordFor(m => m.Password,
+                            new { @class = "form-control form-control-lg" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+
+                    <input type="submit"
+                           value="Login"
+                           class="btn background-primary btn-lg w-100" />
+                }
+
+                <div class="text-center mt-3">
+                    @Html.ActionLink(
+                        "Don’t have an account? Sign up",
+                        "Signup",
+                        "Account",
+                        null,
+                        new { @class = "text-decoration-none color-primary" })
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<style>
+    .required-label::after {
+        content: " *";
+        color: red;
+        font-weight: bold;
+    }
+</style>

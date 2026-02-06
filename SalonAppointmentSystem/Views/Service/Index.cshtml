@@ -1,0 +1,260 @@
+﻿@model IEnumerable<SalonAppointmentSystem.Models.ViewModels.ServicesVM>
+
+@{
+    ViewBag.Title = "Our Services";
+}
+
+
+@Html.Partial("_Header")
+
+@if (Session["Role"].ToString() == "Admin")
+    {
+        <div class="d-flex justify-content-end mb-3">
+            @Html.ActionLink(
+                "➕ Add New Service",
+                "AddOrEditServices",
+                "Service",
+                null,
+                new { @class = "btn background-primary btn-hover px-4" }
+            )
+        </div>    
+    }
+
+<div class="row g-4">
+    @foreach (var service in Model)
+    {
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card service-card h-100 border-0">
+                <div class="card-body d-flex flex-column p-4">
+
+                    <h5 class="card-title text-center fw-bold mb-3 service-title">
+                        @service.ServiceName
+                    </h5>
+
+                    <div class="text-center mb-3 text-muted small">
+                        <div>
+                            <strong>Price:</strong> ₹@service.Price
+                        </div>
+                        <div>
+                            <strong>Duration:</strong> @service.ServiceDuration mins
+                        </div>
+                    </div>
+
+                    <div class="text-center mb-4">
+                        <span class="badge rounded-pill px-3 py-2 @(service.IsActive ? "bg-success" : "bg-secondary")">
+                            @(service.IsActive ? "Available" : "Unavailable")
+                        </span>
+                    </div>
+
+                    @if (Session["Role"].ToString() != "Admin")
+                    {
+                        if (service.IsActive)
+                        {
+                            @*<a href="@Url.Action("Book", "Appointment", new { id = service.ServiceId })"
+                                   class="btn background-primary btn-hover mt-auto book-btn">
+                                    Book Now
+                                </a>*@
+                            <button class=" btn background-primary btn-hover mt-auto book-btn" data-service-id="@service.ServiceId" data-service-name="@service.ServiceName">Book Now</button>
+                        }
+                        else
+                        {
+                            <button class="btn btn-secondary mt-auto" disabled>
+                                Not Available
+                            </button>
+                        }
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Edit", "AddOrEditServices", "Service", new {id = service.ServiceId}, new { @class = "btn background-primary btn-hover mt-auto" });
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+<style>
+    .service-card {
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+        }
+
+    /* Service name */
+    .service-title {
+        color: #2E003E;
+        letter-spacing: 0.3px;
+    }
+
+    /* Optional: soften muted text */
+    .text-muted {
+        color: #6c757d !important;
+    }
+</style>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+
+            let selectedStartTime = null;
+            let selectedStylistId = null;
+            let bookingModalInstance = null;
+
+            $(".book-btn").on("click", function () {
+                //alert("clicked");
+
+                let serviceId = $(this).data("service-id");
+                let serviceName = $(this).data("service-name");
+
+                $("#modalServiceId").val(serviceId);
+                $("#modalServiceName").text(serviceName);
+
+                $("#modalDate").val("");
+                $("#modalSlots").empty();
+                $("#modalStylists").empty();
+
+                // Bootstrap 5 way
+                bookingModalInstance = new bootstrap.Modal(
+                    document.getElementById('bookingModal')
+                );
+                bookingModalInstance.show();
+            });
+
+            $("#modalDate").on("change", function () {
+
+                selectedStartTime = null;
+                selectedStylistId = null;
+                $("#modalStylists").empty();
+
+
+                let date = new Date($(this).val()).toISOString().split('T')[0];
+                let serviceId = $("#modalServiceId").val();
+
+                console.log("Selected date:", date);
+
+                if (!date) return;
+
+                $("#modalSlots").html("<div class='text-muted'>Loading slots...</div>");
+
+                $.ajax({
+                    url: "/Booking/GetAvailableSlots",
+                    type: "GET",
+                    data: {
+                        serviceId: serviceId,
+                        date: date
+                    },
+                    success: function (slots) {
+
+                        $("#modalSlots").empty();
+
+                        if (slots.success === false) {
+                            $("#modalSlots").html(`<span class="text-danger">${res.message}</span>`);
+                            return;
+                        }
+
+                        if (slots.length === 0) {
+                            $("#modalSlots").html("<span class='text-danger'>No slots available</span>");
+                            return;
+                        }
+
+                        slots.forEach(function (slot) {
+                            $("#modalSlots").append(`
+                                    <button class="btn btn-outline-primary m-1 slot-btn" data-time="${slot.StartTime}:00">
+                                        ${slot.StartTime}
+                                    </button>
+                                `);
+                        });
+                    }
+                });
+            });
+
+
+
+            $(document).on("click", ".slot-btn", function () {
+                $(".slot-btn").removeClass("btn-primary").addClass("btn-outline-primary");
+                $(this).removeClass("btn-outline-primary").addClass("btn-primary");
+
+                selectedStartTime = $(this).data("time");
+                let date = $("#modalDate").val();
+                let serviceId = $("#modalServiceId").val();
+
+                //console.log("Calling stylists with:", {
+                //    serviceId: serviceId,
+                //    date: date,
+                //    startTime: selectedStartTime
+                //});
+
+
+                $("#modalStylists").html("<span class='text-muted'>Loading stylists...</span>");
+
+                $.ajax({
+                    url: "/Booking/GetAvailableStylists",
+                    type: "GET",
+                    data: {
+                        serviceId: serviceId,
+                        startTime: selectedStartTime,
+                        date: date
+                    },
+                    success: function (stylists) {
+                        $("#modalStylists").empty();
+
+                        if (stylists.length === 0) {
+                            $("#modalStylists").html("<span class='text-danger'> No Stylists Available</span>");
+                            return;
+                        }
+
+                        stylists.forEach(function (stylist) {
+                            $("#modalStylists").append(`
+                                    <button class="btn btn-outline-success m-1 stylist-btn" data-stylist-id="${stylist.StylistId}">
+                                        ${stylist.StylistName}
+                                    </button>
+                                `);
+                        });
+                    }
+                });
+            });
+
+
+            $(document).on("click", ".stylist-btn", function () {
+                $(".stylist-btn").removeClass("btn-success").addClass("btn-outline-success");
+                $(this).removeClass("btn-outline-success").addClass("btn-success");
+
+                selectedStylistId = $(this).data("stylist-id");
+            });
+
+            $("#confirmBookingBtn").on("click", function () {
+                if (!selectedStartTime || !selectedStylistId) {
+                    alert("Please select a time slot and stylist");
+                    return;
+                }
+
+                $.ajax({
+                    url: "/Booking/Confirm",
+                    type: "POST",
+                    data: {
+                        serviceId: $("#modalServiceId").val(),
+                        stylistId: selectedStylistId,
+                        date: $("#modalDate").val(),
+                        startTime: selectedStartTime
+                    },
+                    success: function () {
+                        alert("Appointment booked successfully!");
+                        bookingModalInstance.hide();
+                    }
+                });
+
+            });
+        });
+    </script>
+}
