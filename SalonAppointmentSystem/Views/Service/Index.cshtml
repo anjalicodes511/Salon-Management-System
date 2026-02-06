@@ -240,7 +240,7 @@
                 }
 
                 $.ajax({
-                    url: "/Booking/Confirm",
+                    url: "/Booking/ConfirmBooking",
                     type: "POST",
                     data: {
                         serviceId: $("#modalServiceId").val(),
@@ -249,7 +249,7 @@
                         startTime: selectedStartTime
                     },
                     success: function () {
-                        alert("Appointment booked successfully!");
+                        window.location.href = "/Booking/BookingSuccess";
                         bookingModalInstance.hide();
                     }
                 });

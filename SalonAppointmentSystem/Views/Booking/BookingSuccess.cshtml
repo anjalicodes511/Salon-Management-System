@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Booking Confirmed";
+}
+
+@Html.Partial("_Header")
+
+<div class="container text-center mt-5">
+    <div class="card shadow p-5">
+        <h2 class="text-success mb-3">🎉 Appointment Confirmed!</h2>
+        <p class="text-muted">
+            Your appointment has been booked successfully.
+        </p>
+
+        <a href="@Url.Action("Index", "Home")" class="btn background-primary mt-3">
+            Back to Home
+        </a>
+
+        <a href="@Url.Action("MyAppointments", "Booking")" class="btn btn-outline-secondary mt-3 ms-2">
+            View My Appointments
+        </a>
+    </div>
+</div>

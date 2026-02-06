@@ -85,6 +85,31 @@ namespace SalonAppointmentSystem.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult BookingSuccess()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ConfirmBooking(int serviceId,int stylistId,DateTime date, TimeSpan startTime)
+        {
+            try
+            {
+                DynamicParameters dp = new DynamicParameters();
+                dp.Add("@ServiceId", serviceId);
+                dp.Add("@StylistId", stylistId);
+                dp.Add("@SlotDate", date);
+                dp.Add("@StartTime", startTime);
+                dp.Add("@CustomerId", Session["UserId"]);
+                DapperORM.ExecuteWithoutReturn("ConfirmBooking", dp);
+                return RedirectToAction("BookingSuccess","Booking");
+            }
+            catch (SqlException ex) {
+                TempData["Error"] = ex.Message;
+                return RedirectToAction("Index", "Service");
+            }
+        }
+
         private void GenerateTimeSlot(int StylistId, DateTime SlotDate)
         {
             DynamicParameters dp = new DynamicParameters();
