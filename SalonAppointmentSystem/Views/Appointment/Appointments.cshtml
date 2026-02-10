@@ -16,8 +16,10 @@
     </p>
 </div>
 
+@Html.ActionLink("← Back", "Index", "Account", null, new { @class = "btn btn-hover background-primary mb-4" })
 
 <div id="appointmentContainer" class="row "></div>
+
 
 <style>
     .cancel-badge {
@@ -43,6 +45,7 @@
                 url: "/Appointment/MyAppointments",
                 type: "GET",
                 success: function (data) {
+                    debugger
                     //console.log("Hello");
                     //console.log(data);
                     renderAppointments(data);
@@ -99,56 +102,55 @@
 
                 let showCancelBtn = appointment.StatusText.toLowerCase() === "booked";
 
-                // 🔹 conditional HTML
                 let cancelButtonHtml = showCancelBtn
                     ? `
-                <button class="cancel-badge badge rounded-pill px-3 py-2 bg-danger border-0 cursor-pointer"
-                        onclick="cancelAppointment(${appointment.AppointmentId})">
-                     Cancel Appointment
-                </button>
-              `
+                        <button class="cancel-badge badge rounded-pill px-3 py-2 bg-danger border-0 cursor-pointer"
+                                onclick="cancelAppointment(${appointment.AppointmentId})">
+                             Cancel Appointment
+                        </button>
+                      `
                     : '';
 
                 let html = `
-                        <div class="col-md-4 mb-4">
-                            <div class="card h-100 border-0 shadow-sm rounded-2">
-                                <div class="card-header background-primary">
-                                    <h5 class="card-title text-center text-white fw-semibold mb-2">
-                                        ${appointment.ServiceName}
-                                    </h5>
-                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="card h-100 border-0 shadow-sm rounded-2">
+                                        <div class="card-header background-primary">
+                                            <h5 class="card-title text-center text-white fw-semibold mb-2">
+                                                ${appointment.ServiceName}
+                                            </h5>
+                                        </div>
 
-                                <div class="card-body p-4 d-flex flex-column">
-                                    <p class="mb-2 text-muted small">
-                                        <i class="bi bi-person-badge me-2"></i>
-                                        <strong>Stylist:</strong> ${appointment.StylistName}
-                                    </p>
+                                        <div class="card-body p-4 d-flex flex-column">
+                                            <p class="mb-2 text-muted small">
+                                                <i class="bi bi-person-badge me-2"></i>
+                                                <strong>Stylist:</strong> ${appointment.StylistName}
+                                            </p>
 
-                                    <p class="mb-2 text-muted small">
-                                        <i class="bi bi-calendar-event me-2"></i>
-                                        <strong>Date:</strong> ${formatDate(appointment.AppointmentDate)}
-                                    </p>
+                                            <p class="mb-2 text-muted small">
+                                                <i class="bi bi-calendar-event me-2"></i>
+                                                <strong>Date:</strong> ${formatDate(appointment.AppointmentDate)}
+                                            </p>
 
-                                    <p class="mb-3 text-muted small">
-                                        <i class="bi bi-clock me-2"></i>
-                                        <strong>Time:</strong>
-                                        ${formatTime(appointment.StartTime)} – ${formatTime(appointment.EndTime)}
-                                    </p>
+                                            <p class="mb-3 text-muted small">
+                                                <i class="bi bi-clock me-2"></i>
+                                                <strong>Time:</strong>
+                                                ${formatTime(appointment.StartTime)} – ${formatTime(appointment.EndTime)}
+                                            </p>
 
-                                    <div class="mt-auto d-flex justify-content-evenly text-center">
-                                        <span class="badge rounded-pill px-3 py-2
-                                            ${getStatusClass(appointment.StatusText)}">
-                                            ${appointment.StatusText}
-                                        </span>
-                                        ${cancelButtonHtml}
+                                            <div class="mt-auto d-flex justify-content-evenly text-center">
+                                                <span class="badge rounded-pill px-3 py-2
+                                                    ${getStatusClass(appointment.StatusText)}">
+                                                    ${appointment.StatusText}
+                                                </span>
+                                                ${cancelButtonHtml}
+                                            </div>
+
+
+                                        </div>
                                     </div>
-
-
                                 </div>
-                            </div>
-                        </div>
 
-                    `;
+                            `;
                 container.append(html);
             });
         }
@@ -156,9 +158,9 @@
         function getStatusClass(status) {
             switch (status.toLowerCase()) {
                 case "completed":
-                    return "bg-success";
-                case "booked":
                     return "bg-warning text-dark";
+                case "booked":
+                    return "bg-success ";
                 case "cancelled":
                     return "bg-danger";
                 case "noshow":

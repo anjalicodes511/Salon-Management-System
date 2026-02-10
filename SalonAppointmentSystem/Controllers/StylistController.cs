@@ -16,10 +16,13 @@ namespace SalonAppointmentSystem.Controllers
         // GET: Stylist
         public ActionResult Index()
         {
-            if (Session["UserId"] == null || Session["Role"].ToString() != "Admin")
+            if (Session["UserId"] == null)
             {
-                Session.Abandon();
-                return RedirectToAction("Login", "Account");
+                return RedirectToAction("Index", "Home");
+            }
+            if(Session["Role"] != null && Session["Role"].ToString() != "Admin")
+            {
+                return RedirectToAction("Index", "Account");
             }
             var list = DapperORM.ReturnList<StylistVM>("GetAllStylists");
             return View(list);

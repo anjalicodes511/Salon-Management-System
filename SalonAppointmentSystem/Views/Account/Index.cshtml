@@ -2,59 +2,171 @@
     ViewBag.Title = "Home";
     var username = Session["Username"] as string;
 }
-@Html.Partial("_Header")
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-12 text-center mb-4">
-            <h2 class="fw-bold">Welcome, @username 👋</h2>
-            <p class="text-muted">Manage your salon appointments with ease</p>
+@Html.Partial("_Navbar")
+@*@Html.Partial("_Header")*@
+
+@if (Session["Role"] != null &&  Session["Role"].ToString() == "Customer")
+{
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12 text-center mb-4">
+                <h2 class="fw-bold color-primary">Welcome, @username 👋</h2>
+                <p class="text-muted">Manage your salon appointments with ease</p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Book Appointment -->
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header text-center background-primary pt-2"><h5 class="card-title">📅 Book Appointment</h5></div>
+                    <div class="card-body text-center">
+                        
+                        <p class="card-text">
+                            Schedule a service with your preferred stylist.
+                        </p>
+                        <a href="@Url.Action("Create", "Booking")" class="btn btn-warning border-0">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- My Appointments -->
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header text-center background-primary pt-2"><h5 class="card-title">🧾 My Appointments</h5></div>
+                    <div class="card-body text-center">
+                        
+                        <p class="card-text">
+                            View and manage your upcoming appointments.
+                        </p>
+                        <a href="@Url.Action("Appointments", "Appointment")" class="btn btn-success border-0">
+                            View Appointments
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Services -->
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header text-center background-primary pt-2">
+                        <h5 class="card-title">💇 Our Services</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-text">
+                            Explore all salon services and pricing with your preffered slot.
+                        </p>
+                        <a href="@Url.Action("Index", "Service")" class="btn btn-info border-0">
+                            View Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else if (Session["Role"] != null && Session["Role"].ToString() == "Admin")
+{
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12 text-center mb-4">
+                <h2 class="fw-bold color-primary">Welcome, @username 👋</h2>
+                <p class="text-muted">Manage your salon operations with ease</p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Manage Appointments -->
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header text-center background-primary pt-2">
+                        <h5 class="card-title">📅 Manage Appointments</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="card-text">
+                            View, approve, or cancel customer appointments.
+                        </p>
+                        <a href="@Url.Action("AllAppointments", "Appointment")" class="btn btn-warning border-0">
+                            Manage Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manage Services -->
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header text-center background-primary pt-2">
+                        <h5 class="card-title">💇 Manage Services</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        
+                        <p class="card-text">
+                            Add, edit, or remove salon services and pricing.
+                        </p>
+                        <a href="@Url.Action("Index", "Service")" class="btn btn-info border-0">
+                            Manage Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manage Stylists -->
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header text-center background-primary pt-2">
+                        <h5 class="card-title">✂️ Manage Stylists</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        
+                        <p class="card-text">
+                            Add new stylists, update their info, and assign slots.
+                        </p>
+                        <a href="@Url.Action("Index", "Stylist")" class="btn btn-dark border-0">
+                            Manage Stylists
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manage Customers -->
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header text-center background-primary pt-2">
+                        <h5 class="card-title">👥 Manage Customers</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        
+                        <p class="card-text">
+                            View registered customers and their details.
+                        </p>
+                        <a href="@Url.Action("Index", "Customer")" class="btn btn-success border-0">
+                            View Customers
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reports -->
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header text-center background-primary pt-2">
+                        <h5 class="card-title">📊 Reports</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        
+                        <p class="card-text">
+                            Generate reports on appointments, services, and revenue.
+                        </p>
+                        <a href="@Url.Action("Reports", "Admin")" class="btn btn-primary border-0">
+                            View Reports
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="row g-4">
-        <!-- Book Appointment -->
-        <div class="col-md-4">
-            <div class="card shadow-sm h-100">
-                <div class="card-body text-center">
-                    <h5 class="card-title">📅 Book Appointment</h5>
-                    <p class="card-text">
-                        Schedule a service with your preferred stylist.
-                    </p>
-                    <a href="@Url.Action("Create", "Booking")" class="btn btn-primary">
-                        Book Now
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- My Appointments -->
-        <div class="col-md-4">
-            <div class="card shadow-sm h-100">
-                <div class="card-body text-center">
-                    <h5 class="card-title">🧾 My Appointments</h5>
-                    <p class="card-text">
-                        View and manage your upcoming appointments.
-                    </p>
-                    <a href="@Url.Action("MyAppointments", "Booking")" class="btn btn-success">
-                        View Appointments
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Services -->
-        <div class="col-md-4">
-            <div class="card shadow-sm h-100">
-                <div class="card-body text-center">
-                    <h5 class="card-title">💇 Our Services</h5>
-                    <p class="card-text">
-                        Explore all salon services and pricing.
-                    </p>
-                    <a href="@Url.Action("Index", "Service")" class="btn btn-warning">
-                        View Services
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+}

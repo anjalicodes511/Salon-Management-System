@@ -141,6 +141,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Controllers\StylistController.cs" />
     <Compile Include="Controllers\StylistServiceController.cs" />
@@ -209,6 +210,9 @@
     <Content Include="Views\Account\Signup.cshtml" />
     <Content Include="Views\Booking\BookingSuccess.cshtml" />
     <Content Include="Views\Appointment\Appointments.cshtml" />
+    <Content Include="Views\Shared\_Navbar.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Appointment\AllAppointments.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

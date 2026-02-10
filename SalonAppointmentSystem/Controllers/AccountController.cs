@@ -17,6 +17,10 @@ namespace SalonAppointmentSystem.Controllers
         // GET: Account
         public ActionResult Index()
         {
+            if (Session["UserId"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
@@ -91,7 +95,7 @@ namespace SalonAppointmentSystem.Controllers
                     Session["Role"] = result.Role;
                     Session["UserId"] = result.CustomerId;
 
-                    return RedirectToAction("Index", "Service");
+                    return RedirectToAction("Index", "Account");
                 }
                 else
                 {
@@ -106,11 +110,11 @@ namespace SalonAppointmentSystem.Controllers
             }
         }
 
-        [HttpPost]
+        //[HttpPost]
         public ActionResult Logout()
         {
             Session.Abandon();
-            return RedirectToAction("Login", "Account");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

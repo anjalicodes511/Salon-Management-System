@@ -15,7 +15,10 @@ namespace SalonAppointmentSystem.Controllers
         // GET: Service
         public ActionResult Index()
         {
-            
+            if (Session["UserId"] == null)
+            {
+                return RedirectToAction("Index", "Account");
+            }
             var list = DapperORM.ReturnList<ServicesVM>("GetAllServices");
             return View(list);
         }
