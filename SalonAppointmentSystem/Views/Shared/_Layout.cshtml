@@ -116,10 +116,192 @@
             border-bottom: none;
         }
 
-            #appointmentsTable thead th:focus,
-            #appointmentsTable thead th:active {
-                outline: none !important;
-                box-shadow: none !important;
+        #appointmentsTable thead th:focus,
+        #appointmentsTable thead th:active {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        .cancel-badge {
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.15s ease;
+        }
+
+        .cancel-badge:hover {
+            background-color: #bb2d3b;
+            transform: scale(1.05);
+        }
+
+        .dashboard-title {
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .dashboard-subtitle {
+            color: #777;
+            font-size: 15px;
+        }
+
+        .dashboard-card {
+            border: none;
+            border-radius: 18px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+            .dashboard-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            }
+
+            .dashboard-card .card-header {
+                font-weight: 600;
+                font-size: 1.1rem;
+                padding: 18px;
+                color: white;
+                border: none;
+            }
+
+        .gradient-purple {
+            background: linear-gradient(135deg, #5f2c82, #8a2be2);
+        }
+
+        .gradient-blue {
+            background: linear-gradient(135deg, #2193b0, #6dd5ed);
+        }
+
+        .gradient-green {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+        }
+
+        .gradient-orange {
+            background: linear-gradient(135deg, #ff9966, #ff5e62);
+        }
+
+        .gradient-dark {
+            background: linear-gradient(135deg, #232526, #414345);
+        }
+
+        .dashboard-btn {
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-weight: 500;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            /*                background: linear-gradient(90deg, #3b044e, #9c64d0, #8b090c);*/
+            background: linear-gradient(90deg, #3b044e, #9c64d0, #8b090c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .salon-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            /*                background: linear-gradient(90deg, #3b044e, #9c64d0, #8b090c);*/
+            background: linear-gradient(90deg, #3b044e, #9c64d0, #8b090c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .username {
+            font-weight: 900;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: #6c757d;
+            letter-spacing: 0.5px;
+        }
+
+        /*        Landing Page*/
+        .hero-landing {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 2rem;
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            width: 100%;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+            .hero-text h3 {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: #D4AF7F;
+                margin-bottom: 0.5rem;
+            }
+            .hero-text p {
+                font-size: 1.2rem;
+                color: #666;
+                margin-bottom: 2rem;
+                line-height: 1.6;
+            }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary-custom {
+            border: none;
+            padding: 0.8rem 2.2rem;
+            border-radius: 40px;
+            background: linear-gradient(135deg, #2E003E, #5A189A);
+            color: white;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+            .btn-primary-custom:hover {
+                background-color: #a67c52;
+                transform: translateY(-3px);
+                color: white;
+                box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+            }
+
+        .btn-outline-custom {
+            border: 2px solid #5A189A; /* matches gradient */
+            padding: 0.8rem 2.2rem;
+            border-radius: 40px;
+            background: transparent;
+            color: #5A189A;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+            .btn-outline-custom:hover {
+                background: linear-gradient(135deg, #2E003E, #5A189A);
+                color: #fff;
+            }
+
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+            .hero-image img {
+                max-width: 100%;
+                border-radius: 20px;
+                box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+                Letter-spacing: 0.5px;
             }
     </style>
 </head>

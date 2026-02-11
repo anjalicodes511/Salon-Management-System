@@ -4,6 +4,7 @@ using SalonAppointmentSystem.Models;
 using SalonAppointmentSystem.Models.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -38,6 +39,7 @@ namespace SalonAppointmentSystem.Controllers
         {
             if (Session["UserId"] == null)
             {
+                Session.Clear();
                 Session.Abandon();
                 return Json(new
                 {
@@ -52,13 +54,13 @@ namespace SalonAppointmentSystem.Controllers
         }
 
         [HttpPost]
-        public JsonResult UpdateStatus(int appointmentId, int status)
+        public JsonResult UpdateStatus(AppointmentVM appointment)
         {
             try
             {
                 DynamicParameters dp = new DynamicParameters();
-                dp.Add("@AppointmentId", appointmentId);
-                dp.Add("@Status", status);
+                dp.Add("@AppointmentId", appointment.AppointmentId);
+                dp.Add("@Status", appointment.Status);
 
                 DapperORM.ExecuteWithoutReturn("UpdateAppointmentStatus", dp);
 
@@ -70,5 +72,21 @@ namespace SalonAppointmentSystem.Controllers
             }
         }
 
+        [HttpPost]
+        public JsonResult CancelAppointments(AppointmentVM appointment)
+        {
+            try
+            {
+                DynamicParameters dp = new DynamicParameters();
+                dp.Add("@AppointmentId", appointment.AppointmentId);
+                DapperORM.ExecuteWithoutReturn("CancelAppointment", dp);
+                return Json(new { success = true });
+            }
+            catch(SqlException ex)
+            {
+                TempData["Error"] = ex.Message;
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
     }
 }

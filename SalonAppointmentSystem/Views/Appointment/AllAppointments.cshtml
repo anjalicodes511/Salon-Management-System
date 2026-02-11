@@ -4,7 +4,7 @@
 }
 
 <div class="text-center mb-5">
-    <h1 class="fw-bold display-6 color-primary mb-2 position-relative d-inline-block">
+    <h1 class="hero-title mt-5">
         All Appointments
     </h1>
     <div class="mx-auto mt-2"
@@ -16,7 +16,7 @@
 </div>
 
 
-<table id="appointmentsTable" class="table table-bordered table-striped text-center table-hover">
+<table id="appointmentsTable" class="table table-bordered table-striped text-center table-hover mt-4">
     <thead class="custom-table-head">
         <tr>
             <th class="text-center">Appointment Date</th>
@@ -52,7 +52,7 @@
                     renderAllAppointments(data);
                 },
                 error: function (err) {
-                    debugger
+                    //debugger
                     console.log(err);
                     alert('Something Went Wrong!!');
                 }
@@ -77,6 +77,8 @@
         };
 
         function parseNetDate(value) {
+            //console.log(value);
+            //console.log(value.substr(6))
             return new Date(parseInt(value.substr(6)));
         }
 
@@ -101,7 +103,7 @@
 
             list.forEach((item) => {
                 let appointment = new AppointmentModel(item);
-
+                //console.log(JSON.stringify(appointment));
                 let html = `
                         <tr>
                             <td>${formatDate(appointment.AppointmentDate)}</td>
@@ -111,10 +113,10 @@
                             <td class="d-flex justify-content-evenly">
                                 <select class="form-select form-select-sm w-auto mx-auto
                                     ${getStatusClass(appointment.StatusText)} text-white"
-                                    onchange="updateStatus(${appointment.AppointmentId}, this.value)">
+                                    onchange='updateStatus(${JSON.stringify(appointment)}, this.value)'>
                                     <option value="1" ${appointment.Status == 1 ? "selected" : ""}>Booked</option>
-                                    <option value="3" ${appointment.Status == 3 ? "selected" : ""}>Completed</option>
                                     <option value="2" ${appointment.Status == 2 ? "selected" : ""}>Cancelled</option>
+                                    <option value="3" ${appointment.Status == 3 ? "selected" : ""}>Completed</option>
                                     <option value="4" ${appointment.Status == 4 ? "selected" : ""}>NoShow</option>
                                 </select>
                             </td>
@@ -145,19 +147,20 @@
             }
         }
 
-        function updateStatus(appointmentId, status) {
+        function updateStatus(appointment, newStatus) {
             if (!confirm("Are you sure you want to update status?")) return;
+
+            appointment.Status = newStatus;
 
             $.ajax({
                 url: '/Appointment/UpdateStatus',
                 type: 'POST',
-                data: {
-                    appointmentId: appointmentId,
-                    status: status
-                },
+                contentType:"application/json",
+                data: JSON.stringify(appointment),
                 success: function (res) {
                     if (res.success) {
                         alert("Status updated successfully");
+                        location.reload();
                     } else {
                         alert("Failed to update status");
                     }
@@ -167,6 +170,5 @@
                 }
             });
         }
-
     </script>
 }

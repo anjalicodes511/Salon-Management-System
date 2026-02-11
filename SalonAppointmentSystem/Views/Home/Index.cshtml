@@ -1,65 +1,29 @@
 ﻿@{
-    ViewBag.Title = "Welcome";
+    ViewBag.Title = "Salon Management System";
 }
-@Html.Partial("_Header")
-
-<style>
-    .hero-landing {
-        height: 100vh;
-        background: linear-gradient(135deg, #2E003E, #5A189A);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: #fff;
-    }
-
-    .hero-content {
-        max-width: 600px;
-    }
-
-    .hero-buttons {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 1.5rem;
-    }
-
-        .hero-buttons .btn {
-            padding: 0.75rem 2rem;
-            font-size: 1.1rem;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .hero-buttons .btn-primary:hover {
-            background-color: #ff5e3a;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-        }
-
-        .hero-buttons .btn-outline-light:hover {
-            background-color: rgba(255,255,255,0.2);
-            transform: translateY(-2px);
-        }
-</style>
 
 <div class="hero-landing">
-    <div class="hero-content">
-        <h1 class="mb-3">✂️ Look Good. Feel Confident.</h1>
-        <p class="mb-4">
-            Premium salon services with professional stylists, hygienic care,
-            and hassle-free online booking.
-        </p>
-        <div class="hero-buttons">
-            <a href="@Url.Action("Login", "Account")" class="btn btn-primary btn-lg">
-                Login
-            </a>
-            <a href="@Url.Action("Signup", "Account")" class="btn btn-outline-light btn-lg">
-                Sign Up
-            </a>
+    <div class="hero-container">
+        <div class="hero-text">
+            <h1 class="salon-title pb-3">The Ivory Lounge</h1>
+            <h3>Where Beauty Meets Perfection</h3>
+            <p>
+                Experience premium salon services crafted with care, elegance,
+                and professional expertise. Book your appointment effortlessly.
+            </p>
+            <div class="hero-buttons">
+                <a href="@Url.Action("Login", "Account")" class="btn btn-primary-custom">
+                    Login
+                </a>
+                <a href="@Url.Action("Signup", "Account")" class="btn btn-outline-custom">
+                    Sign Up
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
+                 alt="Salon Service">
         </div>
     </div>
 </div>

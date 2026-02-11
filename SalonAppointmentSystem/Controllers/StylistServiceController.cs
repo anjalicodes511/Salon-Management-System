@@ -17,6 +17,7 @@ namespace SalonAppointmentSystem.Controllers
         {
             if (Session["UserId"] == null || Session["Role"].ToString() != "Admin")
             {
+                Session.Clear();
                 Session.Abandon();
                 return RedirectToAction("Login", "Account");
             }
@@ -43,6 +44,7 @@ namespace SalonAppointmentSystem.Controllers
         {
             if (Session["UserId"] == null || Session["Role"].ToString() != "Admin")
             {
+                Session.Clear();
                 Session.Abandon();
                 return RedirectToAction("Login", "Account");
             }
