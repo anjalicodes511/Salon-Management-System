@@ -54,6 +54,7 @@ namespace SalonAppointmentSystem.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public JsonResult UpdateStatus(AppointmentVM appointment)
         {
             try
@@ -73,6 +74,7 @@ namespace SalonAppointmentSystem.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public JsonResult CancelAppointments(AppointmentVM appointment)
         {
             try
@@ -82,9 +84,9 @@ namespace SalonAppointmentSystem.Controllers
                 DapperORM.ExecuteWithoutReturn("CancelAppointment", dp);
                 return Json(new { success = true });
             }
-            catch(SqlException ex)
+            catch(Exception ex)
             {
-                TempData["Error"] = ex.Message;
+                ModelState.AddModelError("","An error occurred while canceling the appointment. Please try again.");
                 return Json(new { success = false, message = ex.Message });
             }
         }

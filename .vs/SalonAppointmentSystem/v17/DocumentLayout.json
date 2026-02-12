@@ -3,8 +3,36 @@
   "WorkspaceRootPath": "D:\\Practice Projects\\SalonAppointmentSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|d:\\practice projects\\salonappointmentsystem\\salonappointmentsystem\\views\\account\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|d:\\practice projects\\salonappointmentsystem\\salonappointmentsystem\\views\\appointment\\appointments.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|solutionrelative:salonappointmentsystem\\views\\appointment\\appointments.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|D:\\Practice Projects\\SalonAppointmentSystem\\salonappointmentsystem\\views\\appointment\\allappointments.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|solutionrelative:salonappointmentsystem\\views\\appointment\\allappointments.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|D:\\Practice Projects\\SalonAppointmentSystem\\salonappointmentsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|solutionrelative:salonappointmentsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|D:\\Practice Projects\\SalonAppointmentSystem\\salonappointmentsystem\\views\\account\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|solutionrelative:salonappointmentsystem\\views\\account\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|D:\\Practice Projects\\SalonAppointmentSystem\\salonappointmentsystem\\views\\shared\\_navbar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|solutionrelative:salonappointmentsystem\\views\\shared\\_navbar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|D:\\Practice Projects\\SalonAppointmentSystem\\salonappointmentsystem\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|solutionrelative:salonappointmentsystem\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|D:\\Practice Projects\\SalonAppointmentSystem\\salonappointmentsystem\\models\\customermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|solutionrelative:salonappointmentsystem\\models\\customermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|D:\\Practice Projects\\SalonAppointmentSystem\\salonappointmentsystem\\models\\viewmodels\\loginvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|solutionrelative:salonappointmentsystem\\models\\viewmodels\\loginvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|D:\\Practice Projects\\SalonAppointmentSystem\\salonappointmentsystem\\controllers\\stylistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -15,14 +43,6 @@
       "RelativeMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|solutionrelative:salonappointmentsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|D:\\Practice Projects\\SalonAppointmentSystem\\salonappointmentsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|solutionrelative:salonappointmentsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|D:\\Practice Projects\\SalonAppointmentSystem\\salonappointmentsystem\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|solutionrelative:salonappointmentsystem\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|D:\\Practice Projects\\SalonAppointmentSystem\\salonappointmentsystem\\controllers\\stylistservicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|solutionrelative:salonappointmentsystem\\controllers\\stylistservicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -31,19 +51,11 @@
       "RelativeMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|solutionrelative:salonappointmentsystem\\controllers\\servicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|d:\\practice projects\\salonappointmentsystem\\salonappointmentsystem\\views\\appointment\\allappointments.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|solutionrelative:salonappointmentsystem\\views\\appointment\\allappointments.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|D:\\Practice Projects\\SalonAppointmentSystem\\salonappointmentsystem\\views\\appointment\\appointments.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|solutionrelative:salonappointmentsystem\\views\\appointment\\appointments.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|d:\\practice projects\\salonappointmentsystem\\salonappointmentsystem\\views\\shared\\_header.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|D:\\Practice Projects\\SalonAppointmentSystem\\salonappointmentsystem\\views\\shared\\_header.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|solutionrelative:salonappointmentsystem\\views\\shared\\_header.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|d:\\practice projects\\salonappointmentsystem\\salonappointmentsystem\\views\\booking\\bookingsuccess.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|D:\\Practice Projects\\SalonAppointmentSystem\\salonappointmentsystem\\views\\booking\\bookingsuccess.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|solutionrelative:salonappointmentsystem\\views\\booking\\bookingsuccess.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
@@ -83,14 +95,6 @@
       "RelativeMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|solutionrelative:salonappointmentsystem\\models\\enums\\appointmentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|D:\\Practice Projects\\SalonAppointmentSystem\\salonappointmentsystem\\models\\customermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|solutionrelative:salonappointmentsystem\\models\\customermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|D:\\Practice Projects\\SalonAppointmentSystem\\salonappointmentsystem\\models\\viewmodels\\loginvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|solutionrelative:salonappointmentsystem\\models\\viewmodels\\loginvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|D:\\Practice Projects\\SalonAppointmentSystem\\salonappointmentsystem\\models\\timeslotmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{252A5E04-2EA1-48EB-B819-76515B874D10}|SalonAppointmentSystem\\SalonAppointmentSystem.csproj|solutionrelative:salonappointmentsystem\\models\\timeslotmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -106,265 +110,89 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "AppointmentController.cs",
               "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Controllers\\AppointmentController.cs",
               "RelativeDocumentMoniker": "SalonAppointmentSystem\\Controllers\\AppointmentController.cs",
               "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Controllers\\AppointmentController.cs",
               "RelativeToolTip": "SalonAppointmentSystem\\Controllers\\AppointmentController.cs",
-              "ViewState": "AgIAAEwAAAAAAAAAAAAqwFsAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAADMAAAAAAAAAAAAowEcAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-09T06:26:08.718Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Account\\Index.cshtml",
-              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Views\\Account\\Index.cshtml",
-              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Account\\Index.cshtml",
-              "RelativeToolTip": "SalonAppointmentSystem\\Views\\Account\\Index.cshtml",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAABMAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-11T05:16:30.069Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ServiceController.cs",
-              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Controllers\\ServiceController.cs",
-              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Controllers\\ServiceController.cs",
-              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Controllers\\ServiceController.cs",
-              "RelativeToolTip": "SalonAppointmentSystem\\Controllers\\ServiceController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAqwB0AAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-05T11:53:08.771Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Controllers\\AccountController.cs",
-              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "SalonAppointmentSystem\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAowHMAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-10T04:40:02.08Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Controllers\\HomeController.cs",
-              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "SalonAppointmentSystem\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwA0AAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-10T04:45:30.914Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "StylistController.cs",
-              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Controllers\\StylistController.cs",
-              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Controllers\\StylistController.cs",
-              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Controllers\\StylistController.cs",
-              "RelativeToolTip": "SalonAppointmentSystem\\Controllers\\StylistController.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAxwCMAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-10T04:23:06.379Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "StylistServiceController.cs",
-              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Controllers\\StylistServiceController.cs",
-              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Controllers\\StylistServiceController.cs",
-              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Controllers\\StylistServiceController.cs",
-              "RelativeToolTip": "SalonAppointmentSystem\\Controllers\\StylistServiceController.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAQwBMAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-05T11:56:45.649Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AllAppointments.cshtml",
-              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Appointment\\AllAppointments.cshtml",
-              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Views\\Appointment\\AllAppointments.cshtml",
-              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Appointment\\AllAppointments.cshtml",
-              "RelativeToolTip": "SalonAppointmentSystem\\Views\\Appointment\\AllAppointments.cshtml",
-              "ViewState": "AgIAAIkAAAAAAAAAAAAAAHwAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-10T09:49:28.516Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "BookingSuccess.cshtml",
-              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Booking\\BookingSuccess.cshtml",
-              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Views\\Booking\\BookingSuccess.cshtml",
-              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Booking\\BookingSuccess.cshtml",
-              "RelativeToolTip": "SalonAppointmentSystem\\Views\\Booking\\BookingSuccess.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-11T06:29:16.129Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "_Header.cshtml",
-              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Shared\\_Header.cshtml",
-              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Views\\Shared\\_Header.cshtml",
-              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Shared\\_Header.cshtml",
-              "RelativeToolTip": "SalonAppointmentSystem\\Views\\Shared\\_Header.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-11T10:19:27.6Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "Appointments.cshtml",
               "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Appointment\\Appointments.cshtml",
               "RelativeDocumentMoniker": "SalonAppointmentSystem\\Views\\Appointment\\Appointments.cshtml",
               "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Appointment\\Appointments.cshtml",
               "RelativeToolTip": "SalonAppointmentSystem\\Views\\Appointment\\Appointments.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGMAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-02-09T09:59:17.278Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "AppointmentVM.cs",
-              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Models\\ViewModels\\AppointmentVM.cs",
-              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Models\\ViewModels\\AppointmentVM.cs",
-              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Models\\ViewModels\\AppointmentVM.cs",
-              "RelativeToolTip": "SalonAppointmentSystem\\Models\\ViewModels\\AppointmentVM.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAsAAAAqAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "SalonAppointmentSystem\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAmwHkAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-10T09:03:31.633Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-12T07:17:42.528Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Views\\Account\\Login.cshtml",
-              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Account\\Login.cshtml",
-              "RelativeToolTip": "SalonAppointmentSystem\\Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Account\\Index.cshtml",
+              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Views\\Account\\Index.cshtml",
+              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Account\\Index.cshtml",
+              "RelativeToolTip": "SalonAppointmentSystem\\Views\\Account\\Index.cshtml",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAAAGkAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-05T10:04:44.614Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-11T05:16:30.069Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Signup.cshtml",
-              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Account\\Signup.cshtml",
-              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Views\\Account\\Signup.cshtml",
-              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Account\\Signup.cshtml",
-              "RelativeToolTip": "SalonAppointmentSystem\\Views\\Account\\Signup.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFYAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "_Navbar.cshtml",
+              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Shared\\_Navbar.cshtml",
+              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Views\\Shared\\_Navbar.cshtml",
+              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Shared\\_Navbar.cshtml",
+              "RelativeToolTip": "SalonAppointmentSystem\\Views\\Shared\\_Navbar.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-05T10:18:34.358Z"
+              "WhenOpened": "2026-02-12T04:12:11.567Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "AddOrEditServices.cshtml",
-              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Service\\AddOrEditServices.cshtml",
-              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Views\\Service\\AddOrEditServices.cshtml",
-              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Service\\AddOrEditServices.cshtml",
-              "RelativeToolTip": "SalonAppointmentSystem\\Views\\Service\\AddOrEditServices.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "AllAppointments.cshtml",
+              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Appointment\\AllAppointments.cshtml",
+              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Views\\Appointment\\AllAppointments.cshtml",
+              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Appointment\\AllAppointments.cshtml",
+              "RelativeToolTip": "SalonAppointmentSystem\\Views\\Appointment\\AllAppointments.cshtml",
+              "ViewState": "AgIAAI8AAAAAAAAAAAAAAHwAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-10T07:11:54.96Z"
+              "WhenOpened": "2026-02-10T09:49:28.516Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Assign.cshtml",
-              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\StylistService\\Assign.cshtml",
-              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Views\\StylistService\\Assign.cshtml",
-              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\StylistService\\Assign.cshtml",
-              "RelativeToolTip": "SalonAppointmentSystem\\Views\\StylistService\\Assign.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-10T06:56:30.933Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Site.css",
-              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Content\\Site.css",
-              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Content\\Site.css",
-              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Content\\Site.css",
-              "RelativeToolTip": "SalonAppointmentSystem\\Content\\Site.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-02-10T05:16:17.519Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "RouteConfig.cs",
-              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\App_Start\\RouteConfig.cs",
-              "RelativeDocumentMoniker": "SalonAppointmentSystem\\App_Start\\RouteConfig.cs",
-              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\App_Start\\RouteConfig.cs",
-              "RelativeToolTip": "SalonAppointmentSystem\\App_Start\\RouteConfig.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAwBIAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-06T10:27:29.851Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "AddOrEditStylist.cshtml",
-              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Stylist\\AddOrEditStylist.cshtml",
-              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Views\\Stylist\\AddOrEditStylist.cshtml",
-              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Stylist\\AddOrEditStylist.cshtml",
-              "RelativeToolTip": "SalonAppointmentSystem\\Views\\Stylist\\AddOrEditStylist.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABUAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-09T11:17:30.562Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "AppointmentStatus.cs",
-              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Models\\Enums\\AppointmentStatus.cs",
-              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Models\\Enums\\AppointmentStatus.cs",
-              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Models\\Enums\\AppointmentStatus.cs",
-              "RelativeToolTip": "SalonAppointmentSystem\\Models\\Enums\\AppointmentStatus.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T09:21:14.729Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 6,
               "Title": "CustomerModel.cs",
               "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Models\\CustomerModel.cs",
               "RelativeDocumentMoniker": "SalonAppointmentSystem\\Models\\CustomerModel.cs",
@@ -376,7 +204,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 7,
               "Title": "LoginVM.cs",
               "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Models\\ViewModels\\LoginVM.cs",
               "RelativeDocumentMoniker": "SalonAppointmentSystem\\Models\\ViewModels\\LoginVM.cs",
@@ -388,7 +216,187 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "StylistController.cs",
+              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Controllers\\StylistController.cs",
+              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Controllers\\StylistController.cs",
+              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Controllers\\StylistController.cs",
+              "RelativeToolTip": "SalonAppointmentSystem\\Controllers\\StylistController.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAxwCMAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-10T04:23:06.379Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "SalonAppointmentSystem\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwA0AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-10T04:45:30.914Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ServiceController.cs",
+              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Controllers\\ServiceController.cs",
+              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Controllers\\ServiceController.cs",
+              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Controllers\\ServiceController.cs",
+              "RelativeToolTip": "SalonAppointmentSystem\\Controllers\\ServiceController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAqwB0AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-05T11:53:08.771Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "StylistServiceController.cs",
+              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Controllers\\StylistServiceController.cs",
+              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Controllers\\StylistServiceController.cs",
+              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Controllers\\StylistServiceController.cs",
+              "RelativeToolTip": "SalonAppointmentSystem\\Controllers\\StylistServiceController.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAQwBMAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-05T11:56:45.649Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "BookingSuccess.cshtml",
+              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Booking\\BookingSuccess.cshtml",
+              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Views\\Booking\\BookingSuccess.cshtml",
+              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Booking\\BookingSuccess.cshtml",
+              "RelativeToolTip": "SalonAppointmentSystem\\Views\\Booking\\BookingSuccess.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-11T06:29:16.129Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_Header.cshtml",
+              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Shared\\_Header.cshtml",
+              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Views\\Shared\\_Header.cshtml",
+              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Shared\\_Header.cshtml",
+              "RelativeToolTip": "SalonAppointmentSystem\\Views\\Shared\\_Header.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-11T10:19:27.6Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AppointmentVM.cs",
+              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Models\\ViewModels\\AppointmentVM.cs",
+              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Models\\ViewModels\\AppointmentVM.cs",
+              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Models\\ViewModels\\AppointmentVM.cs",
+              "RelativeToolTip": "SalonAppointmentSystem\\Models\\ViewModels\\AppointmentVM.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAIBJwAsAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-10T09:03:31.633Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Views\\Account\\Login.cshtml",
+              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "SalonAppointmentSystem\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-05T10:04:44.614Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Signup.cshtml",
+              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Account\\Signup.cshtml",
+              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Views\\Account\\Signup.cshtml",
+              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Account\\Signup.cshtml",
+              "RelativeToolTip": "SalonAppointmentSystem\\Views\\Account\\Signup.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-05T10:18:34.358Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AddOrEditServices.cshtml",
+              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Service\\AddOrEditServices.cshtml",
+              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Views\\Service\\AddOrEditServices.cshtml",
+              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Service\\AddOrEditServices.cshtml",
+              "RelativeToolTip": "SalonAppointmentSystem\\Views\\Service\\AddOrEditServices.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-10T07:11:54.96Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Assign.cshtml",
+              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\StylistService\\Assign.cshtml",
+              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Views\\StylistService\\Assign.cshtml",
+              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\StylistService\\Assign.cshtml",
+              "RelativeToolTip": "SalonAppointmentSystem\\Views\\StylistService\\Assign.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-10T06:56:30.933Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Site.css",
+              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Content\\Site.css",
+              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Content\\Site.css",
+              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Content\\Site.css",
+              "RelativeToolTip": "SalonAppointmentSystem\\Content\\Site.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-02-10T05:16:17.519Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "RouteConfig.cs",
+              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\App_Start\\RouteConfig.cs",
+              "RelativeDocumentMoniker": "SalonAppointmentSystem\\App_Start\\RouteConfig.cs",
+              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\App_Start\\RouteConfig.cs",
+              "RelativeToolTip": "SalonAppointmentSystem\\App_Start\\RouteConfig.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAwBIAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T10:27:29.851Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "AddOrEditStylist.cshtml",
+              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Stylist\\AddOrEditStylist.cshtml",
+              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Views\\Stylist\\AddOrEditStylist.cshtml",
+              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Views\\Stylist\\AddOrEditStylist.cshtml",
+              "RelativeToolTip": "SalonAppointmentSystem\\Views\\Stylist\\AddOrEditStylist.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAIBJwBUAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-09T11:17:30.562Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 22,
+              "Title": "AppointmentStatus.cs",
+              "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Models\\Enums\\AppointmentStatus.cs",
+              "RelativeDocumentMoniker": "SalonAppointmentSystem\\Models\\Enums\\AppointmentStatus.cs",
+              "ToolTip": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Models\\Enums\\AppointmentStatus.cs",
+              "RelativeToolTip": "SalonAppointmentSystem\\Models\\Enums\\AppointmentStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-09T09:21:14.729Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
               "Title": "TimeSlotModel.cs",
               "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Models\\TimeSlotModel.cs",
               "RelativeDocumentMoniker": "SalonAppointmentSystem\\Models\\TimeSlotModel.cs",
@@ -400,7 +408,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "SlotTimeVM.cs",
               "DocumentMoniker": "D:\\Practice Projects\\SalonAppointmentSystem\\SalonAppointmentSystem\\Models\\ViewModels\\SlotTimeVM.cs",
               "RelativeDocumentMoniker": "SalonAppointmentSystem\\Models\\ViewModels\\SlotTimeVM.cs",

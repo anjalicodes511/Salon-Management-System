@@ -30,13 +30,26 @@ namespace SalonAppointmentSystem.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Signup(CustomerModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                TempData["Error"] = "Enter Valid Details";
+                return View(model);
+            }
             try
             {
-                if (!ModelState.IsValid)
+                model.Email = model.Email.Trim().ToLower();
+
+                var CheckParams = new DynamicParameters();
+                CheckParams.Add("@Email", model.Email);
+
+                var existingUser = DapperORM.ReturnSingle<CustomerModel>("GetCustomer",CheckParams);
+
+                if(existingUser != null)
                 {
-                    TempData["Error"] = "Enter Valid Details";
+                    ModelState.AddModelError("", "Email Already Exists");
                     return View(model);
                 }
 
@@ -55,9 +68,9 @@ namespace SalonAppointmentSystem.Controllers
                 DapperORM.ExecuteWithoutReturn("AddCustomer", dp);
                 return RedirectToAction("Login", "Account");
             }
-            catch(SqlException ex)
+            catch(Exception ex)
             {
-                TempData["Error"] = ex.Message;
+                ModelState.AddModelError("", "Something went wrong. Please try again.");
                 return View(model);
             }
         }
@@ -68,49 +81,51 @@ namespace SalonAppointmentSystem.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Login(LoginVM user)
         {
+            if (!ModelState.IsValid)
+            {
+                TempData["Error"] = "Enter Valid Detail";
+                return View(user);
+            }
             try
             {
-                if (!ModelState.IsValid)
-                {
-                    TempData["Error"] = "Enter Valid Detail";
-                    return View(user);
-                }
-                
+                user.Email = user.Email.Trim().ToLower();
+
                 DynamicParameters dp = new DynamicParameters();
                 dp.Add("@Email", user.Email);
 
                 var result = DapperORM.ReturnSingle<CustomerModel>("GetCustomer", dp);
-                if(result == null)
-                {
-                    TempData["Error"] = "Invalid Email or Password";
-                    return View(user);
-                }
-                PasswordHasher hasher = new PasswordHasher();
-                var Verify = hasher.VerifyHashedPassword(result.Password, user.Password);
-                if(Verify == PasswordVerificationResult.Success)
-                {
-                    Session["Username"] = result.FullName;
-                    Session["Role"] = result.Role;
-                    Session["UserId"] = result.CustomerId;
 
-                    return RedirectToAction("Index", "Account");
-                }
-                else
+                if(result == null || new PasswordHasher().VerifyHashedPassword(result.Password,user.Password) != PasswordVerificationResult.Success)
                 {
-                    TempData["Error"] = "Invalid Email or Password";
+                    ModelState.AddModelError("", "Invalid email or password.");
                     return View(user);
                 }
+
+                if (!result.IsActive)
+                {
+                    ModelState.AddModelError("", "Account is inactive.");
+                    return View(user);
+                }
+
+                //Session
+                Session["Username"] = result.FullName;
+                Session["Role"] = result.Role;
+                Session["UserId"] = result.CustomerId;
+
+                return RedirectToAction("Index", "Account");
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                TempData["Error"] = ex.Message;
+                ModelState.AddModelError("", "Something went wrong. Please try again.");
                 return View(user);
             }
         }
 
-        //[HttpPost]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Logout()
         {
             Session.Clear();
@@ -119,3 +134,5 @@ namespace SalonAppointmentSystem.Controllers
         }
     }
 }
+
+
