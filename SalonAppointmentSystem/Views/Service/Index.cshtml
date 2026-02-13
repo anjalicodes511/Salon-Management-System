@@ -3,8 +3,23 @@
 @{
     ViewBag.Title = "Our Services";
 }
+@Html.Partial("_Navbar")
+@*@Html.Partial("_Header")*@
 
-@Html.Partial("_Header")
+<div class="text-center mb-5 mt-2">
+    <h1 class="salon-title">
+        @*✂️ Salon Management System*@
+        Our Services
+    </h1>
+
+    <p class="text-secondary fs-5 fw-light mt-2">
+        Manage appointments, services & stylists with ease
+    </p>
+
+    <div class="border-bottom w-25 mx-auto mt-3"></div>
+</div>
+
+
 
 <div class="d-flex justify-content-between">
     @Html.ActionLink("← Back", "Index", "Account", null, new { @class = "btn btn-hover background-primary mb-4" })
@@ -52,7 +67,7 @@
                         </span>
                     </div>
 
-                    @if (Session["Role"]!= null &&  Session["Role"].ToString() != "Admin")
+                    @if (Session["Role"] != null && Session["Role"].ToString() != "Admin")
                     {
                         if (service.IsActive)
                         {
@@ -150,10 +165,10 @@
 
                         slots.forEach(function (slot) {
                             $("#modalSlots").append(`
-                                            <button class="btn btn-outline-primary m-1 slot-btn" data-time="${slot.StartTime}:00">
-                                                ${slot.StartTime}
-                                            </button>
-                                        `);
+                                                    <button class="btn btn-outline-primary m-1 slot-btn" data-time="${slot.StartTime}:00">
+                                                        ${slot.StartTime}
+                                                    </button>
+                                                `);
                         });
                     }
                 });
@@ -196,10 +211,10 @@
 
                         stylists.forEach(function (stylist) {
                             $("#modalStylists").append(`
-                                            <button class="btn btn-outline-success m-1 stylist-btn" data-stylist-id="${stylist.StylistId}">
-                                                ${stylist.StylistName}
-                                            </button>
-                                        `);
+                                                    <button class="btn btn-outline-success m-1 stylist-btn" data-stylist-id="${stylist.StylistId}">
+                                                        ${stylist.StylistName}
+                                                    </button>
+                                                `);
                         });
                     }
                 });

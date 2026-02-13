@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "CustomerDetails";
+}
+@Html.Partial("_Navbar")
+<div class="text-center mb-5">
+    <h1 class="hero-title mt-5">
+        Customer Details
+    </h1>
+    <div class="mx-auto mt-2"
+         style="width: 60px; height: 4px; border-radius: 2px; background: linear-gradient(135deg, #2E003E, #5A189A);">
+    </div>
+    <p class="text-muted mt-2 small">
+        View and manage all customer details
+    </p>
+</div>
+
+<div class="container mt-4 mb-3 px-0">
+
+    <div class="card shadow-lg border-0 rounded-4 background-primary">
+
+        <div class="card-body p-4">
+
+            <table id="customerTable" class="table table-bordered table-striped text-center table-hover mt-4">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="text-center">Customer Id</th>
+                        <th class="text-center">Customer Name</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Phone</th>
+                        <th class="text-center">Gender</th>
+                        <th class="text-center">Active</th>
+                        <th class="text-center">Total Bookings</th>
+                    </tr>
+                </thead>
+                <tbody id="allCustomersContainer"></tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+@Html.ActionLink("← Back", "Index", "Account", null, new { @class = "btn btn-hover background-primary mb-4" })
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            loadAllCustomers();
+        });
+
+        function loadAllCustomers() {
+            $.ajax({
+                url: "/Admin/GetCustomerDetails",
+                type: "GET",
+                contentType: "application/json",
+                success: function (customers) {
+                    renderAllCustomers(customers);
+                },
+                error: function (err) {
+                    alert('Error While Loading Customers');
+                }
+            });
+        }
+
+        function CustomerDetailsVM(item) {
+            this.CustomerId = item.CustomerId;
+            this.FullName = item.FullName;
+            this.Phone = item.Phone;
+            this.Email = item.Email;
+            this.IsActive = item.IsActive;
+            this.Gender = item.Gender;
+            this.TotalAppointments = item.TotalAppointments;
+        }
+
+        function renderAllCustomers(customers) {
+            let container = $("#allCustomersContainer");
+            container.empty();
+
+            if (!customers || customers.length === 0) {
+                container.append(`
+                                    <tr colspan="6" class="text-center text-muted">
+                                        <td>No Customers Found</td>
+                                    </tr>
+                                `);
+                return;
+            }
+
+            customers.forEach((item) => {
+                let customer = new CustomerDetailsVM(item);
+
+                let html = `
+                                    <tr>
+                                        <td>${customer.CustomerId}</td>
+                                        <td>${customer.FullName}</td>
+                                        <td>${customer.Email}</td>
+                                        <td>${customer.Phone}</td>
+                                        <td>${customer.Gender}</td>
+                                        <td>${customer.TotalAppointments}</td>
+                                        <td>${customer.IsActive ? '<span class="badge bg-success px-3 py-2">Active</span>' : '<span class="badge bg-danger px-3 py-2">Inactive</span>'}</td>
+                                    </tr>
+                                `;
+                container.append(html);
+            });
+
+            if ($.fn.DataTable.isDataTable("#customerTable")) {
+                $("#customerTable").DataTable().destroy();
+            }
+
+            $("#customerTable").DataTable({
+                pageLength: 10,
+                ordering: true,
+                searching: true
+            });
+        }
+    </script>
+}

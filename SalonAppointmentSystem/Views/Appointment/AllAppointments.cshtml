@@ -2,9 +2,9 @@
 @{
     ViewBag.Title = "Manage All Appointments";
 }
-
+@Html.Partial("_Navbar")
 <div class="text-center mb-5">
-    <h1 class="hero-title mt-5">
+    <h1 class="hero-title mt-2">
         All Appointments
     </h1>
     <div class="mx-auto mt-2"
@@ -16,19 +16,31 @@
 </div>
 
 
-<table id="appointmentsTable" class="table table-bordered table-striped text-center table-hover mt-4">
-    <thead class="custom-table-head">
-        <tr>
-            <th class="text-center">Appointment Date</th>
-            <th class="text-center">Customer Name</th>
-            <th class="text-center">Stylist</th>
-            <th class="text-center">Service</th>
-            <th class="text-center">Status</th>
-        </tr>
-    </thead>
-    <tbody id="AllAppointmentsContainer" class="background-primary">
-    </tbody>
-</table>
+<div class="container mt-4 mb-3 px-0">
+
+    <div class="card shadow-lg border-0 rounded-4 background-primary p-3">
+
+        <div class="card-body p-4">
+
+            <table id="appointmentsTable" class="table table-bordered table-striped text-center table-hover mt-4">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="text-center">Appointment Date</th>
+                        <th class="text-center">Customer Name</th>
+                        <th class="text-center">Stylist</th>
+                        <th class="text-center">Service</th>
+                        <th class="text-center">Status</th>
+                    </tr>
+                </thead>
+                <tbody id="AllAppointmentsContainer">
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
 @Html.ActionLink("← Back", "Index", "Account", null, new { @class = "btn btn-hover background-primary mb-4" })
 
 
@@ -124,11 +136,21 @@
                     `;
                 container.append(html);
             });
-            $('#appointmentsTable').DataTable({
+            if ($.fn.DataTable.isDataTable("#appointmentsTable")) {
+                $("#appointmentsTable").DataTable().destroy();
+            }
+
+            $("#appointmentsTable").DataTable({
                 pageLength: 10,
                 ordering: true,
-                searching: true
+                searching: true,
+                responsive: true,
+                language: {
+                    search: "_INPUT_",
+                    searchPlaceholder: "Search appointments..."
+                }
             });
+
         }
 
         function getStatusClass(status) {

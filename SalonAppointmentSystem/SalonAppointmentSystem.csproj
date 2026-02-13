@@ -120,6 +120,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Images\LOGO-2.png" />
+    <Content Include="Content\Images\Logo_SMS.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -140,6 +142,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
@@ -160,6 +163,7 @@
     <Compile Include="Models\StylistTimeSlotModel.cs" />
     <Compile Include="Models\TimeSlotModel.cs" />
     <Compile Include="Models\ViewModels\AppointmentVM.cs" />
+    <Compile Include="Models\ViewModels\CustomerDetailsVM.cs" />
     <Compile Include="Models\ViewModels\LoginVM.cs" />
     <Compile Include="Models\ViewModels\ServicesVM.cs" />
     <Compile Include="Models\ViewModels\SlotTimeVM.cs" />
@@ -213,6 +217,7 @@
     <Content Include="Views\Shared\_Navbar.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Appointment\AllAppointments.cshtml" />
+    <Content Include="Views\Admin\CustomerDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

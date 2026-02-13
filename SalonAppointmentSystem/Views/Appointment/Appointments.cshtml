@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "My Appointments";
 }
+@Html.Partial("_Navbar")
 @if (TempData["Error"] != null)
 {
     <div class="alert alert-danger text-center mx-auto col-md-5">
@@ -9,7 +10,7 @@
     </div>
 }
 <div class="text-center mb-5">
-    <h1 class="hero-title mt-5">
+    <h1 class="hero-title mt-2">
         My Appointments
     </h1>
     <div class="mx-auto mt-2"
@@ -97,53 +98,53 @@
 
                 let cancelButtonHtml = showCancelBtn
                     ? `
-                            <button class="cancel-badge badge rounded-pill px-3 py-2 bg-danger border-0 cursor-pointer" id="cancel-btn"
-                                    data-appointment='${JSON.stringify(appointment)}'>
-                                 Cancel Appointment
-                            </button>
-                          `
+                                <button class="cancel-badge badge rounded-pill px-3 py-2 bg-danger border-0 cursor-pointer" id="cancel-btn"
+                                        data-appointment='${JSON.stringify(appointment)}'>
+                                     Cancel Appointment
+                                </button>
+                              `
                     : '';
 
                 let html = `
-                                    <div class="col-md-4 mb-4">
-                                        <div class="card h-100 border-0 shadow-sm rounded-2">
-                                            <div class="card-header background-primary">
-                                                <h5 class="card-title text-center text-white fw-semibold mb-2">
-                                                    ${appointment.ServiceName}
-                                                </h5>
-                                            </div>
-
-                                            <div class="card-body p-4 d-flex flex-column">
-                                                <p class="mb-2 text-muted small">
-                                                    <i class="bi bi-person-badge me-2"></i>
-                                                    <strong>Stylist:</strong> ${appointment.StylistName}
-                                                </p>
-
-                                                <p class="mb-2 text-muted small">
-                                                    <i class="bi bi-calendar-event me-2"></i>
-                                                    <strong>Date:</strong> ${formatDate(appointment.AppointmentDate)}
-                                                </p>
-
-                                                <p class="mb-3 text-muted small">
-                                                    <i class="bi bi-clock me-2"></i>
-                                                    <strong>Time:</strong>
-                                                    ${formatTime(appointment.StartTime)} – ${formatTime(appointment.EndTime)}
-                                                </p>
-
-                                                <div class="mt-auto d-flex justify-content-evenly text-center">
-                                                    <span class="badge rounded-pill px-3 py-2
-                                                        ${getStatusClass(appointment.StatusText)}">
-                                                        ${appointment.StatusText}
-                                                    </span>
-                                                    ${cancelButtonHtml}
+                                        <div class="col-md-4 mb-4">
+                                            <div class="card h-100 border-0 shadow-sm rounded-2">
+                                                <div class="card-header background-primary">
+                                                    <h5 class="card-title text-center text-white fw-semibold mb-2">
+                                                        ${appointment.ServiceName}
+                                                    </h5>
                                                 </div>
 
+                                                <div class="card-body p-4 d-flex flex-column">
+                                                    <p class="mb-2 text-muted small">
+                                                        <i class="bi bi-person-badge me-2"></i>
+                                                        <strong>Stylist:</strong> ${appointment.StylistName}
+                                                    </p>
 
+                                                    <p class="mb-2 text-muted small">
+                                                        <i class="bi bi-calendar-event me-2"></i>
+                                                        <strong>Date:</strong> ${formatDate(appointment.AppointmentDate)}
+                                                    </p>
+
+                                                    <p class="mb-3 text-muted small">
+                                                        <i class="bi bi-clock me-2"></i>
+                                                        <strong>Time:</strong>
+                                                        ${formatTime(appointment.StartTime)} – ${formatTime(appointment.EndTime)}
+                                                    </p>
+
+                                                    <div class="mt-auto d-flex justify-content-evenly text-center">
+                                                        <span class="badge rounded-pill px-3 py-2
+                                                            ${getStatusClass(appointment.StatusText)}">
+                                                            ${appointment.StatusText}
+                                                        </span>
+                                                        ${cancelButtonHtml}
+                                                    </div>
+
+
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                `;
+                                    `;
                 container.append(html);
             });
         }

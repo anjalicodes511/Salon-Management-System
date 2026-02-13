@@ -1,14 +1,40 @@
-﻿<nav class="navbar navbar-expand-lg navbar-light pt-3">
-    <div class="container-fluid justify-content-end">
-        @if (Session["UserId"] != null)
+﻿@{
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+}
+
+<nav class="navbar navbar-expand-lg navbar-light pt-3">
+    <div class="container-fluid">
+
+        <!-- Left Side - Logo + Name -->
+        <a class="navbar-brand d-flex align-items-center"
+           href="@Url.Action("Dashboard","Admin")">
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTby64zasAs1lTq0YL-na8JZTwRBuVCojUhFg&s"
+                 alt="The Ivory Lounge Logo"
+                 style="height:50px; width:auto; margin-right:10px; border-radius:50%" />
+
+            <span class="fw-bold fs-5 salon-brand">
+                The Ivory Lounge
+            </span>
+        </a>
+
+        <!-- Right Side - Logout (ONLY Account/Index) -->
+        @if (currentController == "Account" && currentAction == "Index")
         {
-            using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { @class = "d-inline" }))
-            {
-                @Html.AntiForgeryToken()
-                <button type="submit" class="btn btn-danger">
-                    <i class="bi bi-box-arrow-right me-1"></i> Logout
-                </button>
-            }
+            <div class="ms-auto">
+                @if (Session["UserId"] != null)
+                {
+                    using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { @class = "d-inline" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-danger">
+                            <i class="bi bi-box-arrow-right me-1"></i> Logout
+                        </button>
+                    }
+                }
+            </div>
         }
+
     </div>
 </nav>

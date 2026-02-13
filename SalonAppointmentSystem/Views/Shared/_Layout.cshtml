@@ -9,6 +9,8 @@
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
     <link rel="stylesheet"
           href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
     <style>
         .color-primary {
             color: #5A189A;
@@ -106,31 +108,35 @@
             color: #6c757d !important;
         }
 
-/*        appointment list*/
-        #appointmentsTable thead th {
+        /*        appointment list*/
+        /*        #appointmentsTable thead th {
             background: linear-gradient(135deg, #2E003E, #5A189A);
             color: #ffffff;
             border-right: 1px solid rgba(255,255,255,0.2);
             border-left: none;
             border-top: none;
             border-bottom: none;
+        }*/
+        #appointmentsTable {
+            border-radius: 12px;
+            overflow: hidden;
         }
 
-        #appointmentsTable thead th:focus,
-        #appointmentsTable thead th:active {
-            outline: none !important;
-            box-shadow: none !important;
-        }
+            #appointmentsTable thead th:focus,
+            #appointmentsTable thead th:active {
+                outline: none !important;
+                box-shadow: none !important;
+            }
 
         .cancel-badge {
             cursor: pointer;
             transition: background-color 0.2s ease, transform 0.15s ease;
         }
 
-        .cancel-badge:hover {
-            background-color: #bb2d3b;
-            transform: scale(1.05);
-        }
+            .cancel-badge:hover {
+                background-color: #bb2d3b;
+                transform: scale(1.05);
+            }
 
         .dashboard-title {
             font-weight: 700;
@@ -198,8 +204,18 @@
             -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
         }
+
         .salon-title {
             font-size: 3.5rem;
+            font-weight: 800;
+            /*                background: linear-gradient(90deg, #3b044e, #9c64d0, #8b090c);*/
+            background: linear-gradient(90deg, #3b044e, #9c64d0, #8b090c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .salon-brand {
             font-weight: 800;
             /*                background: linear-gradient(90deg, #3b044e, #9c64d0, #8b090c);*/
             background: linear-gradient(90deg, #3b044e, #9c64d0, #8b090c);
@@ -218,91 +234,71 @@
             letter-spacing: 0.5px;
         }
 
-        /*        Landing Page*/
-        .hero-landing {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 3rem 2rem;
+       
+        /*            Customer Details*/
+        /* Space below top controls */
+        .dataTables_wrapper .dataTables_filter,
+        .dataTables_wrapper .dataTables_length {
+            margin-bottom: 20px;
         }
 
-        .hero-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1200px;
-            width: 100%;
-            gap: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .hero-text {
-            flex: 1;
-        }
-            .hero-text h3 {
-                font-size: 1.5rem;
-                font-weight: 700;
-                color: #D4AF7F;
-                margin-bottom: 0.5rem;
-            }
-            .hero-text p {
-                font-size: 1.2rem;
-                color: #666;
-                margin-bottom: 2rem;
-                line-height: 1.6;
-            }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary-custom {
-            border: none;
-            padding: 0.8rem 2.2rem;
-            border-radius: 40px;
-            background: linear-gradient(135deg, #2E003E, #5A189A);
-            color: white;
-            font-weight: 600;
-            transition: 0.3s ease;
-        }
-
-            .btn-primary-custom:hover {
-                background-color: #a67c52;
-                transform: translateY(-3px);
-                color: white;
-                box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-            }
-
-        .btn-outline-custom {
-            border: 2px solid #5A189A; /* matches gradient */
-            padding: 0.8rem 2.2rem;
-            border-radius: 40px;
-            background: transparent;
-            color: #5A189A;
-            font-weight: 600;
-            transition: 0.3s ease;
-        }
-
-            .btn-outline-custom:hover {
-                background: linear-gradient(135deg, #2E003E, #5A189A);
-                color: #fff;
-            }
-
-
-        .hero-image {
-            flex: 1;
-            text-align: center;
-        }
-
-            .hero-image img {
-                max-width: 100%;
+            /* Style search input */
+            .dataTables_wrapper .dataTables_filter input {
                 border-radius: 20px;
-                box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-                Letter-spacing: 0.5px;
+                border: 1px solid #ccc;
+                padding: 6px 12px;
             }
+
+        /* Rounded table */
+        #customerTable {
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        /* Better header color */
+        .table-dark th {
+            background: linear-gradient(45deg, #5f2c82, #9c27b0);
+            border: none;
+        }
+
+        /* Row hover effect */
+        .table-hover tbody tr:hover {
+            background-color: #f3e5f5;
+            transition: 0.2s ease-in-out;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button.previous,
+        .dataTables_wrapper .dataTables_paginate .paginate_button.next {
+            color: white !important;
+        }
+        /* Previous & Next text color */
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            color: white !important;
+        }
+
+            /* On hover */
+            .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+                color: white !important;
+                background: rgba(255, 255, 255, 0.15) !important;
+                border: none !important;
+            }
+
+            /* Active page button */
+            .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+                color: white !important;
+                background: rgba(255, 255, 255, 0.25) !important;
+                border: none !important;
+            }
+
+        .dataTables_wrapper .dataTables_length select {
+            border-radius: 10px;
+            padding: 4px 8px;
+            background-color: white;
+            color: black;
+        }
+
+
+        
     </style>
 </head>
 <body>

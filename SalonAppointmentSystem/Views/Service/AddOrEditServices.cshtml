@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = (Model.ServiceId == 0 ? "Add Service" : "Edit Service");
 }
-
+@Html.Partial("_Navbar")
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -15,52 +15,52 @@
                 </div>
             }
 
-        <div class="card shadow-lg border-0">
-            <div class="card-header background-primary text-white text-center pt-3 pb-3">
-                <h3 class="mb-0">@(Model.ServiceId == 0 ? "➕ Add New Service" : "✏️ Edit Service")</h3>
-            </div>
-            <div class="card-body w-100">
-                @using (Html.BeginForm())
-                {
-                    @Html.AntiForgeryToken()
-                    @Html.HiddenFor(m => m.ServiceId)
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger mb-3" })
-
-                    <div class="mb-3">
-                        @Html.LabelFor(m => m.ServiceName, new { @class = "form-label fw-semibold" })
-                        @Html.EditorFor(m => m.ServiceName, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(m => m.ServiceName, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="mb-3">
-                        @Html.LabelFor(m => m.Price, new { @class = "form-label fw-semibold" })
-                        @Html.EditorFor(m => m.Price, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="mb-3">
-                        @Html.LabelFor(m => m.ServiceDuration, new { @class = "form-label fw-semibold" })
-                        @Html.EditorFor(m => m.ServiceDuration, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(m => m.ServiceDuration, "", new { @class = "text-danger" })
-                    </div>
-                    if (Model.ServiceId != 0)
+            <div class="card shadow-lg border-0">
+                <div class="card-header background-primary text-white text-center pt-3 pb-3">
+                    <h3 class="mb-0">@(Model.ServiceId == 0 ? "➕ Add New Service" : "✏️ Edit Service")</h3>
+                </div>
+                <div class="card-body w-100">
+                    @using (Html.BeginForm())
                     {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(m => m.ServiceId)
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger mb-3" })
+
                         <div class="mb-3">
-                            @Html.LabelFor(m => m.IsActive, new { @class = "form-label fw-semibold" })
-                            @Html.DropDownListFor(m => m.IsActive,new SelectList(new[] {"True","False"}),"Select Availaibility" ,new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.IsActive, "", new { @class = "text-danger" })
+                            @Html.LabelFor(m => m.ServiceName, new { @class = "form-label fw-semibold" })
+                            @Html.EditorFor(m => m.ServiceName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.ServiceName, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(m => m.Price, new { @class = "form-label fw-semibold" })
+                            @Html.EditorFor(m => m.Price, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(m => m.ServiceDuration, new { @class = "form-label fw-semibold" })
+                            @Html.EditorFor(m => m.ServiceDuration, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.ServiceDuration, "", new { @class = "text-danger" })
+                        </div>
+                        if (Model.ServiceId != 0)
+                        {
+                            <div class="mb-3">
+                                @Html.LabelFor(m => m.IsActive, new { @class = "form-label fw-semibold" })
+                                @Html.DropDownListFor(m => m.IsActive, new SelectList(new[] { "True", "False" }), "Select Availaibility", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.IsActive, "", new { @class = "text-danger" })
+                            </div>
+                        }
+
+                        <div class="d-flex justify-content-between mt-4">
+                            <a href="@Url.Action("Index","Service")" class="btn btn-outline-secondary">
+                                ← Back
+                            </a>
+                            <button type="submit" class="btn background-primary btn-hover  px-4">
+                                @(Model.ServiceId == 0 ? "Add Service" : "Update Service")
+                            </button>
                         </div>
                     }
-                    
-                    <div class="d-flex justify-content-between mt-4">
-                        <a href="@Url.Action("Index","Service")" class="btn btn-outline-secondary">
-                            ← Back
-                        </a>
-                        <button type="submit" class="btn background-primary btn-hover  px-4">
-                            @(Model.ServiceId == 0 ? "Add Service" : "Update Service")
-                        </button>
-                    </div>
-                }
+                </div>
             </div>
-        </div>
         </div>
     </div>
 </div>

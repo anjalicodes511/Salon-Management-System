@@ -1,6 +1,33 @@
 ﻿@{
     ViewBag.Title = "Salon Management System";
 }
+<!-- TOP NAVBAR -->
+<nav class="custom-navbar">
+    <div class="nav-container">
+
+        <!-- Logo -->
+        <a class="navbar-brand d-flex align-items-center"
+           href="@Url.Action("Index","Home")">
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTby64zasAs1lTq0YL-na8JZTwRBuVCojUhFg&s"
+                 alt="The Ivory Lounge Logo"
+                 class="nav-logo" />
+
+            <span class="salon-brand">
+                The Ivory Lounge
+            </span>
+        </a>
+
+        <!-- Nav Links -->
+        <div class="nav-links">
+            <a href="@Url.Action("Index","Home")">Home</a>
+            <a href="#services">Services</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#address">Address</a>
+        </div>
+
+    </div>
+</nav>
 
 <div class="hero-landing">
     <div class="hero-container">
@@ -27,3 +54,749 @@
         </div>
     </div>
 </div>
+
+
+<!-- SERVICES SECTION -->
+<section class="home-services py-5" id="services">
+    <div class="container text-center">
+
+        <h2 class="services-title mb-4">Our Popular Services</h2>
+        <p class="services-subtitle mb-5">
+            A glimpse of what we offer.
+        </p>
+
+        <div class="row">
+
+            <div class="col-md-4 mb-4">
+                <div class="service-card">
+                    <h5>Facial</h5>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="service-card">
+                    <h5>Hair Spa</h5>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="service-card">
+                    <h5>Keratin Treatment</h5>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="service-card">
+                    <h5>Full Body Massage</h5>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="service-card">
+                    <h5>Hair Straightening</h5>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="service-card">
+                    <h5>Manicure</h5>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Login CTA -->
+        <div class="mt-4">
+            <p class="login-note">
+                Login to explore our complete list of services.
+            </p>
+            <a href="@Url.Action("Login","Account")" class="btn explore-btn">
+                Login Now
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- FEATURES SECTION -->
+<section class="features-section py-5 mb-5">
+    <div class="container text-center">
+        <h2 class="mb-4 section-title">Why Choose The Ivory Lounge?</h2>
+        <p class="mb-5 text-muted">
+            We combine luxury, technology, and expertise to deliver an exceptional salon experience.
+        </p>
+
+        <div class="row">
+
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <i class="bi bi-calendar-check feature-icon"></i>
+                    <h5>Easy Online Booking</h5>
+                    <p>Book appointments anytime with our seamless scheduling system.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <i class="bi bi-scissors feature-icon"></i>
+                    <h5>Professional Stylists</h5>
+                    <p>Experienced beauty experts dedicated to perfection and care.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <i class="bi bi-star feature-icon"></i>
+                    <h5>Premium Services</h5>
+                    <p>Luxury treatments using high-quality products and techniques.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <i class="bi bi-graph-up feature-icon"></i>
+                    <h5>Smart Reports</h5>
+                    <p>Advanced reporting system to track appointments and revenue.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <i class="bi bi-people feature-icon"></i>
+                    <h5>Customer Management</h5>
+                    <p>Manage customers, bookings, and preferences effortlessly.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <i class="bi bi-shield-check feature-icon"></i>
+                    <h5>Secure & Reliable</h5>
+                    <p>Your data and bookings are protected with secure authentication.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- TESTIMONIAL CAROUSEL SECTION -->
+<section class="testimonial-section py-5 mb-5" id="testimonials">
+    <div class="container text-center">
+        <h2 class="section-title mb-4">What Our Clients Say</h2>
+        <p class="section-subtitle mb-5">
+            Real experiences from our happy and satisfied customers.
+        </p>
+
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+
+            <div class="carousel-inner">
+
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="testimonial-card mx-auto">
+                        <div class="stars mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p>
+                            "Absolutely loved the service! The staff is professional and the ambiance is luxurious."
+                        </p>
+                        <h6 class="mt-3">— Priya Sharma</h6>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="testimonial-card mx-auto">
+                        <div class="stars mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                        </div>
+                        <p>
+                            "Booking appointments is super easy and the results are always perfect."
+                        </p>
+                        <h6 class="mt-3">— Ananya Patel</h6>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <div class="testimonial-card mx-auto">
+                        <div class="stars mb-3">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p>
+                            "The best spa and skincare experience I've ever had. Truly premium!"
+                        </p>
+                        <h6 class="mt-3">— Riya Mehta</h6>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+
+        </div>
+    </div>
+</section>
+<!-- FOOTER SECTION -->
+<!-- LUXURY FOOTER -->
+<footer class="lux-footer" id="address">
+    <div class="container">
+        <div class="row gy-4">
+
+            <!-- Brand -->
+            <div class="col-md-6">
+                <div class="footer-brand-wrapper d-flex align-items-center">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTby64zasAs1lTq0YL-na8JZTwRBuVCojUhFg&s"
+                         alt="The Ivory Lounge Logo"
+                         class="footer-logo" />
+
+                    <span class="footer-brand-text">
+                        The Ivory Lounge
+                    </span>
+                </div>
+
+                <p class="footer-desc">
+                    Where beauty meets perfection. Experience elegance,
+                    luxury treatments, and seamless booking — all in one place.
+                </p>
+            </div>
+
+            <!-- Contact -->
+            <div class="col-md-6">
+                <h5 class="footer-title">Get In Touch</h5>
+                <p><i class="bi bi-geo-alt-fill me-2"></i> Kolkata, India</p>
+                <p><i class="bi bi-telephone-fill me-2"></i> +91 98765 43210</p>
+                <p><i class="bi bi-envelope-fill me-2"></i> support@ivorylounge.com</p>
+
+                <div class="footer-social mt-3">
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom text-center mt-4">
+            © @DateTime.Now.Year The Ivory Lounge — All Rights Reserved
+        </div>
+    </div>
+</footer>
+
+
+<style>
+
+    /* SERVICES SECTION */
+    .home-services {
+        padding-top: 80px;
+    }
+
+    .service-card {
+        background: #ffffff;
+        padding: 40px 20px;
+        border-radius: 16px;
+        box-shadow: 0 12px 30px rgba(90, 0, 130, 0.08);
+        transition: 0.3s ease;
+    }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(90, 0, 130, 0.15);
+        }
+
+        .service-card h5 {
+            font-weight: 700;
+            color: #2a003f;
+            margin: 0;
+        }
+    .services-title {
+        color: #5A189A;
+        font-weight: 800;
+        font-size: 38px;
+    }
+    .services-subtitle {
+        color: #6c757d;
+        font-size: 17px;
+    }
+
+    /* Login CTA */
+    .login-note {
+        color: #4b007d;
+        font-weight: 500;
+    }
+
+    .explore-btn {
+        background: linear-gradient(90deg, #5a0082, #7b00c9);
+        color: white;
+        padding: 8px 22px;
+        border-radius: 25px;
+    }
+
+        .explore-btn:hover {
+            background: linear-gradient(90deg, #7b00c9, #5a0082);
+            color: white;
+        }
+
+    /* NAVBAR */
+    .custom-navbar {
+        padding: 18px 60px;
+        background: transparent;
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Logo */
+    .nav-logo {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .nav-brand-text {
+        font-weight: 800;
+        font-size: 20px;
+        color: #2a003f;
+    }
+
+    /* Links */
+    .nav-links a {
+        margin-left: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        color: #3f006e;
+        position: relative;
+        transition: 0.3s ease;
+    }
+
+        /* Underline hover */
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            left: 0;
+            bottom: -6px;
+            background: #7b00c9;
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #7b00c9;
+        }
+
+            .nav-links a:hover::after {
+                width: 100%;
+            }
+
+    /* Sign Up Button Style */
+    .nav-signup {
+        padding: 8px 18px;
+        border-radius: 25px;
+        border: 2px solid #7b00c9;
+    }
+
+        .nav-signup:hover {
+            background: #7b00c9;
+            color: white !important;
+        }
+
+    /*        Landing Page*/
+    .hero-landing {
+        padding: 80px 2rem 130px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /*        padding: 3rem 2rem;*/
+    }
+
+    .hero-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1200px;
+        width: 100%;
+        gap: 3rem;
+        flex-wrap: wrap;
+    }
+
+    .hero-text {
+        flex: 1;
+    }
+
+        .hero-text h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #D4AF7F;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+    .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .btn-primary-custom {
+        border: none;
+        padding: 0.8rem 2.2rem;
+        border-radius: 40px;
+        background: linear-gradient(135deg, #2E003E, #5A189A);
+        color: white;
+        font-weight: 600;
+        transition: 0.3s ease;
+    }
+
+        .btn-primary-custom:hover {
+            background-color: #a67c52;
+            transform: translateY(-3px);
+            color: white;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+        }
+
+    .btn-outline-custom {
+        border: 2px solid #5A189A; /* matches gradient */
+        padding: 0.8rem 2.2rem;
+        border-radius: 40px;
+        background: transparent;
+        color: #5A189A;
+        font-weight: 600;
+        transition: 0.3s ease;
+    }
+
+        .btn-outline-custom:hover {
+            background: linear-gradient(135deg, #2E003E, #5A189A);
+            color: #fff;
+        }
+
+
+    .hero-image {
+        flex: 1;
+        text-align: center;
+    }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            Letter-spacing: 0.5px;
+        }
+
+
+
+    /*        Feature section of Home page*/
+    .features-section {
+        background: linear-gradient(135deg, #240046 0%, #3c096c 40%, #5a189a 100%);
+        border-radius: 40px;
+        padding: 80px 20px;
+        position: relative;
+        overflow: hidden;
+    }
+
+        /* Optional subtle overlay glow */
+        .features-section::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
+            border-radius: 50%;
+        }
+
+    .section-title {
+        font-weight: 800;
+        font-size: 38px;
+        color: #ffffff;
+        letter-spacing: 0.5px;
+        margin-bottom: 15px;
+    }
+
+    .section-subtitle {
+        color: rgba(255,255,255,0.75);
+        font-size: 18px;
+        margin-bottom: 50px;
+    }
+
+    /* Glassmorphism Card */
+    .feature-card {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 20px 15px; /* smaller */
+        border-radius: 14px; /* slightly smaller */
+        transition: all 0.35s ease;
+        height: 100%;
+        color: #fff;
+        position: relative;
+    }
+
+        /* Smooth Hover Effect */
+        .feature-card:hover {
+            transform: translateY(-5px); /* reduced */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+    /* Icon Styling */
+    .feature-icon {
+        font-size: 26px; /* smaller */
+        margin-bottom: 12px;
+        color: #e0aaff;
+        transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover .feature-icon {
+        transform: scale(1.08);
+    }
+
+    /* Feature Title */
+    .feature-card h5 {
+        font-weight: 700;
+        margin-bottom: 8px;
+        font-size: 16px; /* smaller */
+    }
+
+    /* Feature Text */
+    .feature-card p {
+        font-size: 13px; /* smaller */
+        color: rgba(255,255,255,0.85);
+        line-height: 1.4;
+    }
+
+
+    /* ===== TESTIMONIAL SECTION ===== */
+    .testimonial-section {
+        background: transparent;
+        padding: 120px 20px;
+        position: relative;
+    }
+
+        /* Optional soft separator line */
+        .testimonial-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, #5a189a, #c77dff);
+            border-radius: 50px;
+        }
+
+        /* Title */
+        .testimonial-section .section-title {
+            color: #5A189A;
+            font-weight: 800;
+            font-size: 38px;
+        }
+
+        .testimonial-section .section-subtitle {
+            color: #6c757d;
+            font-size: 17px;
+        }
+
+    /* ===== TESTIMONIAL CARD ===== */
+    .testimonial-card {
+        max-width: 700px;
+        background: linear-gradient(135deg, #3c096c, #7b2cbf);
+        padding: 55px 45px;
+        border-radius: 30px;
+        color: white;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 30px 80px rgba(60, 9, 108, 0.25);
+        transition: all 0.4s ease;
+    }
+
+        /* Subtle glow effect */
+        .testimonial-card::after {
+            content: "";
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
+            border-radius: 50%;
+        }
+
+        /* Hover effect */
+        .testimonial-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 40px 100px rgba(60, 9, 108, 0.35);
+        }
+
+        /* Text */
+        .testimonial-card p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-top: 15px;
+        }
+
+        /* Client name */
+        .testimonial-card h6 {
+            margin-top: 25px;
+            font-weight: 600;
+            color: #e0aaff;
+            letter-spacing: 0.5px;
+        }
+
+    /* Stars */
+    .stars i {
+        color: #ffd60a;
+        font-size: 22px;
+        margin: 0 2px;
+    }
+
+    /* Carousel arrows visibility fix */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        filter: invert(40%);
+    }
+
+    /*        Footer-landing*/
+    .lux-footer {
+        background: transparent;
+        padding: 90px 0 40px; /* More breathing space */
+        color: #2a003f;
+    }
+
+    /* Add subtle top separator */
+    .lux-footer {
+        border-top: 1px solid rgba(90, 0, 130, 0.15);
+    }
+
+    /* Brand */
+    .footer-brand {
+        font-weight: 800;
+        font-size: 30px;
+        margin-bottom: 20px;
+        color: #180027;
+        letter-spacing: 1px;
+    }
+
+    /* Description */
+    .footer-desc {
+        color: #4b007d;
+        line-height: 1.9;
+        font-size: 15px;
+        max-width: 320px;
+    }
+
+    /* Section Titles */
+    .footer-title {
+        font-weight: 700;
+        margin-bottom: 20px;
+        font-size: 18px;
+        color: #5A189A;
+        position: relative;
+    }
+
+        /* Elegant underline accent */
+        .footer-title::after {
+            content: "";
+            width: 35px;
+            height: 2px;
+            background: #7b00c9;
+            display: block;
+            margin-top: 8px;
+        }
+
+    /* Contact text */
+    .lux-footer p {
+        color: #3f006e;
+        font-weight: 500;
+    }
+
+    /* Icons */
+    .lux-footer i {
+        color: #7b00c9;
+    }
+
+    /* Social Icons – Make them look intentional */
+    .footer-social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border: 1px solid rgba(90, 0, 130, 0.25);
+        border-radius: 50%;
+        margin-right: 12px;
+        color: #5a0082;
+        transition: all 0.3s ease;
+    }
+
+        .footer-social a:hover {
+            color: #7b00c9;
+            border-color: #7b00c9;
+            transform: translateY(-3px);
+        }
+
+    /* Copyright */
+    .footer-bottom {
+        border-top: 1px solid rgba(90, 0, 130, 0.2);
+        padding-top: 25px;
+        margin-top: 50px;
+        font-size: 14px;
+        color: #4b007d;
+    }
+
+    .footer-brand-wrapper {
+        margin-bottom: 20px;
+    }
+
+    .footer-logo {
+        height: 48px;
+        width: 48px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-right: 12px;
+        box-shadow: 0 4px 12px rgba(90, 0, 130, 0.15);
+    }
+
+    .footer-brand-text {
+        font-size: 1.5rem;
+        font-weight: 800;
+        /*                background: linear-gradient(90deg, #3b044e, #9c64d0, #8b090c);*/
+        background: linear-gradient(90deg, #3b044e, #9c64d0, #8b090c);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 10px;
+    }
+</style>

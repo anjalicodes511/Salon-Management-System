@@ -152,7 +152,7 @@ else if (Session["Role"] != null && Session["Role"].ToString() == "Admin")
                 </div>
                 <div class="card-body text-center">
                     <p>View registered customers and their details.</p>
-                    <a href="@Url.Action("Index", "Customer")"
+                    <a href="@Url.Action("CustomerDetails", "Admin")"
                        class="btn btn-light dashboard-btn">
                         View Customers
                     </a>
