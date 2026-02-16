@@ -4,7 +4,7 @@
 ![ASP.NET MVC](https://img.shields.io/badge/ASP.NET-MVC-blue)
 ![Dapper](https://img.shields.io/badge/ORM-Dapper-orange)
 ![SQL Server](https://img.shields.io/badge/Database-SQL%20Server-red)
-![Bootstrap](https://img.shields.io/badge/UI-Bootstrap-purple))
+![Bootstrap](https://img.shields.io/badge/UI-Bootstrap-purple)
 
 ---
 
@@ -17,9 +17,9 @@ The system intelligently:
 - Allocates consecutive time slots based on service duration  
 - Checks stylist availability dynamically  
 - Prevents double booking  
-- Updates UI using AJAX without full page reload  
+- Updates UI seamlessly using AJAX without full page reload  
 
-This project demonstrates real-world booking logic and optimized database handling.
+This project demonstrates **real-world booking logic**, optimized database handling, and a dynamic user experience.
 
 ---
 
@@ -39,61 +39,68 @@ This project demonstrates real-world booking logic and optimized database handli
 ## ✨ Key Features
 
 ### 👤 Customer Features
-- Register & Login
-- Browse available salon services
-- Real-time slot & stylist availability
-- Automatic multi-slot booking
-- View My Appointments
-- Cancel appointments dynamically (AJAX)
+- Register & Login  
+- Browse available salon services  
+- Real-time slot & stylist availability  
+- Automatic multi-slot booking for long services  
+- View My Appointments  
+- Cancel appointments dynamically via AJAX  
 
 ### 🛠 Admin Features
-- Manage Services (duration & price)
-- Manage Stylists
-- Manage Time Slots
-- View & Manage Appointments
-- Stored procedure-based booking control
-- Appointment Report, Revenue Report, Monthly Revenue Report, Most booked service Report etc.
+- Manage Services (duration & price)  
+- Manage Stylists  
+- Manage Time Slots  
+- View & Manage Appointments  
+- Stored procedure-based booking control  
+- Generate Reports: Appointment, Revenue, Monthly Revenue, Most Booked Services  
 
 ---
 
 ## 🧠 Smart Booking Logic
 
 ### 🔹 Automatic Slot Allocation
-If a service duration is 90 minutes:
+For services with extended durations (e.g., 90 minutes):
 
-System verifies:
-- Consecutive slot availability
-- Stylist availability
-- Booking conflicts
+- The system checks for consecutive slot availability  
+- Confirms stylist availability  
+- Prevents conflicts with existing appointments  
+
+### 🔹 Available Stylist During Slot Generation
+
+1. Fetch all stylists  
+2. Check if stylist is booked on selected date  
+3. Filter stylists with:
+   - Consecutive available time slots  
+   - No conflicting appointments  
+
+**Flow:**
+
+User selects **Service + Date** →  
+System calculates:
+- Service duration & required consecutive slots  
+- Stylist availability for those slots  
+- Existing appointment conflicts  
+
+↓  
+Returns:  
+- Available Time Slots  
+- Available Stylists  
+
+Customer selects preferred stylist → Appointment booked automatically  
 
 ---
 
-## 💇 Available Stylist During Slot Generation
+### 🔹 Example Scenario
 
-When generating available slots, the system:
+- **Service:** Hair Coloring (90 mins)  
+- **Date:** 18-Feb-2026  
 
-1. Fetches all stylists.
-2. Checks if stylist is already booked on selected date.
-3. Filters only those stylists with:
-   - Available consecutive time slots
-   - No conflicting appointments
-
-### Logic Flow
-
-User selects:
-Service + Date
-
-↓
 System checks:
-- ServiceDuration
-- Required Slots
-- StylistTimeSlot availability
-- Existing Appointments
-↓
-Returns:
-- Available Time Slots
-- Available Stylists for that slot
-↓
-Customer books the stylist based on their prefernce
+- Which 3 consecutive slots are available  
+- Which stylist is free for all 3 slots  
+- Prevents double booking  
 
+Result:  
+- Displays available slots and stylists for booking  
 
+---
