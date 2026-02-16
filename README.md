@@ -4,9 +4,7 @@
 ![ASP.NET MVC](https://img.shields.io/badge/ASP.NET-MVC-blue)
 ![Dapper](https://img.shields.io/badge/ORM-Dapper-orange)
 ![SQL Server](https://img.shields.io/badge/Database-SQL%20Server-red)
-![Bootstrap](https://img.shields.io/badge/UI-Bootstrap-purple)
-![Status](https://img.shields.io/badge/Project-Active-brightgreen)
-![License](https://img.shields.io/badge/License-Educational-lightgrey)
+![Bootstrap](https://img.shields.io/badge/UI-Bootstrap-purple))
 
 ---
 
