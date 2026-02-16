@@ -52,6 +52,7 @@ This project demonstrates real-world booking logic and optimized database handli
 - Manage Time Slots
 - View & Manage Appointments
 - Stored procedure-based booking control
+- Appointment Report, Revenue Report, Monthly Revenue Report, Most booked service Report etc.
 
 ---
 
@@ -84,12 +85,15 @@ Service + Date
 
 ↓
 System checks:
-ServiceDuration
-Required Slots
-StylistTimeSlot availability
-Existing Appointments
-
+- ServiceDuration
+- Required Slots
+- StylistTimeSlot availability
+- Existing Appointments
 ↓
 Returns:
-Available Time Slots
-Available Stylists for that slot
+- Available Time Slots
+- Available Stylists for that slot
+↓
+Customer books the stylist based on their prefernce
+
+
