@@ -10,7 +10,7 @@
 
 ## 📌 Overview
 
-**The Ivory Lounge** is a full-stack Salon Appointment Management System built using ASP.NET MVC, Dapper ORM, and SQL Server.
+**The Ivory Lounge** is a full-stack, end-to-end Salon Management System built using ASP.NET MVC, Dapper ORM, and SQL Server.
 
 The system intelligently:
 
