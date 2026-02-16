@@ -1,37 +1,11 @@
 ﻿@{
     ViewBag.Title = "Salon Management System";
 }
-<!-- TOP NAVBAR -->
-<nav class="custom-navbar">
-    <div class="nav-container">
 
-        <!-- Logo -->
-        <a class="navbar-brand d-flex align-items-center"
-           href="@Url.Action("Index","Home")">
-
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTby64zasAs1lTq0YL-na8JZTwRBuVCojUhFg&s"
-                 alt="The Ivory Lounge Logo"
-                 class="nav-logo" />
-
-            <span class="salon-brand">
-                The Ivory Lounge
-            </span>
-        </a>
-
-        <!-- Nav Links -->
-        <div class="nav-links">
-            <a href="@Url.Action("Index","Home")">Home</a>
-            <a href="#services">Services</a>
-            <a href="#testimonials">Testimonials</a>
-            <a href="#address">Address</a>
-        </div>
-
-    </div>
-</nav>
-
+@Html.Partial("_Navbar")
 <div class="hero-landing">
-    <div class="hero-container">
-        <div class="hero-text">
+    <div class="hero-container row align-items-center">
+        <div class="hero-text col-12 col-lg-6 text-center text-lg-start mb-5 mb-lg-0">
             <h1 class="salon-title pb-3">The Ivory Lounge</h1>
             <h3>Where Beauty Meets Perfection</h3>
             <p>
@@ -48,9 +22,11 @@
             </div>
         </div>
 
-        <div class="hero-image">
+        <div class="hero-image col-12 col-lg-6 text-center">
             <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
-                 alt="Salon Service">
+                 alt="Salon Service"
+                 class="img-fluid hero-img">
+
         </div>
     </div>
 </div>
@@ -67,37 +43,37 @@
 
         <div class="row">
 
-            <div class="col-md-4 mb-4">
+            <div class="col-12 col-sm-6 col-lg-4 mb-4">
                 <div class="service-card">
                     <h5>Facial</h5>
                 </div>
             </div>
 
-            <div class="col-md-4 mb-4">
+            <div class="col-12 col-sm-6 col-lg-4 mb-4">
                 <div class="service-card">
                     <h5>Hair Spa</h5>
                 </div>
             </div>
 
-            <div class="col-md-4 mb-4">
+            <div class="col-12 col-sm-6 col-lg-4 mb-4">
                 <div class="service-card">
                     <h5>Keratin Treatment</h5>
                 </div>
             </div>
 
-            <div class="col-md-4 mb-4">
+            <div class="col-12 col-sm-6 col-lg-4 mb-4">
                 <div class="service-card">
                     <h5>Full Body Massage</h5>
                 </div>
             </div>
 
-            <div class="col-md-4 mb-4">
+            <div class="col-12 col-sm-6 col-lg-4 mb-4">
                 <div class="service-card">
                     <h5>Hair Straightening</h5>
                 </div>
             </div>
 
-            <div class="col-md-4 mb-4">
+            <div class="col-12 col-sm-6 col-lg-4 mb-4">
                 <div class="service-card">
                     <h5>Manicure</h5>
                 </div>
@@ -259,12 +235,12 @@
 </section>
 <!-- FOOTER SECTION -->
 <!-- LUXURY FOOTER -->
-<footer class="lux-footer" id="address">
+<footer class="lux-footer" id="contact">
     <div class="container">
-        <div class="row gy-4">
+        <div class="d-flex justify-content-around flex-column flex-md-row">
 
             <!-- Brand -->
-            <div class="col-md-6">
+            <div class="d-flex flex-column align-items-start">
                 <div class="footer-brand-wrapper d-flex align-items-center">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTby64zasAs1lTq0YL-na8JZTwRBuVCojUhFg&s"
                          alt="The Ivory Lounge Logo"
@@ -282,7 +258,7 @@
             </div>
 
             <!-- Contact -->
-            <div class="col-md-6">
+            <div>
                 <h5 class="footer-title">Get In Touch</h5>
                 <p><i class="bi bi-geo-alt-fill me-2"></i> Kolkata, India</p>
                 <p><i class="bi bi-telephone-fill me-2"></i> +91 98765 43210</p>
@@ -305,6 +281,19 @@
 
 
 <style>
+    .hero-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-img {
+        width: 100%;
+        max-width: 380px; /* controls desktop size */
+        height: auto;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
 
     /* SERVICES SECTION */
     .home-services {
@@ -357,62 +346,7 @@
             color: white;
         }
 
-    /* NAVBAR */
-    .custom-navbar {
-        padding: 18px 60px;
-        background: transparent;
-    }
-
-    .nav-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    /* Logo */
-    .nav-logo {
-        height: 45px;
-        width: 45px;
-        border-radius: 50%;
-        margin-right: 10px;
-    }
-
-    .nav-brand-text {
-        font-weight: 800;
-        font-size: 20px;
-        color: #2a003f;
-    }
-
-    /* Links */
-    .nav-links a {
-        margin-left: 30px;
-        text-decoration: none;
-        font-weight: 600;
-        color: #3f006e;
-        position: relative;
-        transition: 0.3s ease;
-    }
-
-        /* Underline hover */
-        .nav-links a::after {
-            content: "";
-            position: absolute;
-            width: 0%;
-            height: 2px;
-            left: 0;
-            bottom: -6px;
-            background: #7b00c9;
-            transition: 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #7b00c9;
-        }
-
-            .nav-links a:hover::after {
-                width: 100%;
-            }
-
+    
     /* Sign Up Button Style */
     .nav-signup {
         padding: 8px 18px;

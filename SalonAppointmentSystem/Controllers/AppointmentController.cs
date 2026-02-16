@@ -21,6 +21,11 @@ namespace SalonAppointmentSystem.Controllers
 
         public ActionResult AllAppointments()
         {
+            if (Session["UserId"] == null || Session["Role"].ToString() != "Admin")
+            {
+                Session.Abandon();
+                return RedirectToAction("Login", "Account");
+            }
             DapperORM.ExecuteWithoutReturn("SetNoShow");
             return View();
         }
@@ -32,6 +37,11 @@ namespace SalonAppointmentSystem.Controllers
 
         public ActionResult Appointments()
         {
+            if (Session["UserId"] == null )
+            {
+                Session.Abandon();
+                return RedirectToAction("Login", "Account");
+            }
             return View();
         }
 
@@ -54,7 +64,7 @@ namespace SalonAppointmentSystem.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public JsonResult UpdateStatus(AppointmentVM appointment)
         {
             try
@@ -74,7 +84,7 @@ namespace SalonAppointmentSystem.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public JsonResult CancelAppointments(AppointmentVM appointment)
         {
             try

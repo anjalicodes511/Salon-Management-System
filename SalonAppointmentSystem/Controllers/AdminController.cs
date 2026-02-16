@@ -14,6 +14,11 @@ namespace SalonAppointmentSystem.Controllers
         // GET: Admin
         public ActionResult CustomerDetails()
         {
+            if (Session["UserId"] == null || Session["Role"].ToString() != "Admin")
+            {
+                Session.Abandon();
+                return RedirectToAction("Login", "Account");
+            }
             return View();
         }
 

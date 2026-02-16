@@ -23,10 +23,19 @@
     <div class="row justify-content-center">
         <div class="col-sm-12 col-md-8 col-lg-6">
             <div class="card shadow-sm p-4">
+                @if (Session["Role"] != null && Session["Role"].ToString() == "Admin")
+                {
+                    <h3 class="text-center fw-bold mb-4 color-primary">
+                        Create Admin Account
+                    </h3>
+                }
+                else
+                {
+                    <h3 class="text-center fw-bold mb-4 color-primary">
+                        Create Your Account
+                    </h3>
+                }
 
-                <h3 class="text-center fw-bold mb-4 color-primary">
-                    Create Your Account
-                </h3>
 
                 @using (Html.BeginForm())
                 {
@@ -86,7 +95,24 @@
                     </div>
 
                     <!-- Hidden fields -->
-                    @Html.HiddenFor(m => m.Role, new { Value = "Customer" })
+                    if (Session["Role"] != null && Session["Role"].ToString() == "Admin")
+                    {
+                        @Html.HiddenFor(m => m.Role, new { Value = "Admin" })
+                        @*<div class="form-group mb-3">
+                    @Html.LabelFor(m => m.Role, new { @class = "form-label required-label" })
+                    @Html.DropDownListFor(
+                        m => m.Role,
+                        new SelectList(new[] { "Customer", "Admin" }),
+                        "Select Role",
+                        new { @class = "form-control form-control-lg" })
+                    @Html.ValidationMessageFor(m => m.Role, "", new { @class = "text-danger" })
+                </div>*@
+                    }
+                    else
+                    {
+                        @Html.HiddenFor(m => m.Role, new { Value = "Customer" })
+                    }
+
                     @Html.HiddenFor(m => m.IsActive, new { Value = true })
 
                     <input type="submit"

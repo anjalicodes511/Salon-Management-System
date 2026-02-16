@@ -145,6 +145,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Controllers\StylistController.cs" />
     <Compile Include="Controllers\StylistServiceController.cs" />
@@ -162,14 +163,18 @@
     <Compile Include="Models\StylistServiceModel.cs" />
     <Compile Include="Models\StylistTimeSlotModel.cs" />
     <Compile Include="Models\TimeSlotModel.cs" />
+    <Compile Include="Models\ViewModels\AppointmentReportVM.cs" />
     <Compile Include="Models\ViewModels\AppointmentVM.cs" />
     <Compile Include="Models\ViewModels\CustomerDetailsVM.cs" />
     <Compile Include="Models\ViewModels\LoginVM.cs" />
+    <Compile Include="Models\ViewModels\MonthlyRevenueVM.cs" />
+    <Compile Include="Models\ViewModels\RevenueReportVM.cs" />
     <Compile Include="Models\ViewModels\ServicesVM.cs" />
     <Compile Include="Models\ViewModels\SlotTimeVM.cs" />
     <Compile Include="Models\ViewModels\StylistDetailsVM.cs" />
     <Compile Include="Models\ViewModels\StylistServiceVM.cs" />
     <Compile Include="Models\ViewModels\StylistVM.cs" />
+    <Compile Include="Models\ViewModels\TopServiceVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -218,6 +223,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Appointment\AllAppointments.cshtml" />
     <Content Include="Views\Admin\CustomerDetails.cshtml" />
+    <Content Include="Views\Report\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

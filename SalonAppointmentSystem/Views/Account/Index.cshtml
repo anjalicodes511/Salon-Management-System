@@ -99,7 +99,7 @@ else if (Session["Role"] != null && Session["Role"].ToString() == "Admin")
         <!-- Manage Appointments -->
         <div class="col-md-4">
             <div class="card dashboard-card h-100">
-                <div class="card-header gradient-purple text-center">
+                <div class="card-header background-primary text-center">
                     📅 Manage Appointments
                 </div>
                 <div class="card-body text-center">
@@ -147,7 +147,7 @@ else if (Session["Role"] != null && Session["Role"].ToString() == "Admin")
         <!-- Manage Customers -->
         <div class="col-md-4">
             <div class="card dashboard-card h-100">
-                <div class="card-header gradient-green text-center">
+                <div class="card-header bg-deepblue text-center">
                     👥 Manage Customers
                 </div>
                 <div class="card-body text-center">
@@ -163,14 +163,28 @@ else if (Session["Role"] != null && Session["Role"].ToString() == "Admin")
         <!-- Reports -->
         <div class="col-md-4">
             <div class="card dashboard-card h-100">
-                <div class="card-header gradient-dark text-center">
+                <div class="card-header bg-warm text-center">
                     📊 Reports
                 </div>
                 <div class="card-body text-center">
                     <p>Generate reports on appointments and revenue.</p>
-                    <a href="@Url.Action("Reports", "Admin")"
+                    <a href="@Url.Action("Index", "Report")"
                        class="btn btn-light dashboard-btn">
                         View Reports
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card dashboard-card h-100">
+                <div class="card-header bg-emerald text-center">
+                    👤 Add New Admin
+                </div>
+                <div class="card-body text-center">
+                    <p>Grant admin access to manage system operations safely.</p>
+                    <a href="@Url.Action("Signup", "Account")"
+                       class="btn btn-light dashboard-btn">
+                        Add Admin
                     </a>
                 </div>
             </div>
@@ -179,3 +193,20 @@ else if (Session["Role"] != null && Session["Role"].ToString() == "Admin")
     </div>
 </div>
 }
+<style>
+    .bg-emerald {
+        background: linear-gradient(135deg, #134e5e, #71b280);
+        color: white;
+        transition: background 0.3s ease;
+    }
+    .bg-warm {
+        background: linear-gradient(135deg, #c31432, #240b36);
+        color: white;
+        transition: background 0.3s ease;
+    }
+    .bg-deepblue {
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        color: white;
+        transition: background 0.3s ease;
+    }
+</style>

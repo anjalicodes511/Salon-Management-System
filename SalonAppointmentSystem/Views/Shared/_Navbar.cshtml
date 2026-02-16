@@ -3,38 +3,168 @@
     var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
 }
 
-<nav class="navbar navbar-expand-lg navbar-light pt-3">
-    <div class="container-fluid">
+<!--<nav class="navbar navbar-expand-lg navbar-light pt-3">
+    <div class="container-fluid">-->
+<!-- Left Side - Logo + Name -->
+<!--<a class="navbar-brand d-flex align-items-center"
+   href="@Url.Action("Dashboard","Admin")">
 
-        <!-- Left Side - Logo + Name -->
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTby64zasAs1lTq0YL-na8JZTwRBuVCojUhFg&s"
+         alt="The Ivory Lounge Logo"
+         style="height:50px; width:auto; margin-right:10px; border-radius:50%" />
+
+    <span class="fw-bold fs-5 salon-brand">
+        The Ivory Lounge
+    </span>
+</a>-->
+<!-- Right Side - Logout (ONLY Account/Index) -->
+<!--</div>-->
+@*</nav>*@
+
+
+<!-- TOP NAVBAR -->
+<nav class="custom-navbar">
+    <div class="nav-container">
+
+        <!-- Logo -->
         <a class="navbar-brand d-flex align-items-center"
-           href="@Url.Action("Dashboard","Admin")">
+           href="@Url.Action("Index","Home")">
 
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTby64zasAs1lTq0YL-na8JZTwRBuVCojUhFg&s"
                  alt="The Ivory Lounge Logo"
-                 style="height:50px; width:auto; margin-right:10px; border-radius:50%" />
+                 class="nav-logo" />
 
-            <span class="fw-bold fs-5 salon-brand">
+            <span class="salon-brand">
                 The Ivory Lounge
             </span>
         </a>
 
-        <!-- Right Side - Logout (ONLY Account/Index) -->
-        @if (currentController == "Account" && currentAction == "Index")
-        {
-            <div class="ms-auto">
-                @if (Session["UserId"] != null)
+        <!-- Hamburger Button -->
+        <div class="hamburger" onclick="toggleMenu()">
+            ☰
+        </div>
+
+        <!-- Nav Links -->
+        <div class="nav-links" id="mobileMenu">
+
+            @if (currentController == "Account" && currentAction == "Index")
+            {
+                if (Session["UserId"] != null)
                 {
-                    using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { @class = "d-inline" }))
+                    using (Html.BeginForm("Logout", "Account", FormMethod.Post))
                     {
                         @Html.AntiForgeryToken()
-                        <button type="submit" class="btn btn-danger">
-                            <i class="bi bi-box-arrow-right me-1"></i> Logout
+                        <button type="submit" class="logout-btn">
+                            Logout
                         </button>
                     }
                 }
-            </div>
-        }
+            }
+            else if (currentController == "Home" && currentAction == "Index")
+            {
+                <a href="@Url.Action("Index","Home")">Home</a>
+                <a href="#services">Services</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact Us</a>
+            }
 
+        </div>
     </div>
 </nav>
+
+<style>
+    /* NAVBAR */
+    .custom-navbar {
+            padding: 18px 0;
+    background: transparent;
+        /*padding: 18px 0;*/
+        /*        background: transparent;*/
+        /*position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #f9eaf7;
+        Important z-index: 1000;*/ /* Keeps it above everything */
+        /*box-shadow: 0 2px 10px rgba(0,0,0,0.05);*/
+    }
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* Logo */
+.nav-logo {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Nav Links (Desktop) */
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    margin-left: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #3f006e;
+    transition: 0.3s ease;
+}
+
+/* Logout button style */
+.logout-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 6px;
+}
+
+/* Hamburger (Hidden on Desktop) */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+
+@@media (max-width: 768px) {
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: white;
+        width: 200px;
+        padding: 20px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        border-radius: 12px;
+    }
+
+    .nav-links a {
+        margin: 10px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+</style>
+<script>
+    function toggleMenu() {
+        document.getElementById("mobileMenu").classList.toggle("active");
+    }
+</script>
