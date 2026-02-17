@@ -112,16 +112,29 @@ namespace SalonAppointmentSystem.Controllers
             }
             catch
             {
-                return Json(new { success = false }, JsonRequestBehavior.AllowGet);
+                return Json(new
+                {
+                    success = false,
+                    message = "Something Went Wrong"
+                }, JsonRequestBehavior.AllowGet);
             }
         }
 
         public JsonResult GetPopularServicesReport()
         {
-            var list = DapperORM
-                .ReturnList<TopServiceVM>("GetPopularServicesReport");
-
-            return Json(list, JsonRequestBehavior.AllowGet);
+            try
+            {
+                var list = DapperORM.ReturnList<TopServiceVM>("GetPopularServicesReport");
+                return Json(list, JsonRequestBehavior.AllowGet);
+            }
+            catch(Exception ex)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = "Something Went Wrong"
+                }, JsonRequestBehavior.AllowGet);
+            }
         }
 
     }

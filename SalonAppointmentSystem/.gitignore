@@ -8,4 +8,3 @@ packages/
 *.cache
 *.log
 appsettings.json
-web.config
