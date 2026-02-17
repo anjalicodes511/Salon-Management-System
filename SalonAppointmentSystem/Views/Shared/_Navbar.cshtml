@@ -49,6 +49,7 @@
 
             @if (currentController == "Account" && currentAction == "Index")
             {
+                
                 if (Session["UserId"] != null)
                 {
                     using (Html.BeginForm("Logout", "Account", FormMethod.Post))
@@ -73,6 +74,7 @@
 </nav>
 
 <style>
+
     /* NAVBAR */
     .custom-navbar {
             padding: 18px 0;

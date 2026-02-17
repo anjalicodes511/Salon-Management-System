@@ -13,12 +13,21 @@
                 and professional expertise. Book your appointment effortlessly.
             </p>
             <div class="hero-buttons">
-                <a href="@Url.Action("Login", "Account")" class="btn btn-primary-custom">
-                    Login
-                </a>
-                <a href="@Url.Action("Signup", "Account")" class="btn btn-outline-custom">
-                    Sign Up
-                </a>
+                @if (Session["Role"] == null)
+                {
+                    <a href="@Url.Action("Login", "Account")" class="btn btn-primary-custom">
+                        Login
+                    </a>
+                    <a href="@Url.Action("Signup", "Account")" class="btn btn-outline-custom">
+                        Sign Up
+                    </a>
+                }
+                else
+                {
+                    <a href="@Url.Action("Index", "Account")" class="btn btn-primary-custom">
+                        Go to Dashboard
+                    </a>
+                }
             </div>
         </div>
 
@@ -82,14 +91,17 @@
         </div>
 
         <!-- Login CTA -->
-        <div class="mt-4">
-            <p class="login-note">
-                Login to explore our complete list of services.
-            </p>
-            <a href="@Url.Action("Login","Account")" class="btn explore-btn">
-                Login Now
-            </a>
-        </div>
+        @if (Session["Role"] == null)
+        {
+            <div class="mt-4">
+                <p class="login-note">
+                    Login to explore our complete list of services.
+                </p>
+                <a href="@Url.Action("Login","Account")" class="btn explore-btn">
+                    Login Now
+                </a>
+            </div>
+        }
 
     </div>
 </section>

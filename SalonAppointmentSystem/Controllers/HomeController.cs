@@ -11,10 +11,6 @@ namespace SalonAppointmentSystem.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            if (Session["UserId"] != null)
-            {
-                return RedirectToAction("Index", "Account");
-            }
             return View();
         }
     }

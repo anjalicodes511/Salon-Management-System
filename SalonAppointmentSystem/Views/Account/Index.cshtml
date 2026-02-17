@@ -29,7 +29,7 @@
             <!-- Book Appointment -->
             <div class="col-md-4">
                 <div class="card dashboard-card h-100">
-                    <div class="card-header gradient-purple text-center">
+                    <div class="card-header bg-emerald text-center">
                         📅 Book Appointment
                     </div>
                     <div class="card-body text-center">
@@ -61,7 +61,7 @@
             <!-- My Appointments -->
             <div class="col-md-4">
                 <div class="card dashboard-card h-100">
-                    <div class="card-header gradient-green text-center">
+                    <div class="card-header bg-deepblue text-center">
                         🧾 My Appointments
                     </div>
                     <div class="card-body text-center">
@@ -80,130 +80,134 @@
 
 else if (Session["Role"] != null && Session["Role"].ToString() == "Admin")
 {
-<div class="container mt-2">
+    <div class="container mt-2">
 
-    <div class="text-center mb-5">
+        <div class="text-center mb-5">
 
-        <h1 class="hero-title">
-            Welcome back, <span class="username">@username</span> ✨
-        </h1>
+            <h1 class="hero-title">
+                Welcome back, <span class="username">@username</span> ✨
+            </h1>
 
-        <p class="hero-subtitle">
-            Manage your salon operations with ease
-        </p>
+            <p class="hero-subtitle">
+                Manage your salon operations with ease
+            </p>
 
+        </div>
+
+        <div class="row g-4 justify-content-center">
+
+            <!-- Manage Appointments -->
+            <div class="col-md-4">
+                <div class="card dashboard-card h-100">
+                    <div class="card-header background-primary text-center">
+                        📅 Manage Appointments
+                    </div>
+                    <div class="card-body text-center">
+                        <p>View, approve, or cancel customer appointments.</p>
+                        <a href="@Url.Action("AllAppointments", "Appointment")"
+                           class="btn btn-light dashboard-btn">
+                            Manage Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manage Services -->
+            <div class="col-md-4">
+                <div class="card dashboard-card h-100">
+                    <div class="card-header gradient-blue text-center">
+                        💇 Manage Services
+                    </div>
+                    <div class="card-body text-center">
+                        <p>Add, edit, or remove salon services and pricing.</p>
+                        <a href="@Url.Action("Index", "Service")"
+                           class="btn btn-light dashboard-btn">
+                            Manage Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manage Stylists -->
+            <div class="col-md-4">
+                <div class="card dashboard-card h-100">
+                    <div class="card-header gradient-orange text-center">
+                        ✂️ Manage Stylists
+                    </div>
+                    <div class="card-body text-center">
+                        <p>Add stylists, update info, and assign slots.</p>
+                        <a href="@Url.Action("Index", "Stylist")"
+                           class="btn btn-light dashboard-btn">
+                            Manage Stylists
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manage Customers -->
+            <div class="col-md-4">
+                <div class="card dashboard-card h-100">
+                    <div class="card-header bg-deepblue text-center">
+                        👥 Manage Customers
+                    </div>
+                    <div class="card-body text-center">
+                        <p>View registered customers and their details.</p>
+                        <a href="@Url.Action("CustomerDetails", "Admin")"
+                           class="btn btn-light dashboard-btn">
+                            View Customers
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reports -->
+            <div class="col-md-4">
+                <div class="card dashboard-card h-100">
+                    <div class="card-header bg-warm text-center">
+                        📊 Reports
+                    </div>
+                    <div class="card-body text-center">
+                        <p>Generate reports on appointments and revenue.</p>
+                        <a href="@Url.Action("Index", "Report")"
+                           class="btn btn-light dashboard-btn">
+                            View Reports
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card dashboard-card h-100">
+                    <div class="card-header bg-emerald text-center">
+                        👤 Add New Admin
+                    </div>
+                    <div class="card-body text-center">
+                        <p>Grant admin access to manage system operations safely.</p>
+                        <a href="@Url.Action("Signup", "Account")"
+                           class="btn btn-light dashboard-btn">
+                            Add Admin
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-
-    <div class="row g-4 justify-content-center">
-
-        <!-- Manage Appointments -->
-        <div class="col-md-4">
-            <div class="card dashboard-card h-100">
-                <div class="card-header background-primary text-center">
-                    📅 Manage Appointments
-                </div>
-                <div class="card-body text-center">
-                    <p>View, approve, or cancel customer appointments.</p>
-                    <a href="@Url.Action("AllAppointments", "Appointment")"
-                       class="btn btn-light dashboard-btn">
-                        Manage Now
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Manage Services -->
-        <div class="col-md-4">
-            <div class="card dashboard-card h-100">
-                <div class="card-header gradient-blue text-center">
-                    💇 Manage Services
-                </div>
-                <div class="card-body text-center">
-                    <p>Add, edit, or remove salon services and pricing.</p>
-                    <a href="@Url.Action("Index", "Service")"
-                       class="btn btn-light dashboard-btn">
-                        Manage Services
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Manage Stylists -->
-        <div class="col-md-4">
-            <div class="card dashboard-card h-100">
-                <div class="card-header gradient-orange text-center">
-                    ✂️ Manage Stylists
-                </div>
-                <div class="card-body text-center">
-                    <p>Add stylists, update info, and assign slots.</p>
-                    <a href="@Url.Action("Index", "Stylist")"
-                       class="btn btn-light dashboard-btn">
-                        Manage Stylists
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Manage Customers -->
-        <div class="col-md-4">
-            <div class="card dashboard-card h-100">
-                <div class="card-header bg-deepblue text-center">
-                    👥 Manage Customers
-                </div>
-                <div class="card-body text-center">
-                    <p>View registered customers and their details.</p>
-                    <a href="@Url.Action("CustomerDetails", "Admin")"
-                       class="btn btn-light dashboard-btn">
-                        View Customers
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Reports -->
-        <div class="col-md-4">
-            <div class="card dashboard-card h-100">
-                <div class="card-header bg-warm text-center">
-                    📊 Reports
-                </div>
-                <div class="card-body text-center">
-                    <p>Generate reports on appointments and revenue.</p>
-                    <a href="@Url.Action("Index", "Report")"
-                       class="btn btn-light dashboard-btn">
-                        View Reports
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card dashboard-card h-100">
-                <div class="card-header bg-emerald text-center">
-                    👤 Add New Admin
-                </div>
-                <div class="card-body text-center">
-                    <p>Grant admin access to manage system operations safely.</p>
-                    <a href="@Url.Action("Signup", "Account")"
-                       class="btn btn-light dashboard-btn">
-                        Add Admin
-                    </a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
 }
+@Html.ActionLink("🏠 Back to Home", "Index", "Home", null, new { @class = "btn btn-hover background-primary mb-4 mt-5 mx-3" })
+
 <style>
     .bg-emerald {
         background: linear-gradient(135deg, #134e5e, #71b280);
         color: white;
         transition: background 0.3s ease;
     }
+
     .bg-warm {
         background: linear-gradient(135deg, #c31432, #240b36);
         color: white;
         transition: background 0.3s ease;
     }
+
     .bg-deepblue {
         background: linear-gradient(135deg, #1e3c72, #2a5298);
         color: white;
