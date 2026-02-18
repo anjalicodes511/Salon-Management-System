@@ -5,212 +5,225 @@
 
 @Html.Partial("_Navbar")
 
+<div class="container mt-5">
 
+    <!-- Welcome Section -->
+    <div class="text-center mb-5">
 
-@if (Session["Role"] != null && Session["Role"].ToString() == "Customer")
-{
-    <div class="container mt-5">
+        <h1 class="hero-title">
+            Welcome back, <span class="username">@username</span> ✨
+        </h1>
 
-        <div class="text-center mb-5">
+        <p class="hero-subtitle">
+            @(Session["Role"]?.ToString() == "Customer"
+    ? "Your beauty journey starts here. Manage appointments effortlessly."
+    : "Manage your salon operations with ease")
+        </p>
 
-            <h1 class="hero-title">
-                Welcome back, <span class="username">@username</span> ✨
-            </h1>
-
-            <p class="hero-subtitle">
-                Your beauty journey starts here. Manage appointments effortlessly.
-            </p>
-
-        </div>
-
-
-        <div class="row g-4">
-
-            <!-- Book Appointment -->
-            <div class="col-md-4">
-                <div class="card dashboard-card h-100">
-                    <div class="card-header bg-emerald text-center">
-                        📅 Book Appointment
-                    </div>
-                    <div class="card-body text-center">
-                        <p>Schedule a service with your preferred stylist.</p>
-                        <a href="@Url.Action("Index", "Service")"
-                           class="btn btn-light dashboard-btn">
-                            Book Now
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Services -->
-            <div class="col-md-4">
-                <div class="card dashboard-card h-100">
-                    <div class="card-header gradient-blue text-center">
-                        💇 Our Services
-                    </div>
-                    <div class="card-body text-center">
-                        <p>Explore salon services and pricing.</p>
-                        <a href="@Url.Action("Index", "Service")"
-                           class="btn btn-light dashboard-btn">
-                            View Services
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- My Appointments -->
-            <div class="col-md-4">
-                <div class="card dashboard-card h-100">
-                    <div class="card-header bg-deepblue text-center">
-                        🧾 My Appointments
-                    </div>
-                    <div class="card-body text-center">
-                        <p>View and manage your upcoming appointments.</p>
-                        <a href="@Url.Action("Appointments", "Appointment")"
-                           class="btn btn-light dashboard-btn">
-                            View Appointments
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
     </div>
-}
+   
+    <!-- Dashboard Panels -->
+    <div class="dashboard-panels">
 
-else if (Session["Role"] != null && Session["Role"].ToString() == "Admin")
-{
-    <div class="container mt-2">
-
-        <div class="text-center mb-5">
-
-            <h1 class="hero-title">
-                Welcome back, <span class="username">@username</span> ✨
-            </h1>
-
-            <p class="hero-subtitle">
-                Manage your salon operations with ease
-            </p>
-
-        </div>
-
-        <div class="row g-4 justify-content-center">
-
-            <!-- Manage Appointments -->
-            <div class="col-md-4">
-                <div class="card dashboard-card h-100">
-                    <div class="card-header background-primary text-center">
-                        📅 Manage Appointments
-                    </div>
-                    <div class="card-body text-center">
-                        <p>View, approve, or cancel customer appointments.</p>
-                        <a href="@Url.Action("AllAppointments", "Appointment")"
-                           class="btn btn-light dashboard-btn">
-                            Manage Now
-                        </a>
-                    </div>
+        @if (Session["Role"]?.ToString() == "Customer")
+        {
+            <a href="@Url.Action("Index", "Service")" class="dashboard-panel">
+                <div class="panel-icon">📅</div>
+                <div class="panel-content">
+                    <h3>Book Appointment</h3>
+                    <p>Schedule a service with your preferred stylist.</p>
                 </div>
-            </div>
+            </a>
 
-            <!-- Manage Services -->
-            <div class="col-md-4">
-                <div class="card dashboard-card h-100">
-                    <div class="card-header gradient-blue text-center">
-                        💇 Manage Services
-                    </div>
-                    <div class="card-body text-center">
-                        <p>Add, edit, or remove salon services and pricing.</p>
-                        <a href="@Url.Action("Index", "Service")"
-                           class="btn btn-light dashboard-btn">
-                            Manage Services
-                        </a>
-                    </div>
+            <a href="@Url.Action("Index", "Service")" class="dashboard-panel">
+                <div class="panel-icon">💇</div>
+                <div class="panel-content">
+                    <h3>Our Services</h3>
+                    <p>Explore salon services and pricing.</p>
                 </div>
-            </div>
+            </a>
 
-            <!-- Manage Stylists -->
-            <div class="col-md-4">
-                <div class="card dashboard-card h-100">
-                    <div class="card-header gradient-orange text-center">
-                        ✂️ Manage Stylists
-                    </div>
-                    <div class="card-body text-center">
-                        <p>Add stylists, update info, and assign slots.</p>
-                        <a href="@Url.Action("Index", "Stylist")"
-                           class="btn btn-light dashboard-btn">
-                            Manage Stylists
-                        </a>
-                    </div>
+            <a href="@Url.Action("Appointments", "Appointment")" class="dashboard-panel">
+                <div class="panel-icon">🧾</div>
+                <div class="panel-content">
+                    <h3>My Appointments</h3>
+                    <p>View and manage your upcoming appointments.</p>
                 </div>
-            </div>
+            </a>
+        }
+        else if (Session["Role"]?.ToString() == "Admin")
+        {
+            <a href="@Url.Action("AllAppointments", "Appointment")" class="dashboard-panel">
+                <div class="panel-icon">📅</div>
+                <div class="panel-content">
+                    <h3>Manage Appointments</h3>
+                    <p>View, approve, or cancel customer appointments.</p>
+                </div>
+            </a>
 
-            <!-- Manage Customers -->
-            <div class="col-md-4">
-                <div class="card dashboard-card h-100">
-                    <div class="card-header bg-deepblue text-center">
-                        👥 Manage Customers
-                    </div>
-                    <div class="card-body text-center">
-                        <p>View registered customers and their details.</p>
-                        <a href="@Url.Action("CustomerDetails", "Admin")"
-                           class="btn btn-light dashboard-btn">
-                            View Customers
-                        </a>
-                    </div>
+            <a href="@Url.Action("Index", "Service")" class="dashboard-panel">
+                <div class="panel-icon">💇</div>
+                <div class="panel-content">
+                    <h3>Manage Services</h3>
+                    <p>Add, edit, or remove salon services and pricing.</p>
                 </div>
-            </div>
+            </a>
 
-            <!-- Reports -->
-            <div class="col-md-4">
-                <div class="card dashboard-card h-100">
-                    <div class="card-header bg-warm text-center">
-                        📊 Reports
-                    </div>
-                    <div class="card-body text-center">
-                        <p>Generate reports on appointments and revenue.</p>
-                        <a href="@Url.Action("Index", "Report")"
-                           class="btn btn-light dashboard-btn">
-                            View Reports
-                        </a>
-                    </div>
+            <a href="@Url.Action("Index", "Stylist")" class="dashboard-panel">
+                <div class="panel-icon">✂️</div>
+                <div class="panel-content">
+                    <h3>Manage Stylists</h3>
+                    <p>Add stylists, update info, and assign slots.</p>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card dashboard-card h-100">
-                    <div class="card-header bg-emerald text-center">
-                        👤 Add New Admin
-                    </div>
-                    <div class="card-body text-center">
-                        <p>Grant admin access to manage system operations safely.</p>
-                        <a href="@Url.Action("Signup", "Account")"
-                           class="btn btn-light dashboard-btn">
-                            Add Admin
-                        </a>
-                    </div>
-                </div>
-            </div>
+            </a>
 
-        </div>
+            <a href="@Url.Action("CustomerDetails", "Admin")" class="dashboard-panel">
+                <div class="panel-icon">👥</div>
+                <div class="panel-content">
+                    <h3>Manage Customers</h3>
+                    <p>View registered customers and their details.</p>
+                </div>
+            </a>
+
+            <a href="@Url.Action("Index", "Report")" class="dashboard-panel">
+                <div class="panel-icon">📊</div>
+                <div class="panel-content">
+                    <h3>Reports</h3>
+                    <p>Generate reports on appointments and revenue.</p>
+                </div>
+            </a>
+
+            <a href="@Url.Action("Signup", "Account")" class="dashboard-panel">
+                <div class="panel-icon">👤</div>
+                <div class="panel-content">
+                    <h3>Add New Admin</h3>
+                    <p>Grant admin access to manage system operations safely.</p>
+                </div>
+            </a>
+        }
+
     </div>
-}
-@Html.ActionLink("🏠 Back to Home", "Index", "Home", null, new { @class = "btn btn-hover background-primary mb-4 mt-5 mx-3" })
+
+    <div class="text-center mt-5">
+        @Html.ActionLink("🏠 Back to Home", "Index", "Home", null, new { @class = "btn btn-hover mb-4" })
+    </div>
+</div>
 
 <style>
-    .bg-emerald {
-        background: linear-gradient(135deg, #134e5e, #71b280);
-        color: white;
-        transition: background 0.3s ease;
-    }
+    /* Panels Grid */
+.dashboard-panels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
 
-    .bg-warm {
-        background: linear-gradient(135deg, #c31432, #240b36);
-        color: white;
-        transition: background 0.3s ease;
-    }
+/* Modern Panel Styling */
+.dashboard-panel {
+    display: flex;
+    align-items: flex-start; /* Align content to top for better spacing */
+    padding: 25px 30px; /* Slightly more padding */
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    text-decoration: none;
+    color: #5A189A;
+    transition: all 0.35s ease;
+    box-shadow: 0 6px 20px rgba(90, 24, 154, 0.1);
+    backdrop-filter: blur(6px);
+    position: relative;
+    overflow: hidden;
+}
 
-    .bg-deepblue {
-        background: linear-gradient(135deg, #1e3c72, #2a5298);
-        color: white;
-        transition: background 0.3s ease;
+/* Left accent line */
+.dashboard-panel::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background: linear-gradient(180deg, #4a148c, #7b1fa2);
+    border-radius: 5px 0 0 5px;
+    transition: all 0.35s ease;
+}
+
+.dashboard-panel:hover::before {
+    width: 8px;
+}
+
+/* Hover Effects */
+.dashboard-panel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px rgba(90, 24, 154, 0.2);
+    background: rgba(255, 255, 255, 1);
+}
+
+/* Panel Icon */
+.panel-icon {
+    font-size: 2.8rem;
+    margin-right: 28px; /* Increased horizontal gap from text */
+    flex-shrink: 0;
+    transition: transform 0.35s ease, color 0.35s ease;
+}
+
+.dashboard-panel:hover .panel-icon {
+    transform: scale(1.15) rotate(5deg);
+    color: #7b1fa2;
+}
+
+/* Panel Content */
+.panel-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px; /* Space between title and description */
+}
+
+.panel-content h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #4a148c;
+    transition: color 0.35s ease;
+}
+
+.panel-content p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #6a1b9a;
+    line-height: 1.4; /* Slightly taller line for readability */
+    transition: color 0.35s ease;
+}
+
+/* Smooth hover effect for text */
+.dashboard-panel:hover .panel-content h3 {
+    color: #6a1b9a;
+}
+
+.dashboard-panel:hover .panel-content p {
+    color: #7b1fa2;
+}
+
+/* Back Button */
+.btn-hover {
+    padding: 10px 30px;
+    border-radius: 30px;
+    background: #4a148c;
+    color: #fff !important;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(90, 24, 154, 0.3);
+}
+
+/* Responsive */
+@@media(max-width: 767px){
+    .dashboard-panel {
+        flex-direction: row;
+        padding: 20px;
     }
+    .panel-icon { font-size: 2.2rem; margin-right: 18px; }
+}
+
 </style>

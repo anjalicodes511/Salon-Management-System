@@ -1,4 +1,6 @@
-﻿using SalonAppointmentSystem.DAL;
+﻿using Dapper;
+using SalonAppointmentSystem.DAL;
+using SalonAppointmentSystem.Models.Enums;
 using SalonAppointmentSystem.Models.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -38,5 +40,36 @@ namespace SalonAppointmentSystem.Controllers
                 });
             }
         }
+    
+        public ActionResult CustomerProfile(int id)
+        {
+            if (Session["Role"] == null || Session["Role"].ToString() != "Admin")
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return View();
+        }
+        public JsonResult GetCustomerProfile(int customerId)
+        {
+            var customers = DapperORM.ReturnList<CustomerDetailsVM>("GetAllCustomers");
+            var customer = customers.Where(x => x.CustomerId == customerId).FirstOrDefault();
+            
+            DynamicParameters dp = new DynamicParameters();
+            dp.Add("@CustomerId", customerId);
+            var appointments = DapperORM.ReturnList<AppointmentVM>("GetAppointementsByCustomerId",dp);
+
+            var statistics = new
+            {
+                total = appointments.Count(),
+                pending = appointments.Count(x => x.Status == AppointmentStatus.Booked),
+                cancelled = appointments.Count(x => x.Status == AppointmentStatus.Cancelled),
+                completed = appointments.Count(x => x.Status == AppointmentStatus.Completed),
+                absent = appointments.Count(x => x.Status == AppointmentStatus.NoShow)
+            };
+
+            return Json(new { customer, appointments, statistics }, JsonRequestBehavior.AllowGet);
+        }
+
+
     }
 }

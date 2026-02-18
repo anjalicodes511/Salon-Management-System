@@ -224,6 +224,7 @@
     <Content Include="Views\Appointment\AllAppointments.cshtml" />
     <Content Include="Views\Admin\CustomerDetails.cshtml" />
     <Content Include="Views\Report\Index.cshtml" />
+    <Content Include="Views\Admin\CustomerProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

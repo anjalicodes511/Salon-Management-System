@@ -4,7 +4,7 @@
 }
 @Html.Partial("_Navbar")
 <div class="text-center mb-5">
-    <h1 class="hero-title mt-5">
+    <h1 class="hero-title mt-3">
         Customer Details
     </h1>
     <div class="mx-auto mt-2"
@@ -90,7 +90,7 @@
                 let customer = new CustomerDetailsVM(item);
 
                 let html = `
-                                    <tr>
+                                    <tr class="customer-row" data-id="${customer.CustomerId}" style="cursor:pointer;">
                                         <td>${customer.CustomerId}</td>
                                         <td>${customer.FullName}</td>
                                         <td>${customer.Email}</td>
@@ -108,10 +108,23 @@
             }
 
             $("#customerTable").DataTable({
-                pageLength: 10,
+                pageLength: 5,
+                lengthMenu: [[5, 10, 25, 50], [5, 10, 25, 50]],
                 ordering: true,
-                searching: true
+                searching: true,
+                responsive: true,
+                language: {
+                    search: "_INPUT_",
+                    searchPlaceholder: "Search appointments..."
+                }
             });
+
+            // Row Click Event
+            $("#customerTable tbody").off("click").on("click", "tr.customer-row", function () {
+                let customerId = $(this).data("id");
+                window.location.href = "/Admin/CustomerProfile/" + customerId;
+            });
+
         }
     </script>
 }

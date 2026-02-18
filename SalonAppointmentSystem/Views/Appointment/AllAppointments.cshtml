@@ -141,7 +141,8 @@
             }
 
             $("#appointmentsTable").DataTable({
-                pageLength: 10,
+                pageLength: 5,
+                lengthMenu: [[5, 10, 25, 50], [5, 10, 25, 50]],
                 ordering: true,
                 searching: true,
                 responsive: true,

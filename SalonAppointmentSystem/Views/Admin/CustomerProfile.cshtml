@@ -1,0 +1,406 @@
+﻿@{
+    ViewBag.Title = "Customer Profile";
+}
+@Html.Partial("_Navbar")
+
+<div class="text-center mb-5">
+    <h1 class="hero-title mt-3">
+        Customer Details
+    </h1>
+    <div class="mx-auto mt-2"
+         style="width: 60px; height: 4px; border-radius: 2px; background: linear-gradient(135deg, #2E003E, #5A189A);">
+    </div>
+    <p class="text-muted mt-2 small">
+        View and manage all customer details
+    </p>
+</div>
+<div class="container mt-5">
+
+    <div class="card premium-customer-card mb-4">
+        <div class="card-header premium-header background-primary">
+            <h4 class="mb-0">Customer Profile</h4>
+        </div>
+
+        <div class="card-body">
+            <div class="row align-items-center">
+
+                <!-- Avatar Section -->
+                <div class="col-md-3 text-center mb-4 mb-md-0">
+                    <div class="customer-avatar" id="customerAvatar">
+
+                    </div>
+                    <div class="mt-2">
+                        <span class="status-indicator active-status"></span>
+                        <small class="text-muted"></small>
+                    </div>
+                </div>
+
+                <!-- Info Section -->
+                <div class="col-md-9">
+                    <div id="customerInfo" class="customer-info-grid"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Appointment History Section -->
+    <div class="card shadow-lg border-0 rounded-4 mb-4 mt-5">
+
+        <div class="card-header text-white py-3 background-primary"
+             style=" border-radius: 1rem 1rem 0 0;">
+            <h5 class="mb-0 fw-semibold">
+                <i class="bi bi-clock-history me-2"></i>
+                Appointment History
+            </h5>
+        </div>
+
+        <div class="card-body bg-light rounded-bottom-4">
+            <div class="row text-center">
+
+                <!-- Total -->
+                <div class="col mb-3">
+                    <div class="p-3 rounded-4 bg-white shadow-sm">
+                        <h6 class="text-muted mb-1">Total Appointments</h6>
+                        <h4 class="fw-bold text-dark" id="totalAppointments">0</h4>
+                    </div>
+                </div>
+
+                <!-- Completed -->
+                <div class="col mb-3">
+                    <div class="p-3 rounded-4 bg-white shadow-sm">
+                        <h6 class="text-muted mb-1">Completed</h6>
+                        <h4 class="fw-bold text-success" id="completedAppointments">0</h4>
+                    </div>
+                </div>
+
+                <!-- Cancelled -->
+                <div class="col mb-3">
+                    <div class="p-3 rounded-4 bg-white shadow-sm">
+                        <h6 class="text-muted mb-1">Cancelled</h6>
+                        <h4 class="fw-bold text-danger" id="cancelledAppointments">0</h4>
+                    </div>
+                </div>
+
+                <div class="col mb-3">
+                    <div class="p-3 rounded-4 bg-white shadow-sm">
+                        <h6 class="text-muted mb-1">Pending</h6>
+                        <h4 class="fw-bold text-primary" id="pendingAppointments">0</h4>
+                    </div>
+                </div>
+
+                <!-- No Show -->
+                <div class="col mb-3">
+                    <div class="p-3 rounded-4 bg-white shadow-sm">
+                        <h6 class="text-muted mb-1">No Show</h6>
+                        <h4 class="fw-bold text-warning" id="noShowAppointments">0</h4>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-5 mb-3 px-0">
+
+        <div class="card shadow-lg border-0 rounded-4 background-primary p-3">
+
+            <div class="card-body p-4">
+
+                <table id="appointmentTable" class="table table-bordered table-striped text-center table-hover mt-4">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Date</th>
+                            <th>Service</th>
+                            <th>Stylist</th>
+                            <th>Status</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="appointmentContainer"></tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+@Html.ActionLink("← Back", "CustomerDetails", "Admin", null, new { @class = "btn btn-hover background-primary mb-4 mx-2" })
+
+<style>
+
+    /* Card Base */
+    .premium-customer-card {
+        border: none;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+        transition: all 0.3s ease;
+    }
+
+    .premium-customer-card:hover {
+        transform: translateY(-5px);
+    }
+
+    /* Gradient Header */
+    .premium-header {
+        color: white;
+        padding: 18px 25px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* Avatar */
+    .customer-avatar {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #b76e79, #f7cac9);
+        color: white;
+        font-size: 28px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Status Dot */
+    .status-indicator {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 6px;
+    }
+
+    .active-status {
+        background-color: #28a745;
+    }
+
+    /* Info Grid */
+    .customer-info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+    }
+
+    /* Info Item */
+    .info-item {
+        background: #f9f9fb;
+        padding: 14px 18px;
+        border-radius: 14px;
+        transition: all 0.2s ease;
+    }
+
+        .info-item:hover {
+            background: #f1f1f5;
+        }
+
+    .info-label {
+        font-size: 12px;
+        text-transform: uppercase;
+        color: #888;
+        letter-spacing: 0.5px;
+    }
+
+    .info-value {
+        font-size: 16px;
+    }
+    .inactive-status {
+        background-color: #dc3545;
+    }
+
+</style>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            loadCustomerProfile();
+        });
+
+        function loadCustomerProfile() {
+
+            let customerId = window.location.pathname.split("/").pop();
+
+            $.ajax({
+                url: "/Admin/GetCustomerProfile?customerId=" + customerId,
+                type: "GET",
+                success: function (res) {
+                    renderCustomerInfo(res.customer);
+                    renderAppointments(res.appointments);
+                    renderStatistics(res.statistics);
+                },
+                error: function () {
+                    alert("Error loading profile");
+                }
+            });
+        }
+
+
+        function parseNetDate(value) {
+            return new Date(parseInt(value.substr(6)));
+        }
+
+        function formatDate(date) {
+            return date.toLocaleDateString();
+        }
+
+        function formatTime(ts) {
+            return `${ts.Hours.toString().padStart(2, "0")}:${ts.Minutes.toString().padStart(2, "0")}`;
+        }
+
+
+        const AppointmentStatusText = {
+            1: "Booked",
+            2: "Cancelled",
+            3: "Completed",
+            4: "No Show"
+        };
+
+
+        function AppointmentModel(obj) {
+            this.AppointmentId = obj.AppointmentId;
+            this.CustomerName = obj.CustomerName;
+            this.ServiceName = obj.ServiceName;
+            this.StylistName = obj.StylistName;
+            this.AppointmentDate = parseNetDate(obj.AppointmentDate);
+            this.StartTime = obj.StartTime;
+            this.EndTime = obj.EndTime;
+            this.Status = obj.Status;
+            this.StatusText = AppointmentStatusText[obj.Status];
+        }
+
+        function CustomerDetailsModel(obj) {
+            this.FullName = obj.FullName;
+            this.Email = obj.Email;
+            this.Phone = obj.Phone;
+            this.Gender = obj.Gender;
+            this.TotalAppointments = obj.TotalAppointments;
+            this.IsActive = obj.IsActive;
+        }
+
+        function renderStatistics(statistics) {
+            if (!statistics) return;
+
+            $("#totalAppointments").text(statistics.total ?? 0);
+            $("#completedAppointments").text(statistics.completed ?? 0);
+            $("#pendingAppointments").text(statistics.pending ?? 0);
+            $("#cancelledAppointments").text(statistics.cancelled ?? 0);
+            $("#noShowAppointments").text(statistics.absent ?? 0);
+        }
+
+        function renderCustomerInfo(customer) {
+
+            let customerDetails = new CustomerDetailsModel(customer);
+
+            let initials = customerDetails.FullName.split(" ").map(x => x[0]).join("").toUpperCase();
+
+            $("#customerAvatar").text(initials);
+
+            // Dynamic Status
+            let statusText = customerDetails.IsActive ? "Active Customer" : "Inactive Customer";
+            let statusClass = customerDetails.IsActive ? "active-status" : "inactive-status";
+            let badgeClass = customerDetails.IsActive ? "bg-success" : "bg-danger";
+
+            // Update status under avatar
+            $(".status-indicator")
+                .removeClass("active-status inactive-status")
+                .addClass(statusClass);
+
+            $(".status-indicator")
+                .next("small")
+                .text(statusText);
+
+            let html = `
+                        <div class="info-item">
+                            <div class="info-label">Full Name</div>
+                            <div class="info-value">${customerDetails.FullName}</div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Email</div>
+                            <div class="info-value">${customerDetails.Email}</div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Phone</div>
+                            <div class="info-value">${customerDetails.Phone}</div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Gender</div>
+                            <div class="info-value">${customerDetails.Gender}</div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Total Appointments</div>
+                            <div class="info-value">${customerDetails.TotalAppointments}</div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-label">Account Status</div>
+                            <div class="info-value">
+                                <span class="badge ${badgeClass}">
+                                    ${customerDetails.IsActive ? "Active" : "Inactive"}
+                                </span>
+                            </div>
+                        </div>
+                    `;
+
+            $("#customerInfo").html(html);
+        }
+
+        function renderAppointments(appointments) {
+
+            let container = $("#appointmentContainer");
+            container.empty();
+
+            if (!appointments || appointments.length === 0) {
+                container.append(`<tr><td colspan="5">No Appointments Found</td></tr>`);
+                return;
+            }
+
+            appointments.forEach(obj => {
+
+                let appointment = new AppointmentModel(obj);
+
+                // Status Badge Styling
+                let badgeClass = "bg-secondary";
+                if (appointment.Status === 1) badgeClass = "bg-primary";
+                if (appointment.Status === 2) badgeClass = "bg-danger";
+                if (appointment.Status === 3) badgeClass = "bg-success";
+                if (appointment.Status === 4) badgeClass = "bg-warning text-dark";
+
+                container.append(`
+                <tr>
+                    <td>${formatDate(appointment.AppointmentDate)}</td>
+                    <td>${appointment.ServiceName}</td>
+                    <td>${appointment.StylistName}</td>
+                    <td><span class="badge ${badgeClass}">${appointment.StatusText}</span></td>
+                    <td>${formatTime(appointment.StartTime)} - ${formatTime(appointment.EndTime)}</td>
+                </tr>
+            `);
+            });
+
+            if ($.fn.DataTable.isDataTable("#appointmentTable")) {
+                $("#appointmentTable").DataTable().destroy();
+            }
+
+            $("#appointmentTable").DataTable({
+                pageLength: 5,
+                lengthMenu: [[5, 10, 25, 50], [5, 10, 25, 50]],
+                ordering: true,
+                searching: true,
+                responsive: true,
+                language: {
+                    search: "_INPUT_",
+                    searchPlaceholder: "Search appointments..."
+                }
+            });
+        }
+
+
+    </script>
+}
