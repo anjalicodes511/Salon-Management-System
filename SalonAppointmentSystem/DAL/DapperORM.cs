@@ -21,6 +21,15 @@ namespace SalonAppointmentSystem.DAL
                 con.Execute(ProcedureName, param, commandType: CommandType.StoredProcedure);
             }
         }
+
+        public static void ExecuteWithoutReturn(string ProcedureName, object param)
+        {
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                con.Open();
+                con.Execute(ProcedureName, param, commandType: CommandType.StoredProcedure);
+            }
+        }
         public static T ReturnSingle<T>(string ProcedureName, DynamicParameters param = null)
         {
             using (SqlConnection con = new SqlConnection(cs))

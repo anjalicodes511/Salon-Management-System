@@ -8,97 +8,118 @@
 <div class="container mt-5">
 
     <!-- Welcome Section -->
-    <div class="text-center mb-5">
+    <div class="welcome-card mb-5">
+        <div class="welcome-content">
+            <h1 class="welcome-title color-primary">
+                Welcome back, <span class="username">@username</span> ✨
+            </h1>
 
-        <h1 class="hero-title">
-            Welcome back, <span class="username">@username</span> ✨
-        </h1>
-
-        <p class="hero-subtitle">
-            @(Session["Role"]?.ToString() == "Customer"
-    ? "Your beauty journey starts here. Manage appointments effortlessly."
-    : "Manage your salon operations with ease")
-        </p>
-
+            <p class="welcome-subtitle">
+                @(Session["Role"]?.ToString() == "Customer"
+                ? "Your beauty journey starts here. Manage appointments effortlessly."
+                : "Manage your salon operations with ease")
+            </p>
+        </div>
     </div>
-   
+
+
+
+
     <!-- Dashboard Panels -->
     <div class="dashboard-panels">
 
         @if (Session["Role"]?.ToString() == "Customer")
         {
             <a href="@Url.Action("Index", "Service")" class="dashboard-panel">
-                <div class="panel-icon">📅</div>
                 <div class="panel-content">
-                    <h3>Book Appointment</h3>
+                    <h5>Book Appointment</h5>
+                    <h2>Manage Now</h2>
                     <p>Schedule a service with your preferred stylist.</p>
                 </div>
+                <div class="panel-icon">📅</div>
             </a>
 
             <a href="@Url.Action("Index", "Service")" class="dashboard-panel">
-                <div class="panel-icon">💇</div>
                 <div class="panel-content">
-                    <h3>Our Services</h3>
-                    <p>Explore salon services and pricing.</p>
+                    <h5>Our Services</h5>
+                    <h2>Explore</h2>
+                    <p>Browse salon services and pricing.</p>
                 </div>
+                <div class="panel-icon">💇</div>
             </a>
 
             <a href="@Url.Action("Appointments", "Appointment")" class="dashboard-panel">
-                <div class="panel-icon">🧾</div>
                 <div class="panel-content">
-                    <h3>My Appointments</h3>
-                    <p>View and manage your upcoming appointments.</p>
+                    <h5>My Appointments</h5>
+                    <h2>View All</h2>
+                    <p>Manage your upcoming bookings.</p>
                 </div>
+                <div class="panel-icon">🧾</div>
+            </a>
+
+            <a href="@Url.Action("MyDetails", "Home")" class="dashboard-panel">
+                <div class="panel-content">
+                    <h5>Profile</h5>
+                    <h2>My Account</h2>
+                    <p>View and update your details.</p>
+                </div>
+                <div class="panel-icon">👤</div>
             </a>
         }
         else if (Session["Role"]?.ToString() == "Admin")
         {
             <a href="@Url.Action("AllAppointments", "Appointment")" class="dashboard-panel">
-                <div class="panel-icon">📅</div>
                 <div class="panel-content">
-                    <h3>Manage Appointments</h3>
-                    <p>View, approve, or cancel customer appointments.</p>
+                    <h5>Appointments</h5>
+                    <h2>Manage</h2>
+                    <p>Approve or cancel bookings.</p>
                 </div>
+                <div class="panel-icon">📅</div>
             </a>
 
             <a href="@Url.Action("Index", "Service")" class="dashboard-panel">
-                <div class="panel-icon">💇</div>
                 <div class="panel-content">
-                    <h3>Manage Services</h3>
-                    <p>Add, edit, or remove salon services and pricing.</p>
+                    <h5>Services</h5>
+                    <h2>Manage</h2>
+                    <p>Add or update salon services.</p>
                 </div>
+                <div class="panel-icon">💇</div>
             </a>
 
             <a href="@Url.Action("Index", "Stylist")" class="dashboard-panel">
-                <div class="panel-icon">✂️</div>
                 <div class="panel-content">
-                    <h3>Manage Stylists</h3>
-                    <p>Add stylists, update info, and assign slots.</p>
+                    <h5>Stylists</h5>
+                    <h2>Manage</h2>
+                    <p>Update stylist information.</p>
                 </div>
+                <div class="panel-icon">✂️</div>
             </a>
 
             <a href="@Url.Action("CustomerDetails", "Admin")" class="dashboard-panel">
-                <div class="panel-icon">👥</div>
                 <div class="panel-content">
-                    <h3>Manage Customers</h3>
-                    <p>View registered customers and their details.</p>
+                    <h5>Customers</h5>
+                    <h2>View</h2>
+                    <p>See registered customers.</p>
                 </div>
+                <div class="panel-icon">👥</div>
             </a>
 
             <a href="@Url.Action("Index", "Report")" class="dashboard-panel">
-                <div class="panel-icon">📊</div>
                 <div class="panel-content">
-                    <h3>Reports</h3>
-                    <p>Generate reports on appointments and revenue.</p>
+                    <h5>Reports</h5>
+                    <h2>Generate</h2>
+                    <p>Appointments & revenue reports.</p>
                 </div>
+                <div class="panel-icon">📊</div>
             </a>
 
             <a href="@Url.Action("Signup", "Account")" class="dashboard-panel">
-                <div class="panel-icon">👤</div>
                 <div class="panel-content">
-                    <h3>Add New Admin</h3>
-                    <p>Grant admin access to manage system operations safely.</p>
+                    <h5>Admin Access</h5>
+                    <h2>Add New</h2>
+                    <p>Create new admin accounts.</p>
                 </div>
+                <div class="panel-icon">🔐</div>
             </a>
         }
 
@@ -107,123 +128,164 @@
     <div class="text-center mt-5">
         @Html.ActionLink("🏠 Back to Home", "Index", "Home", null, new { @class = "btn btn-hover mb-4" })
     </div>
+
 </div>
 
 <style>
-    /* Panels Grid */
-.dashboard-panels {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
-}
-
-/* Modern Panel Styling */
-.dashboard-panel {
-    display: flex;
-    align-items: flex-start; /* Align content to top for better spacing */
-    padding: 25px 30px; /* Slightly more padding */
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    text-decoration: none;
-    color: #5A189A;
-    transition: all 0.35s ease;
-    box-shadow: 0 6px 20px rgba(90, 24, 154, 0.1);
-    backdrop-filter: blur(6px);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Left accent line */
-    .dashboard-panel::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 35px;
-        background: linear-gradient(135deg, #2E003E, #5A189A);
-        border-radius: 5px 0 0 5px;
-        transition: all 0.35s ease;
+    .welcome-card {
+        position: relative;
+        padding: 55px 60px;
+        border-radius: 24px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #eef2ff, #e0f2fe);
+        box-shadow: 0 20px 60px rgba(124, 58, 237, 0.08);
     }
 
-.dashboard-panel:hover::before {
-    width: 8px;
-}
+        /* Softer floating shapes */
+        .welcome-card::before,
+        .welcome-card::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+        }
 
-/* Hover Effects */
-.dashboard-panel:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 18px 40px rgba(90, 24, 154, 0.2);
-    background: rgba(255, 255, 255, 1);
-}
+        .welcome-card::before {
+            width: 260px;
+            height: 260px;
+            background: rgba(124, 58, 237, 0.08);
+            top: -100px;
+            right: -80px;
+        }
 
-/* Panel Icon */
-.panel-icon {
-    font-size: 2.8rem;
-    margin-right: 28px; /* Increased horizontal gap from text */
-    flex-shrink: 0;
-    transition: transform 0.35s ease, color 0.35s ease;
-}
+        .welcome-card::after {
+            width: 180px;
+            height: 180px;
+            background: rgba(59, 130, 246, 0.08);
+            bottom: -80px;
+            right: 40px;
+        }
 
-.dashboard-panel:hover .panel-icon {
-    transform: scale(1.15) rotate(5deg);
-    color: #7b1fa2;
-}
+    .welcome-title {
+        font-size: 2.6rem;
+        font-weight: 700;
+        background: linear-gradient(90deg, #3b044e, #9c64d0, #8b090c);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -0.5px;
+        margin: 0;
+    }
 
-/* Panel Content */
-.panel-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 6px; /* Space between title and description */
-}
 
-.panel-content h3 {
-    margin: 0;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #4a148c;
-    transition: color 0.35s ease;
-}
+    .welcome-subtitle {
+        margin-top: 14px;
+        font-size: 1.05rem;
+        color: #6b7280;
+    }
 
-.panel-content p {
-    margin: 0;
-    font-size: 0.95rem;
-    color: #6a1b9a;
-    line-height: 1.4; /* Slightly taller line for readability */
-    transition: color 0.35s ease;
-}
 
-/* Smooth hover effect for text */
-.dashboard-panel:hover .panel-content h3 {
-    color: #6a1b9a;
-}
+    /* Dashboard Grid */
+    .dashboard-panels {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
 
-.dashboard-panel:hover .panel-content p {
-    color: #7b1fa2;
-}
-
-/* Back Button */
-.btn-hover {
-    padding: 10px 30px;
-    border-radius: 30px;
-    background: #4a148c;
-    color: #fff !important;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-.btn-hover:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(90, 24, 154, 0.3);
-}
-
-/* Responsive */
-@@media(max-width: 767px){
+    /* Card Style Like Image */
     .dashboard-panel {
-        flex-direction: row;
-        padding: 20px;
+        position: relative;
+        padding: 30px;
+        border-radius: 16px;
+        color: #fff;
+        text-decoration: none;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        transition: transform 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     }
-    .panel-icon { font-size: 2.2rem; margin-right: 18px; }
-}
+
+        .dashboard-panel:hover {
+            transform: translateY(-6px);
+        }
+
+        /* Remove old accent line */
+        .dashboard-panel::before {
+            display: none;
+        }
+
+        /* Soft Circle Shapes */
+        .dashboard-panel::after {
+            content: "";
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            top: -40px;
+            right: -40px;
+        }
+
+        .dashboard-panel span {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            bottom: -30px;
+            right: 30px;
+        }
+
+    /* Text Styling */
+    .panel-content h5 {
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 500;
+        opacity: 0.9;
+    }
+
+    .panel-content h2 {
+        margin: 5px 0;
+        font-size: 1.8rem;
+        font-weight: 700;
+    }
+
+    .panel-content p {
+        margin: 0;
+        font-size: 0.85rem;
+        opacity: 0.85;
+    }
+
+    /* Icon Top Right */
+    .panel-icon {
+        font-size: 1.8rem;
+        opacity: 0.9;
+    }
+
+    /* Gradient Colors (like image style) */
+    .dashboard-panel:nth-child(1) {
+        background: linear-gradient(135deg, #f6a37a, #e57373);
+    }
+
+    .dashboard-panel:nth-child(2) {
+        background: linear-gradient(135deg, #64b5f6, #42a5f5);
+    }
+
+    .dashboard-panel:nth-child(3) {
+        background: linear-gradient(135deg, #4db6ac, #26a69a);
+    }
+
+    .dashboard-panel:nth-child(4) {
+        background: linear-gradient(135deg, #ffb74d, #fb8c00);
+    }
+
+    .dashboard-panel:nth-child(5) {
+        background: linear-gradient(135deg, #9575cd, #7e57c2);
+    }
+
+    .dashboard-panel:nth-child(6) {
+        background: linear-gradient(135deg, #81c784, #66bb6a);
+    }
 
 </style>

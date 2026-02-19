@@ -1,0 +1,147 @@
+﻿
+@{
+    ViewBag.Title = "MyDetails";
+}
+
+@Html.Partial("_Navbar")
+
+<div class="text-center mb-5">
+    <h1 class="hero-title mt-3">
+        Account
+    </h1>
+    <div class="mx-auto mt-2"
+         style="width: 60px; height: 4px; border-radius: 2px; background: linear-gradient(135deg, #2E003E, #5A189A);">
+    </div>
+    <p class="text-muted mt-2 small">
+        View and manage your profile.
+    </p>
+</div>
+<div class="card premium-customer-card mb-4 mt-5">
+    <div class="card-header premium-header background-primary d-flex flex-row justify-content-between">
+        <h4 class="mb-0">Customer Profile</h4>
+        <a href="@Url.Action("EditMyDetails")"
+           class="btn btn-hover text-white">
+            <i class="bi bi-pencil-square"></i>
+        </a>
+
+    </div>
+
+    <div class="card-body">
+        <div class="row align-items-center">
+
+            <!-- Avatar Section -->
+            <div class="col-md-3 text-center mb-4 mb-md-0">
+                <div class="customer-avatar" id="customerAvatar">
+
+                </div>
+                <div class="mt-2">
+                    <span class="status-indicator active-status"></span>
+                    <small class="text-muted"></small>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="col-md-9">
+                <div id="customerInfo" class="customer-info-grid"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="d-flex justify-content-between mt-5">
+    @Html.ActionLink("← Back", "Index", "Account", null, new { @class = "btn btn-hover mb-4 background-primary" })
+    @Html.ActionLink("View All Appointmnets", "Appointments", "Appointment", null, new { @class = "btn btn-hover mb-4 background-primary" })
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            loadCustomerProfile();
+        });
+
+        function loadCustomerProfile() {
+
+            $.ajax({
+                url: "/Home/GetMyDetails",
+                type: "GET",
+                success: function (customer) {
+                    renderCustomerInfo(customer);
+                },
+                error: function () {
+                    alert("Error loading profile");
+                }
+            });
+        }
+
+        function CustomerDetailsModel(obj) {
+            this.FullName = obj.FullName;
+            this.Email = obj.Email;
+            this.Phone = obj.Phone;
+            this.Gender = obj.Gender;
+            this.TotalAppointments = obj.TotalAppointments;
+            this.IsActive = obj.IsActive;
+        }
+
+        function renderCustomerInfo(customer) {
+
+            let customerDetails = new CustomerDetailsModel(customer);
+
+            let initials = customerDetails.FullName.split(" ").map(x => x[0]).join("").toUpperCase();
+
+            $("#customerAvatar").text(initials);
+
+            // Dynamic Status
+            let statusText = customerDetails.IsActive ? "Active Customer" : "Inactive Customer";
+            let statusClass = customerDetails.IsActive ? "active-status" : "inactive-status";
+            let badgeClass = customerDetails.IsActive ? "bg-success" : "bg-danger";
+
+            // Update status under avatar
+            $(".status-indicator")
+                .removeClass("active-status inactive-status")
+                .addClass(statusClass);
+
+            $(".status-indicator")
+                .next("small")
+                .text(statusText);
+
+            let html = `
+                    <div class="info-item">
+                        <div class="info-label">Full Name</div>
+                        <div class="info-value">${customerDetails.FullName}</div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-label">Email</div>
+                        <div class="info-value">${customerDetails.Email}</div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-label">Phone</div>
+                        <div class="info-value">${customerDetails.Phone}</div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-label">Gender</div>
+                        <div class="info-value">${customerDetails.Gender}</div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-label">Total Appointments</div>
+                        <div class="info-value">${customerDetails.TotalAppointments}</div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-label">Account Status</div>
+                        <div class="info-value">
+                            <span class="badge ${badgeClass}">
+                                ${customerDetails.IsActive ? "Active" : "Inactive"}
+                            </span>
+                        </div>
+                    </div>
+                `;
+
+            $("#customerInfo").html(html);
+        }
+    </script>
+}

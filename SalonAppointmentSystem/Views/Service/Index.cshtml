@@ -4,6 +4,13 @@
     ViewBag.Title = "Our Services";
 }
 @Html.Partial("_Navbar")
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
 @*@Html.Partial("_Header")*@
 
 <div class="text-center mb-5 mt-2">
@@ -165,10 +172,10 @@
 
                         slots.forEach(function (slot) {
                             $("#modalSlots").append(`
-                                                    <button class="btn btn-outline-primary m-1 slot-btn" data-time="${slot.StartTime}:00">
-                                                        ${slot.StartTime}
-                                                    </button>
-                                                `);
+                                                        <button class="btn btn-outline-primary m-1 slot-btn" data-time="${slot.StartTime}:00">
+                                                            ${slot.StartTime}
+                                                        </button>
+                                                    `);
                         });
                     }
                 });
@@ -211,10 +218,10 @@
 
                         stylists.forEach(function (stylist) {
                             $("#modalStylists").append(`
-                                                    <button class="btn btn-outline-success m-1 stylist-btn" data-stylist-id="${stylist.StylistId}">
-                                                        ${stylist.StylistName}
-                                                    </button>
-                                                `);
+                                                        <button class="btn btn-outline-success m-1 stylist-btn" data-stylist-id="${stylist.StylistId}">
+                                                            ${stylist.StylistName}
+                                                        </button>
+                                                    `);
                         });
                     }
                 });

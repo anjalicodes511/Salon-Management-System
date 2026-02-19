@@ -1,0 +1,209 @@
+﻿@{
+    ViewBag.Title = "Edit My Details";
+}
+@Html.Partial("_Navbar")
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card border-0 shadow-lg rounded-4">
+                <div class="card-body p-5">
+
+                    <div class="text-center mb-4">
+                        <h3 class="fw-bold color-primary">
+                            <i class="bi bi-person-circle me-2"></i>
+                            Edit Profile
+                        </h3>
+                        <p class="text-muted mb-0">
+                            Update your personal information below
+                        </p>
+                    </div>
+
+                    @using (Html.BeginForm("", "", FormMethod.Post, new { id = "editDetailsForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <!-- Full Name -->
+                        <div class="mb-3">
+                            @Html.Label("FullName", "Full Name", new { @class = "form-label fw-semibold" })
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="bi bi-person"></i>
+                                </span>
+                                @Html.TextBox("FullName", null,
+                                    new { @class = "form-control form-control-lg", placeholder = "Enter your full name" })
+                            </div>
+                            <small id="FullNameError" class="text-danger"></small>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            @Html.Label("Email", "Email Address", new { @class = "form-label fw-semibold" })
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="bi bi-envelope"></i>
+                                </span>
+                                @Html.TextBox("Email", null,
+                                    new { @class = "form-control form-control-lg", type = "email", placeholder = "Enter your email" })
+                            </div>
+                            <small id="EmailError" class="text-danger"></small>
+
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="mb-3">
+                            @Html.Label("Phone", "Phone Number", new { @class = "form-label fw-semibold" })
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="bi bi-telephone"></i>
+                                </span>
+                                @Html.TextBox("Phone", null,
+                                    new { @class = "form-control form-control-lg", placeholder = "Enter your phone number" })
+                            </div>
+                            <small id="PhoneError" class="text-danger"></small>
+
+                        </div>
+
+                        <!-- Gender -->
+                        <div class="mb-4">
+                            @Html.Label("Gender", "Gender", new { @class = "form-label fw-semibold" })
+                            @Html.DropDownList("Gender",
+                                new SelectList(new[] { "Male", "Female", "Other" }),
+                                "Select Gender",
+                                new { @class = "form-select form-select-lg" })
+                            <small id="GenderError" class="text-danger"></small>
+
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-grid mb-3">
+                            <button type="submit" class="btn background-primary btn-lg rounded-3 shadow-sm">
+                                <i class="bi bi-check-circle me-2"></i>
+                                Update Details
+                            </button>
+                        </div>
+
+                        <div class="text-center">
+                            @Html.ActionLink("Back", "MyDetails", "Home",
+                                null, new { @class = "text-decoration-none fw-semibold text-secondary" })
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            loadCustomerDetails();
+
+            $("#editDetailsForm").submit(function (e) {
+                e.preventDefault();
+
+                if (!validateForm()) {
+                    return;
+                }
+
+                var customer = {
+                    FullName: $("#FullName").val(),
+                    Email: $("#Email").val(),
+                    Phone: $("#Phone").val(),
+                    Gender: $("#Gender").val()
+                };
+
+                $.ajax({
+                    url: "/Home/UpdateDetails",
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify(customer),
+                    success: function (res) {
+                        if (res.success) {
+                            window.location.href = "/Home/MyDetails";
+                        } else {
+                            alert(res.message || "Update failed");
+                        }
+                    },
+                    error: function () {
+                        alert('Something Went Wrong');
+                    }
+                });
+            });
+
+        });
+
+        function validateForm() {
+            let isValid = true;
+
+            // Clear old errors
+            $(".text-danger").text("");
+            let fullName = $("#FullName").val().trim();
+            let email = $("#Email").val().trim();
+            let phone = $("#Phone").val().trim();
+            let gender = $("#Gender").val();
+
+            if (fullName === "") {
+                $("#FullNameError").text("Full name is required");
+                $("#FullName").addClass("is-invalid");
+                isValid = false;
+            }
+
+
+            let emailPattern = /^[^\s@@]+@@[^\s@@]+\.[^\s@@]+$/;
+            if (email === "") {
+                $("#EmailError").text("Email is required");
+                $("#EmailError").addClass("is-invalid");
+                isValid = false;
+            }
+            else if (!emailPattern.test(email)) {
+                $("#EmailError").text("Invalid email format");
+                $("#EmailError").addClass("is-invalid");
+                isValid = false;
+            }
+
+            let phonePattern = /^[0-9]{10}$/;
+            if (phone === "") {
+                $("#PhoneError").text("Phone number is required");
+                $("#PhoneError").addClass("is-invalid");
+                isValid = false;
+            }
+            else if (!phonePattern.test(phone)) {
+                $("#PhoneError").text("Phone must be 10 digits");
+                $("#PhoneError").addClass("is-invalid");
+                isValid = false;
+            }
+            if (gender === "" || gender === "Select Gender") {
+                $("#GenderError").text("Please select gender");
+                $("#GenderError").addClass("is-invalid");
+                isValid = false;
+            }
+
+            return isValid;
+
+        }
+
+        function loadCustomerDetails() {
+            $.ajax({
+                url: "/Home/EditDetails",
+                type: "GET",
+                contentType: "application/json",
+                success: function (res) {
+                    renderCustomerDetails(res);
+                },
+                error: function () {
+                    alert('Something Went Wrong');
+                }
+            });
+        }
+        function renderCustomerDetails(res) {
+            $("#FullName").val(res.FullName);
+            $("#Email").val(res.Email);
+            $("#Phone").val(res.Phone);
+            $("#Gender").val(res.Gender);
+        }
+
+
+    </script>
+}

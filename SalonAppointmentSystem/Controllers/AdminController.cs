@@ -51,8 +51,10 @@ namespace SalonAppointmentSystem.Controllers
         }
         public JsonResult GetCustomerProfile(int customerId)
         {
-            var customers = DapperORM.ReturnList<CustomerDetailsVM>("GetAllCustomers");
-            var customer = customers.Where(x => x.CustomerId == customerId).FirstOrDefault();
+            DynamicParameters param = new DynamicParameters();
+            param.Add("@CustomerId", customerId);
+            var customer = DapperORM.ReturnSingle<CustomerDetailsVM>("GetCustomerById",param);
+            //var customer = customers.Where(x => x.CustomerId == customerId).FirstOrDefault();
             
             DynamicParameters dp = new DynamicParameters();
             dp.Add("@CustomerId", customerId);

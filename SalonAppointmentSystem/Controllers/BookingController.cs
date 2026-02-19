@@ -104,8 +104,14 @@ namespace SalonAppointmentSystem.Controllers
                 DapperORM.ExecuteWithoutReturn("ConfirmBooking", dp);
                 return RedirectToAction("BookingSuccess","Booking");
             }
-            catch (SqlException ex) {
-                TempData["Error"] = ex.Message;
+            catch (SqlException ex) when (ex.Number == 2627 || ex.Number == 2601)
+            {
+                TempData["Error"] = "Sorry, this slot was just booked by someone else. Please select another time.";
+                return RedirectToAction("Index", "Service");
+            }
+            catch (Exception)
+            {
+                TempData["Error"] = "Something went wrong. Please try again.";
                 return RedirectToAction("Index", "Service");
             }
         }

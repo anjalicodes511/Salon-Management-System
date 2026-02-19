@@ -15,116 +15,371 @@
     </p>
 </div>
 
-<div class="container mt-4 mb-3 px-0">
+<div class="customer-card-container">
 
-    <div class="card shadow-lg border-0 rounded-4 background-primary">
+    <!-- Search + Sort -->
+    <div class="customer-controls">
+        <input type="text" id="searchCustomer" placeholder="Search customers..." />
 
-        <div class="card-body p-4">
+        <select id="sortCustomer">
+            <option value="">Sort By</option>
+            <option value="name">Name</option>
+            <option value="bookings">Total Bookings</option>
+        </select>
+    </div>
 
-            <table id="customerTable" class="table table-bordered table-striped text-center table-hover mt-4">
-                <thead class="table-dark">
-                    <tr>
-                        <th class="text-center">Customer Id</th>
-                        <th class="text-center">Customer Name</th>
-                        <th class="text-center">Email</th>
-                        <th class="text-center">Phone</th>
-                        <th class="text-center">Gender</th>
-                        <th class="text-center">Total Bookings</th>
-                        <th class="text-center">Active</th>
-                    </tr>
-                </thead>
-                <tbody id="allCustomersContainer"></tbody>
-            </table>
+    <!-- Customer Cards -->
+    <div id="allCustomersContainer" class="customer-list"></div>
 
-        </div>
+    <!-- Pagination -->
+    <div class="pagination-wrapper">
+        <span id="paginationInfo"></span>
+        <div id="pagination"></div>
     </div>
 
 </div>
-@Html.ActionLink("← Back", "Index", "Account", null, new { @class = "btn btn-hover background-primary mb-4" })
+
+@Html.ActionLink("← Back", "Index", "Account", null, new { @class = "btn btn-hover background-primary mb-4 mt-4" })
+
+<style>
+/*    body {
+        background: #f4f6fb;
+        font-family: 'Inter', sans-serif;
+    }*/
+
+    /* Container */
+    .customer-card-container {
+        background-color: #fdf8ff;
+        border-radius: 18px;
+        padding: 30px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    }
+
+    /* Controls */
+    .customer-controls {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 25px;
+    }
+
+        .customer-controls input {
+            width: 250px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid #e4e6ef;
+            font-size: 14px;
+        }
+
+            .customer-controls input:focus {
+                outline: none;
+                border-color: #6A0DAD;
+                box-shadow: 0 0 0 3px rgba(106,13,173,0.1);
+            }
+
+        .customer-controls select {
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid #e4e6ef;
+        }
+
+    /* Card List */
+    .customer-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Individual Card */
+    .customer-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 22px;
+        background: #fafbff;
+        border-radius: 14px;
+        border: 1px solid #eef0f6;
+        transition: all 0.2s ease;
+        cursor: pointer;
+    }
+
+        .customer-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            background: #f3f0ff;
+        }
+
+    /* Left Info */
+    .customer-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .customer-name {
+        font-weight: 600;
+        font-size: 15px;
+        color: #2c2c38;
+    }
+
+    .customer-email {
+        font-size: 13px;
+        color: #7a7a8c;
+    }
+
+    /* Right Info */
+    .customer-meta {
+        display: flex;
+        gap: 25px;
+        align-items: center;
+    }
+
+    .meta-item {
+        font-size: 13px;
+        color: #555;
+    }
+
+    /* Badge */
+    .status-badge {
+        padding: 6px 14px;
+        border-radius: 50px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .active-badge {
+        background: #e6f9f1;
+        color: #16c784;
+    }
+
+    .inactive-badge {
+        background: #ffecec;
+        color: #ff4d4f;
+    }
+
+    /* Pagination */
+    .pagination-wrapper {
+        margin-top: 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #pagination button {
+        border: none;
+        background: #eee;
+        padding: 6px 12px;
+        border-radius: 8px;
+        margin: 0 4px;
+    }
+
+        #pagination button.active {
+            background: linear-gradient(135deg, #2E003E, #5A189A);
+            color: white;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+/* Tablet */
+@@media (max-width: 992px) {
+
+    .customer-controls {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    .customer-controls input,
+    .customer-controls select {
+        width: 100%;
+    }
+
+    .customer-meta {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+}
+
+
+/* Mobile */
+@@media (max-width: 768px) {
+
+    .customer-card-container {
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    .customer-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 18px;
+    }
+
+    .customer-info {
+        width: 100%;
+    }
+
+    .customer-meta {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .meta-item {
+        font-size: 12px;
+    }
+
+    .status-badge {
+        justify-self: start;
+    }
+
+    .pagination-wrapper {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    #pagination {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    #pagination button {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .hero-title {
+        font-size: 22px;
+    }
+}
+
+
+/* Very Small Phones */
+@@media (max-width: 480px) {
+
+    .customer-meta {
+        grid-template-columns: 1fr;
+    }
+
+    .customer-name {
+        font-size: 14px;
+    }
+
+    .customer-email {
+        font-size: 12px;
+    }
+
+}
+
+
+</style>
 
 
 @section Scripts{
-    <script>
-        $(document).ready(function () {
-            loadAllCustomers();
-        });
+ <script>
+     let customersList = [];
+     let filteredList = [];
+     let currentPage = 1;
+     let pageSize = 5;
 
-        function loadAllCustomers() {
-            $.ajax({
-                url: "/Admin/GetCustomerDetails",
-                type: "GET",
-                contentType: "application/json",
-                success: function (customers) {
-                    renderAllCustomers(customers);
-                },
-                error: function (err) {
-                    alert('Error While Loading Customers');
-                }
-            });
-        }
+     $(document).ready(function () {
+         loadAllCustomers();
 
-        function CustomerDetailsVM(item) {
-            this.CustomerId = item.CustomerId;
-            this.FullName = item.FullName;
-            this.Phone = item.Phone;
-            this.Email = item.Email;
-            this.IsActive = item.IsActive;
-            this.Gender = item.Gender;
-            this.TotalAppointments = item.TotalAppointments;
-        }
+         $("#searchCustomer").on("keyup", function () {
+             filterCustomers($(this).val().toLowerCase());
+         });
 
-        function renderAllCustomers(customers) {
-            let container = $("#allCustomersContainer");
-            container.empty();
+         $("#sortCustomer").on("change", function () {
+             sortCustomers($(this).val());
+         });
+     });
 
-            if (!customers || customers.length === 0) {
-                container.append(`
-                                    <tr colspan="6" class="text-center text-muted">
-                                        <td>No Customers Found</td>
-                                    </tr>
-                                `);
-                return;
-            }
+     function loadAllCustomers() {
+         $.get("/Admin/GetCustomerDetails", function (data) {
+             customersList = data;
+             filteredList = [...customersList];
+             renderCustomers();
+         });
+     }
 
-            customers.forEach((item) => {
-                let customer = new CustomerDetailsVM(item);
+     function renderCustomers() {
+         let container = $("#allCustomersContainer");
+         container.empty();
 
-                let html = `
-                                    <tr class="customer-row" data-id="${customer.CustomerId}" style="cursor:pointer;">
-                                        <td>${customer.CustomerId}</td>
-                                        <td>${customer.FullName}</td>
-                                        <td>${customer.Email}</td>
-                                        <td>${customer.Phone}</td>
-                                        <td>${customer.Gender}</td>
-                                        <td>${customer.TotalAppointments}</td>
-                                        <td>${customer.IsActive ? '<span class="badge bg-success px-3 py-2">Active</span>' : '<span class="badge bg-danger px-3 py-2">Inactive</span>'}</td>
-                                    </tr>
-                                `;
-                container.append(html);
-            });
+         let totalRecords = filteredList.length;
+         let totalPages = Math.ceil(totalRecords / pageSize);
 
-            if ($.fn.DataTable.isDataTable("#customerTable")) {
-                $("#customerTable").DataTable().destroy();
-            }
+         let start = (currentPage - 1) * pageSize;
+         let paginated = filteredList.slice(start, start + pageSize);
 
-            $("#customerTable").DataTable({
-                pageLength: 5,
-                lengthMenu: [[5, 10, 25, 50], [5, 10, 25, 50]],
-                ordering: true,
-                searching: true,
-                responsive: true,
-                language: {
-                    search: "_INPUT_",
-                    searchPlaceholder: "Search appointments..."
-                }
-            });
+         paginated.forEach(item => {
 
-            // Row Click Event
-            $("#customerTable tbody").off("click").on("click", "tr.customer-row", function () {
-                let customerId = $(this).data("id");
-                window.location.href = "/Admin/CustomerProfile/" + customerId;
-            });
+             let badgeClass = item.IsActive ? "active-badge" : "inactive-badge";
+             let badgeText = item.IsActive ? "Active" : "Inactive";
 
-        }
+             container.append(`
+            <div class="customer-card" onclick="goToProfile(${item.CustomerId})">
+                <div class="customer-info">
+                    <div class="customer-name">${item.FullName}</div>
+                    <div class="customer-email">${item.Email}</div>
+                </div>
+
+                <div class="customer-meta">
+                    <div class="meta-item">📞 ${item.Phone}</div>
+                    <div class="meta-item">Gender: ${item.Gender}</div>
+                    <div class="meta-item">Bookings: ${item.TotalAppointments}</div>
+                    <span class="status-badge ${badgeClass}">${badgeText}</span>
+                </div>
+            </div>
+        `);
+         });
+
+         renderPagination(totalRecords, totalPages);
+     }
+
+     function filterCustomers(value) {
+         filteredList = customersList.filter(c =>
+             c.FullName.toLowerCase().includes(value) ||
+             c.Email.toLowerCase().includes(value)
+         );
+         currentPage = 1;
+         renderCustomers();
+     }
+
+     function sortCustomers(type) {
+         if (type === "name") {
+             filteredList.sort((a, b) => a.FullName.localeCompare(b.FullName));
+         } else if (type === "bookings") {
+             filteredList.sort((a, b) => b.TotalAppointments - a.TotalAppointments);
+         }
+         renderCustomers();
+     }
+
+     function renderPagination(totalRecords, totalPages) {
+         let pagination = $("#pagination");
+         pagination.empty();
+
+         for (let i = 1; i <= totalPages; i++) {
+             pagination.append(`
+            <button class="${i === currentPage ? "active" : ""}" onclick="goToPage(${i})">${i}</button>
+        `);
+         }
+
+         $("#paginationInfo").text(
+             `Showing ${(currentPage - 1) * pageSize + 1} to ${Math.min(currentPage * pageSize, totalRecords)} of ${totalRecords}`
+         );
+     }
+
+     function goToPage(page) {
+         currentPage = page;
+         renderCustomers();
+     }
+
+     function goToProfile(id) {
+         window.location.href = "/Admin/CustomerProfile/" + id;
+     }
+
     </script>
-}
+    }
