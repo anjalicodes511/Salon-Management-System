@@ -77,12 +77,19 @@ namespace SalonAppointmentSystem.Controllers
             //System.Diagnostics.Debug.WriteLine("DATE: " + date.ToString("yyyy-MM-dd"));
             //System.Diagnostics.Debug.WriteLine("TIME: " + startTime);
 
-            DynamicParameters dp = new DynamicParameters();
-            dp.Add("@ServiceId", serviceId);
-            dp.Add("@SlotDate", date);
-            dp.Add("@StartTime", startTime);
-            var result = DapperORM.ReturnList<StylistModel>("GetAvailableStylistsForDate", dp);
-            return Json(result, JsonRequestBehavior.AllowGet);
+            try
+            {
+                DynamicParameters dp = new DynamicParameters();
+                dp.Add("@ServiceId", serviceId);
+                dp.Add("@SlotDate", date);
+                dp.Add("@StartTime", startTime);
+                var result = DapperORM.ReturnList<StylistModel>("GetAvailableStylistsForDate", dp);
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            catch(Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
         }
 
         public ActionResult BookingSuccess()
@@ -118,10 +125,17 @@ namespace SalonAppointmentSystem.Controllers
 
         private void GenerateTimeSlot(int StylistId, DateTime SlotDate)
         {
-            DynamicParameters dp = new DynamicParameters();
-            dp.Add("@StylistId", StylistId);
-            dp.Add("@SlotDate", SlotDate);
-            DapperORM.ExecuteWithoutReturn("GenerateStylistSlotsForDate", dp);
+            try
+            {
+                DynamicParameters dp = new DynamicParameters();
+                dp.Add("@StylistId", StylistId);
+                dp.Add("@SlotDate", SlotDate);
+                DapperORM.ExecuteWithoutReturn("GenerateStylistSlotsForDate", dp);
+            }
+            catch(Exception ex)
+            {
+                TempData["Error"] = "Something Went Wrong";
+            }
         }
     
        

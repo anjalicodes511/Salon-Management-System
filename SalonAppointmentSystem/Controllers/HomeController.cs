@@ -38,11 +38,18 @@ namespace SalonAppointmentSystem.Controllers
                     success = false
                 }, JsonRequestBehavior.AllowGet);
             }
-            int customerId = Convert.ToInt32(Session["UserId"]);
-            DynamicParameters dp = new DynamicParameters();
-            dp.Add("@CustomerId", customerId);
-            var customer = DapperORM.ReturnSingle<CustomerDetailsVM>("GetCustomerById",dp);
-            return Json(customer,JsonRequestBehavior.AllowGet);
+            try
+            {
+                int customerId = Convert.ToInt32(Session["UserId"]);
+                DynamicParameters dp = new DynamicParameters();
+                dp.Add("@CustomerId", customerId);
+                var customer = DapperORM.ReturnSingle<CustomerDetailsVM>("GetCustomerById", dp);
+                return Json(customer, JsonRequestBehavior.AllowGet);
+            }
+            catch(Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
         }
 
         public ActionResult EditMyDetails()
@@ -61,11 +68,18 @@ namespace SalonAppointmentSystem.Controllers
                     success = false
                 }, JsonRequestBehavior.AllowGet);
             }
-            int customerId = Convert.ToInt32(Session["UserId"]);
-            DynamicParameters dp = new DynamicParameters();
-            dp.Add("@CustomerId", customerId);
-            var customer = DapperORM.ReturnSingle<CustomerDetailsVM>("GetCustomerById",dp);
-            return Json(customer, JsonRequestBehavior.AllowGet);
+            try
+            {
+                int customerId = Convert.ToInt32(Session["UserId"]);
+                DynamicParameters dp = new DynamicParameters();
+                dp.Add("@CustomerId", customerId);
+                var customer = DapperORM.ReturnSingle<CustomerDetailsVM>("GetCustomerById", dp);
+                return Json(customer, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
         }
 
         [HttpPost]

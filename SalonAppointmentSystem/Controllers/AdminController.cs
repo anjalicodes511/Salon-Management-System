@@ -51,25 +51,32 @@ namespace SalonAppointmentSystem.Controllers
         }
         public JsonResult GetCustomerProfile(int customerId)
         {
-            DynamicParameters param = new DynamicParameters();
-            param.Add("@CustomerId", customerId);
-            var customer = DapperORM.ReturnSingle<CustomerDetailsVM>("GetCustomerById",param);
-            //var customer = customers.Where(x => x.CustomerId == customerId).FirstOrDefault();
-            
-            DynamicParameters dp = new DynamicParameters();
-            dp.Add("@CustomerId", customerId);
-            var appointments = DapperORM.ReturnList<AppointmentVM>("GetAppointementsByCustomerId",dp);
-
-            var statistics = new
+            try
             {
-                total = appointments.Count(),
-                pending = appointments.Count(x => x.Status == AppointmentStatus.Booked),
-                cancelled = appointments.Count(x => x.Status == AppointmentStatus.Cancelled),
-                completed = appointments.Count(x => x.Status == AppointmentStatus.Completed),
-                absent = appointments.Count(x => x.Status == AppointmentStatus.NoShow)
-            };
+                DynamicParameters param = new DynamicParameters();
+                param.Add("@CustomerId", customerId);
+                var customer = DapperORM.ReturnSingle<CustomerDetailsVM>("GetCustomerById", param);
+                //var customer = customers.Where(x => x.CustomerId == customerId).FirstOrDefault();
 
-            return Json(new { customer, appointments, statistics }, JsonRequestBehavior.AllowGet);
+                DynamicParameters dp = new DynamicParameters();
+                dp.Add("@CustomerId", customerId);
+                var appointments = DapperORM.ReturnList<AppointmentVM>("GetAppointementsByCustomerId", dp);
+
+                var statistics = new
+                {
+                    total = appointments.Count(),
+                    pending = appointments.Count(x => x.Status == AppointmentStatus.Booked),
+                    cancelled = appointments.Count(x => x.Status == AppointmentStatus.Cancelled),
+                    completed = appointments.Count(x => x.Status == AppointmentStatus.Completed),
+                    absent = appointments.Count(x => x.Status == AppointmentStatus.NoShow)
+                };
+
+                return Json(new { customer, appointments, statistics }, JsonRequestBehavior.AllowGet);
+            }
+            catch(Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
         }
 
 

@@ -10,7 +10,7 @@ namespace SalonAppointmentSystem.Controllers
 {
     public class ReportController : Controller
     {
-        // GET: Report
+        //GET: Report
         public ActionResult Index()
         {
             if (Session["UserId"] == null || Session["Role"].ToString() != "Admin")

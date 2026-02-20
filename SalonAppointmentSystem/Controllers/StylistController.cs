@@ -72,16 +72,23 @@ namespace SalonAppointmentSystem.Controllers
         }
         public void StylistDailySchedule(StylistModel stylist)
         {
-            DynamicParameters dp = new DynamicParameters();
-            dp.Add("@StylistId", stylist.StylistId);
-            dp.Add("@StartTime", stylist.StartTime);
-            dp.Add("@EndTime", stylist.EndTime);
-            dp.Add("@IsActive", stylist.IsActive);
-            dp.Add("@SlotDuration", 30);
-            dp.Add("@BreakStart", new TimeSpan(13, 0, 0)); // 1:00 PM
-            dp.Add("@BreakEnd", new TimeSpan(14, 0, 0)); // 2:00 PM
+            try
+            {
+                DynamicParameters dp = new DynamicParameters();
+                dp.Add("@StylistId", stylist.StylistId);
+                dp.Add("@StartTime", stylist.StartTime);
+                dp.Add("@EndTime", stylist.EndTime);
+                dp.Add("@IsActive", stylist.IsActive);
+                dp.Add("@SlotDuration", 30);
+                dp.Add("@BreakStart", new TimeSpan(13, 0, 0)); // 1:00 PM
+                dp.Add("@BreakEnd", new TimeSpan(14, 0, 0)); // 2:00 PM
 
-            DapperORM.ExecuteWithoutReturn("GenerateStylistDailySchedule", dp);
+                DapperORM.ExecuteWithoutReturn("GenerateStylistDailySchedule", dp);
+            }
+            catch(Exception ex)
+            {
+                TempData["Error"] = "Something Went Wrong";
+            }
 
         }
     }

@@ -12,7 +12,7 @@ namespace SalonAppointmentSystem.Controllers
 {
     public class ServiceController : Controller
     {
-        // GET: Service
+        //GET: Service
         public ActionResult Index()
         {
             if (Session["UserId"] == null)

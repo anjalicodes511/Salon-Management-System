@@ -79,6 +79,5 @@ namespace SalonAppointmentSystem.Controllers
             }
             return RedirectToAction("Details", "StylistService", new {id = StylistId});
         }
-
     }
 }

@@ -47,20 +47,27 @@ namespace SalonAppointmentSystem.Controllers
 
         public JsonResult MyAppointments()
         {
-            if (Session["UserId"] == null)
+            try
             {
-                Session.Clear();
-                Session.Abandon();
-                return Json(new
+                if (Session["UserId"] == null)
                 {
-                    success = false
-                }, JsonRequestBehavior.AllowGet);
+                    Session.Clear();
+                    Session.Abandon();
+                    return Json(new
+                    {
+                        success = false
+                    }, JsonRequestBehavior.AllowGet);
+                }
+                int CustomerId = Convert.ToInt32(Session["UserId"]);
+                DynamicParameters dp = new DynamicParameters();
+                dp.Add("@CustomerId", CustomerId);
+                var list = DapperORM.ReturnList<AppointmentVM>("GetAppointementsByCustomerId", dp);
+                return Json(list, JsonRequestBehavior.AllowGet);
             }
-            int CustomerId = Convert.ToInt32(Session["UserId"]);
-            DynamicParameters dp = new DynamicParameters();
-            dp.Add("@CustomerId", CustomerId);
-            var list = DapperORM.ReturnList<AppointmentVM>("GetAppointementsByCustomerId", dp);
-            return Json(list, JsonRequestBehavior.AllowGet);
+            catch(Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
         }
 
         [HttpPost]
