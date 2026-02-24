@@ -122,7 +122,7 @@
                             <td>${appointment.CustomerName}</td>
                             <td>${appointment.StylistName}</td>
                             <td>${appointment.ServiceName}</td>
-                            <td class="d-flex justify-content-evenly">
+                            <td class="text-center">
                                 <select class="form-select form-select-sm w-auto mx-auto
                                     ${getStatusClass(appointment.StatusText)} text-white"
                                     onchange='updateStatus(${JSON.stringify(appointment)}, this.value)'>
@@ -140,17 +140,31 @@
                 $("#appointmentsTable").DataTable().destroy();
             }
 
-            $("#appointmentsTable").DataTable({
+            var table = $("#appointmentsTable").DataTable({
                 pageLength: 5,
-                lengthMenu: [[5, 10, 25, 50], [5, 10, 25, 50]],
                 ordering: true,
                 searching: true,
-                responsive: true,
+                lengthMenu: [[5,10, 25, 50], [5,10, 25, 50]],
+                autoWidth: false,
+                responsive: {
+                    details: {
+                        type: 'inline'
+                    }
+                },
+                columnDefs: [
+                    { responsivePriority: 1, targets: 0 }, // Date
+                    { responsivePriority: 2, targets: 1 }, // CustomerName
+                    { responsivePriority: 3, targets: 4 }, // Status
+                    { responsivePriority: 4, targets: 2 },
+                    { responsivePriority: 5, targets: 3 }
+                ],
                 language: {
                     search: "_INPUT_",
                     searchPlaceholder: "Search appointments..."
                 }
             });
+
+            table.columns.adjust().responsive.recalc();
 
         }
 

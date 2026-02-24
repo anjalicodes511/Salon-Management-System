@@ -10,6 +10,8 @@
     <link rel="stylesheet"
           href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css" />
+
 
     <style>
         .color-primary {
@@ -148,7 +150,7 @@
             font-size: 15px;
         }
 
-        
+
 
 
         .gradient-blue {
@@ -204,7 +206,7 @@
             letter-spacing: 0.5px;
         }
 
-       
+
         /*            Customer Details*/
         /* Space below top controls */
         .dataTables_wrapper .dataTables_filter,
@@ -266,11 +268,13 @@
             background-color: white;
             color: black;
         }
+
         .bg-gold {
             background: linear-gradient(135deg, #d4af37, #f5deb3);
             color: white;
             transition: background 0.3s ease;
         }
+
         .bg-emerald {
             background: linear-gradient(135deg, #134e5e, #71b280);
             color: white;
@@ -288,9 +292,9 @@
             color: white;
             transition: background 0.3s ease;
         }
-        
 
-/*        Customer Profile Css*/
+
+        /*        Customer Profile Css*/
         /* Card Base */
         .premium-customer-card {
             border: none;
@@ -386,6 +390,7 @@
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <!-- DataTables JS -->
     <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
     @RenderSection("scripts", required: false)
     <script>
         //$(document).ready(function () {
