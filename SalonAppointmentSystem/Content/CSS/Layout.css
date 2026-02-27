@@ -93,16 +93,6 @@
 .text-muted {
     color: #6c757d !important;
 }
-
-/*        appointment list*/
-/*        #appointmentsTable thead th {
-            background: linear-gradient(135deg, #2E003E, #5A189A);
-            color: #ffffff;
-            border-right: 1px solid rgba(255,255,255,0.2);
-            border-left: none;
-            border-top: none;
-            border-bottom: none;
-        }*/
 #appointmentsTable {
     border-radius: 12px;
     overflow: hidden;
