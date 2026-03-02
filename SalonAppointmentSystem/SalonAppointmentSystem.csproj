@@ -230,6 +230,7 @@
     <Content Include="Views\Admin\CustomerProfile.cshtml" />
     <Content Include="Views\Home\MyDetails.cshtml" />
     <Content Include="Views\Home\EditMyDetails.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

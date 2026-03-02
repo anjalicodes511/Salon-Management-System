@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Oops! Something went wrong";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="error-container">
+    <div class="error-card">
+        <h1>⚠️ Oops!</h1>
+        <h2>Something went wrong</h2>
+        <p>
+            We're sorry, but an unexpected error has occurred.
+            Our team has been notified.
+        </p>
+
+        <div class="error-actions">
+            <a href="@Url.Action("Index","Home")" class="btn-home">
+                Go to Home
+            </a>
+            <button onclick="history.back()" class="btn-back">
+                Go Back
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+    .error-container {
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .error-card {
+        background: white;
+        padding: 50px;
+        border-radius: 12px;
+        text-align: center;
+        width: 500px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+        .error-card h1 {
+            font-size: 48px;
+            color: #dc3545;
+            margin-bottom: 10px;
+        }
+
+        .error-card h2 {
+            margin-bottom: 15px;
+            color: #5A189A;
+        }
+
+        .error-card p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+    .btn-home, .btn-back {
+        padding: 10px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+        margin: 0 5px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn-home {
+        background: linear-gradient(135deg, #2E003E, #5A189A);
+        color: white;
+        transition: background 0.3s ease;
+    }
+
+    .btn-back {
+        background: #6c757d;
+        color: white;
+    }
+
+    .btn-home:hover {
+        background: #082c45;
+    }
+
+    .btn-back:hover {
+        background: #545b62;
+    }
+</style>

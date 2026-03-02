@@ -47,65 +47,43 @@ namespace SalonAppointmentSystem.Controllers
 
         public JsonResult MyAppointments()
         {
-            try
+            if (Session["UserId"] == null)
             {
-                if (Session["UserId"] == null)
+                Session.Clear();
+                Session.Abandon();
+                return Json(new
                 {
-                    Session.Clear();
-                    Session.Abandon();
-                    return Json(new
-                    {
-                        success = false
-                    }, JsonRequestBehavior.AllowGet);
-                }
-                int CustomerId = Convert.ToInt32(Session["UserId"]);
-                DynamicParameters dp = new DynamicParameters();
-                dp.Add("@CustomerId", CustomerId);
-                var list = DapperORM.ReturnList<AppointmentVM>("GetAppointementsByCustomerId", dp);
-                return Json(list, JsonRequestBehavior.AllowGet);
+                    success = false
+                }, JsonRequestBehavior.AllowGet);
             }
-            catch(Exception ex)
-            {
-                return Json(new { success = false, message = ex.Message });
-            }
+            int CustomerId = Convert.ToInt32(Session["UserId"]);
+            DynamicParameters dp = new DynamicParameters();
+            dp.Add("@CustomerId", CustomerId);
+            var list = DapperORM.ReturnList<AppointmentVM>("GetAppointementsByCustomerId", dp);
+            return Json(list, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
         //[ValidateAntiForgeryToken]
         public JsonResult UpdateStatus(AppointmentVM appointment)
         {
-            try
-            {
-                DynamicParameters dp = new DynamicParameters();
-                dp.Add("@AppointmentId", appointment.AppointmentId);
-                dp.Add("@Status", appointment.Status);
+            DynamicParameters dp = new DynamicParameters();
+            dp.Add("@AppointmentId", appointment.AppointmentId);
+            dp.Add("@Status", appointment.Status);
 
-                DapperORM.ExecuteWithoutReturn("UpdateAppointmentStatus", dp);
+            DapperORM.ExecuteWithoutReturn("UpdateAppointmentStatus", dp);
 
-                return Json(new { success = true });
-            }
-            catch
-            {
-                return Json(new { success = false });
-            }
+            return Json(new { success = true });
         }
 
         [HttpPost]
         //[ValidateAntiForgeryToken]
         public JsonResult CancelAppointments(AppointmentVM appointment)
         {
-            try
-            {
-                DynamicParameters dp = new DynamicParameters();
-                dp.Add("@AppointmentId", appointment.AppointmentId);
-                DapperORM.ExecuteWithoutReturn("CancelAppointment", dp);
-                return Json(new { success = true });
-            }
-            catch(Exception ex)
-            {
-                ModelState.AddModelError("","An error occurred while canceling the appointment. Please try again.");
-                return Json(new { success = false, message = ex.Message });
-            }
+            DynamicParameters dp = new DynamicParameters();
+            dp.Add("@AppointmentId", appointment.AppointmentId);
+            DapperORM.ExecuteWithoutReturn("CancelAppointment", dp);
+            return Json(new { success = true });
         }
     }
 }
