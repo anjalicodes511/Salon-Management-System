@@ -85,5 +85,16 @@ namespace SalonAppointmentSystem.Controllers
             DapperORM.ExecuteWithoutReturn("CancelAppointment", dp);
             return Json(new { success = true });
         }
+
+        public ActionResult TodaysAppointments()
+        {
+            return View();
+        }
+
+        public JsonResult GetTodaysAppointments()
+        {
+            var list = DapperORM.ReturnList<AppointmentVM>("GetTodaysAppointment");
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
     }
 }

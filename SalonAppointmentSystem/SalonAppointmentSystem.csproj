@@ -231,6 +231,7 @@
     <Content Include="Views\Home\MyDetails.cshtml" />
     <Content Include="Views\Home\EditMyDetails.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Appointment\TodaysAppointments.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
